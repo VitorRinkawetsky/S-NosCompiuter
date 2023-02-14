@@ -10,6 +10,7 @@
    font-size: 30px;
    cursor: pointer;
    transition: background-color 0.30s;
+   margin-left: 25px;
 }
 .titulo:hover{
     background-color: rgb(190, 0, 0);
@@ -27,4 +28,26 @@ header {
     padding: 0;
     margin: 0;
     
+}
+img{
+    cursor: pointer;
+    transition: 0.30s;
+    border-radius: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 38px;
+    height: 110px;
+}
+img:hover{
+    opacity: 0.7;
+}
+h1{
+    color: white;
+    font-family: 'HortaRegular';
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 80px;
+    margin-bottom: 30px;
 }
