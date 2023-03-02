@@ -17,9 +17,9 @@
     
     <main>
         <h1>Escolha o uso do PC</h1>
-        <div><a href="games.html"><img src="img/btn-games.png" alt="btn-games"></a></div>
-        <div><a href="trabalho.html"><img src="img/btn-trabalho.PNG" alt="btn-trabalho"></a></div>
-        <div><a href="ambos.html"><img src="img/btn-ambos.PNG" alt="btn-ambos"></a></div>
+        <div><a href="games.php"><img src="img/btn-games.png" alt="btn-games"></a></div>
+        <div><a href="trabalho.php"><img src="img/btn-trabalho.PNG" alt="btn-trabalho"></a></div>
+        <div><a href="ambos.php"><img src="img/btn-ambos.PNG" alt="btn-ambos"></a></div>
     </main>
 </body>
 </html>
