@@ -1,0 +1,217 @@
+.titulo {
+    font-family: 'HortaRegular';
+    font-weight: normal;
+    background-color: rgb(233, 3, 9);
+    height: 70px;
+    width: 160px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.30s;
+    margin-left: 25px;
+}
+
+.titulo:hover {
+    background-color: rgb(190, 0, 0);
+}
+
+body {
+    background-color: black;
+}
+
+header {
+    height: 70px;
+    background-color: rgb(233, 3, 9);
+    border: none;
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+img {
+    cursor: pointer;
+    transition: 0.30s;
+    border-radius: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 38px;
+    height: 110px;
+}
+
+img:hover {
+    opacity: 0.7;
+}
+
+h1 {
+    color: white;
+    font-family: 'HortaRegular';
+    font-weight: bold;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(197, 183, 183);
+    border: rgb(100, 0, 0);
+    text-align: center;
+}
+
+.orçamento {
+    background-color: rgb(23, 23, 23);
+    border-radius: 4px;
+    color: white;
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    height: 40px;
+    border: 4%;
+    margin-left: 2%;
+}
+
+p {
+    margin-top: 40px;
+    color: white;
+    font-family: 'HortaRegular';
+    align-self: center;
+    font-size: 22px;
+}
+
+.games {
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(32, 32, 32);
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 4px;
+    padding-bottom: 3%;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: rgb(23, 23, 23);
+    border-radius: 4px;
+    color: rgb(197, 183, 183);
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    height: 40px;
+    width: 20%;
+    text-align: center;
+    border-width: 2px;
+    margin-left: 2%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+}
+
+.pgames {
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.pavançado {
+    display: inline-block;
+    margin-top: 0%;
+}
+
+.avançado {
+    margin-top: 3%;
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(23, 23, 23);
+    margin-left: 5%;
+    margin-right: 70%;
+    border-radius: 4px;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    opacity: 0.5;
+    margin-bottom: 5%;
+    width: 23%;
+}
+
+
+.selectavançado {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: rgb(23, 23, 23);
+    border-radius: 4px;
+    color: rgb(197, 183, 183);
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    height: 40px;
+    width: 40%;
+    text-align: center;
+    border-width: 2px;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-lente {
+    font-size: 28px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: rgba(128,130,133,255);
+    cursor: pointer;
+}
+
+.submit-line {
+    margin: auto;
+    position: relative;
+    width: 85%;
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    margin-top: 3%;
+}
+
+.submit-line input {
+    font-size: 16px;
+    color: rgb(197, 183, 183);
+    height: 100%;
+    width: 100%;
+    background-color: rgb(23, 23, 23);
+    border-style: none;
+    height: 31px;
+}
+::placeholder{
+    text-align: left;
+    font-size: 16px;
+    bottom: 30;
+    opacity: 0.2;
+}
+.trabalho{
+    margin-top: 3%;
+}
