@@ -59,15 +59,18 @@
           <option value="Baixo">Baixo</option>
         </select>
       </div>
-<form method="post" id="form-pesquisa" action="">
       <div class="submit-line">
+      <form method="post" id="form-pesquisa" action="">
         <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisa" id="pesquisa"/>
         <button class="submit-lente" type="submit">
           <i class="fa fa-search"></i>
+          </form>
         </button>
       </div>
     </div>
-</form>
+<ul class ="resultado">
+
+</ul>
 
   </main>
 </body>
