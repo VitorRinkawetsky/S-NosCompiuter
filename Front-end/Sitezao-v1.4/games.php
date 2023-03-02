@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/horta" type="text/css" />
+  <script type="text/javascript" src="//ajax.googleapis.com.ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <script type="text/javascript" src="javascriptpersonalizado.js"></script>
 </head>
 
 <body>
