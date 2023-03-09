@@ -14,7 +14,7 @@
 
 <body>
   <header>
-    <a href="index.html"><button class="titulo">SóNosCompiuter</button></a>
+    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
   </header>
 
   <main>
@@ -37,6 +37,10 @@
         </button>
         
       </div>
+      <ul class ="resultado">
+
+        </ul>
+      <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
     </div>
 
   </main>
