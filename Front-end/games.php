@@ -8,6 +8,7 @@
   <title>Games</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/horta" type="text/css" />
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -64,13 +65,15 @@
       <form method="post" id="form-pesquisa" action="">
         <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisa" id="pesquisa"/>
         <button class="submit-lente" type="submit" value = "pesquisar">
-        <i class="fa fa-search"></i>
-      </form>
-          <ul class ="resultado">
-
-          </ul>
+          <i class="fa fa-search"></i>
         </button>
+      </form>
+        
       </div>
+      <ul class ="resultado">
+
+        </ul>
+      <button class="select" type="submit" name="Próximo" id="proximo">Próximo</button>
     </div>
 
   </main>
