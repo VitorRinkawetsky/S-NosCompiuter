@@ -6,12 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Games</title>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/horta" type="text/css" />
-  <script type="text/javascript" src="//ajax.googleapis.com.ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-  <script type="text/javascript" src="javascriptpersonalizado.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script type="text/javascript" src="./js/buscajs.js"></script>
 </head>
 
 <body>
@@ -62,15 +63,15 @@
       <div class="submit-line">
       <form method="post" id="form-pesquisa" action="">
         <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisa" id="pesquisa"/>
-        <button class="submit-lente" type="submit">
-          <i class="fa fa-search"></i>
-          </form>
+        <button class="submit-lente" type="submit" value = "pesquisar">
+        <i class="fa fa-search"></i>
+      </form>
+          <ul class ="resultado">
+
+          </ul>
         </button>
       </div>
     </div>
-<ul class ="resultado">
-
-</ul>
 
   </main>
 </body>

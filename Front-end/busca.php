@@ -4,14 +4,15 @@
 
     //recuperaro valor da palavra
     $softwares = $_POST['palavra'];
-
     //pesquisar no banco de dados nome do software
-    $softwares = "select nome from requisito_software where nome like '%$softwares%'";
-    $resultado_softwares = mysqli_query($mysqli, $softwares);
+    $soft = "select * from requisito_software where nome like '%$softwares%'";
+    $resultado_softwares = mysqli_query($mysqli, $soft);
 
     if(mysqli_num_rows($resultado_softwares) <= 0) {
-        echo "Nenhum software encontrado";
-    }else {
-        echo "Encontrado";
-    }
+        echo "Nenhum software encontrado...";
+    }else{
+		while($rows = mysqli_fetch_assoc($resultado_softwares)){
+			echo "<li>".$rows['nome']."</li>";
+		}
+	}
 ?>
