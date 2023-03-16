@@ -235,4 +235,22 @@ input[type=number] {
 .proximo:hover{
     opacity: 0.7;
 }
-
+.peca{
+    margin-top: 3%;
+    margin-left: 3%;
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    border-width: 3px;
+    display: inline-block;
+    margin-right: 4%;
+}
+.final{
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    background-color: rgb(32, 32, 32);
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 4px;
+    padding-bottom: 1%;
+}

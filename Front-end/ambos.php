@@ -73,7 +73,10 @@
       <ul class ="resultado">
 
         </ul>
-      <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
+      <form action="final.php">
+      <input class="proximo" type="submit" name="Próximo" id="proximo"></input>
+      </form>
+      
     </div>
 
   </main>
