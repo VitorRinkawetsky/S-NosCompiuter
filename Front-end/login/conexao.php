@@ -6,7 +6,7 @@ $senha = "";
 $mysqli = new mysqli($host, $user, $senha, $db);
 
     if($mysqli->error) {
-        die("Erro ao conectar");
+        die("Erro ao conectar". $mysqli->error);
     }
 
 ?>
