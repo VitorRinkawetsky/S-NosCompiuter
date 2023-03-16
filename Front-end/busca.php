@@ -13,6 +13,8 @@
     }else{
 		while($rows = mysqli_fetch_assoc($resultado_softwares)){
 			echo "<li>".$rows['nome']."</li>";
+
+           
 		}
 	}
 ?>

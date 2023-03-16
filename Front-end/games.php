@@ -24,7 +24,7 @@
   <main>
 
     <h1>Games</h1>
-
+    <form method="post" id="form-pesquisa" action="">
     <div class="games">
       <p class="pgames">Orçamento:</p>
       <input class="label orçamento" type="number" placeholder="R$">
@@ -62,7 +62,7 @@
         </select>
       </div>
       <div class="submit-line">
-      <form method="post" id="form-pesquisa" action="">
+
         <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisa" id="pesquisa"/>
         <button class="submit-lente" type="submit" value = "pesquisar">
           <i class="fa fa-search"></i>
