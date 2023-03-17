@@ -23,7 +23,7 @@
 
     <div class="games">
       <p class="pgames">Orçamento:</p>
-      <input class="label orçamento" type="number" placeholder="R$">
+      <input class="label orçamento" type="number" name = "orcamento" placeholder="R$">
       
       <div class="trabalho">
       <a href=""><img src="img/btn-casa.png" alt="btn-games"></a>
@@ -31,7 +31,7 @@
     </div>
 
       <div class="submit-line">
-        <input class="busca" type="text" placeholder="Apps a serem usados"/>
+        <input class="busca" type="text" name = "pequisaApp" placeholder="Apps a serem usados"/>
         <button class="submit-lente" type="submit">
           <i class="fa fa-search"></i>
         </button>

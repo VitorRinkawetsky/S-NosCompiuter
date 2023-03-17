@@ -23,12 +23,11 @@
 
     <div class="games">
       <p class="pgames">Orçamento:</p>
-      <input class="label orçamento" type="number" placeholder="R$">
+      <input class="label orçamento" type="number" name = "orcamento" placeholder="R$">
       <br>
       <p class="pgames">Desempenho geral:</p>
 
-      <select>
-        <option value="Selecione" selected>Selecione</option>
+      <select name = "desempenho">
         <option value="Alto">Alto</option>
         <option value="Médio">Médio</option>
         <option value="Baixo">Baixo</option>
@@ -42,7 +41,7 @@
 
       <div class="avançado">
         <p class="pavançado">FPS:</p>
-        <select class="selectavançado">
+        <select name = "fps" class="selectavançado">
           <option value="60" selected>60</option>
           <option value="144">144</option>
           <option value="240">240</option>
@@ -50,8 +49,8 @@
         </select>
         <br><br>
         <p class="pavançado">Gráficos:</p>
-        <select class="selectavançado">
-          <option value="Selecione" selected>Ultra</option>
+        <select name = "grafico" class="selectavançado">
+          <option value="ultra" selected>Ultra</option>
           <option value="Alto">Alto</option>
           <option value="Médio">Médio</option>
           <option value="Baixo">Baixo</option>
@@ -59,13 +58,13 @@
       </div>
 
       <div class="submit-line">
-        <input class="busca" type="text" placeholder="Jogo desejado"/>
+        <input class="busca" type="text" name = "pesquisaJogo" placeholder="Jogo desejado"/>
         <button class="submit-lente" type="submit">
           <i class="fa fa-search"></i>
         </button>
       </div>
       <div class="submit-line">
-        <input class="busca" type="text" placeholder="Apps a serem usados"/>
+        <input class="busca" type="text" name = "pesquisaApp" placeholder="Apps a serem usados"/>
         <button class="submit-lente" type="submit">
           <i class="fa fa-search"></i>
         </button>
