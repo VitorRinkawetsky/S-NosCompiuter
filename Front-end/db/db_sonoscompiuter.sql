@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Mar-2023 às 20:16
+-- Tempo de geração: 23-Mar-2023 às 20:50
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `admin_login`
+--
+
+CREATE TABLE `admin_login` (
+  `id` int(5) NOT NULL,
+  `login` varchar(50) DEFAULT NULL,
+  `senha` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `admin_login`
+--
+
+INSERT INTO `admin_login` (`id`, `login`, `senha`) VALUES
+(1, 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `cpu`
 --
 
@@ -33,7 +52,8 @@ CREATE TABLE `cpu` (
   `soquete` varchar(50) DEFAULT NULL,
   `grafico_integrado` tinyint(1) DEFAULT NULL,
   `pontuacao` int(5) DEFAULT NULL,
-  `preco` float DEFAULT NULL
+  `preco` float DEFAULT NULL,
+  `nome_cpu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -48,7 +68,8 @@ CREATE TABLE `gpu` (
   `chip_grafico` varchar(50) DEFAULT NULL,
   `marca` varchar(50) DEFAULT NULL,
   `pontuacao` int(20) DEFAULT NULL,
-  `preco` float DEFAULT NULL
+  `preco` float DEFAULT NULL,
+  `nome_gpu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -62,8 +83,18 @@ CREATE TABLE `placa_mae` (
   `soquete_mae` varchar(50) DEFAULT NULL,
   `interface_grafica` varchar(50) DEFAULT NULL,
   `marca` varchar(50) DEFAULT NULL,
-  `preco` float DEFAULT NULL
+  `preco` float DEFAULT NULL,
+  `nome_mae` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `placa_mae`
+--
+
+INSERT INTO `placa_mae` (`id`, `soquete_mae`, `interface_grafica`, `marca`, `preco`, `nome_mae`) VALUES
+(17, 'f', 'f', 'f', 5, ''),
+(18, 'g', 'g', 'g', 5, 'g'),
+(19, 'g', 'g', 'g', 5, 'g');
 
 -- --------------------------------------------------------
 
@@ -94,6 +125,12 @@ INSERT INTO `requisito_software` (`id`, `nome`, `pontuacao_gpu`, `pontuacao_cpu`
 --
 
 --
+-- Índices para tabela `admin_login`
+--
+ALTER TABLE `admin_login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `cpu`
 --
 ALTER TABLE `cpu`
@@ -122,6 +159,12 @@ ALTER TABLE `requisito_software`
 --
 
 --
+-- AUTO_INCREMENT de tabela `admin_login`
+--
+ALTER TABLE `admin_login`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `cpu`
 --
 ALTER TABLE `cpu`
@@ -137,7 +180,7 @@ ALTER TABLE `gpu`
 -- AUTO_INCREMENT de tabela `placa_mae`
 --
 ALTER TABLE `placa_mae`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `requisito_software`
