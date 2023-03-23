@@ -22,16 +22,37 @@
     <h1>Peças</h1>
 
     <div class="final">
-  
-    <img  class="peca" src="img/peça.PNG" alt="btn-games">
-    <img  class="peca" src="img/peça.PNG" alt="btn-games">
-    <img  class="peca" src="img/peça.PNG" alt="btn-games">
-    
 
+    <div class="peca">
+    <input type="checkbox" name="" id="">
+    <img src="img/processador.PNG" alt="processador">
+    <p>___</p>
     </div>
-    
+    <div class="peca">
+    <input type="checkbox" name="" id="">
+    <img src="img/placa-mae.PNG" alt="placa-mae">
+    <p>___</p>
     </div>
-      
+    <div class="peca">
+    <input type="checkbox" name="" id="">
+    <img src="img/placa-video.PNG" alt="placa-video">
+    <p>___</p>
+    </div>
+    </div>
+    <div class="grid-container">
+
+<div class="box">
+
+  <div class="item">
+   
+    <div class="toggle-pill-dark">
+      <input type="checkbox" id="pill4" name="check">
+      <label for="pill4"></label>
+    </div>
+  </div>
+
+</div>
+</div>
   </main>
 </body>
 

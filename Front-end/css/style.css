@@ -235,15 +235,7 @@ input[type=number] {
 .proximo:hover{
     opacity: 0.7;
 }
-.peca{
-    margin-top: 3%;
-    margin-left: 3%;
-    border-color: rgb(100, 0, 0);
-    border-style: solid;
-    border-width: 3px;
-    display: inline-block;
-    margin-right: 4%;
-}
+
 .final{
     border-color: rgb(100, 0, 0);
     border-style: solid;
@@ -253,4 +245,76 @@ input[type=number] {
     margin-right: 35%;
     border-radius: 4px;
     padding-bottom: 1%;
+    text-align: center;
+    padding-right: 0%;
+}
+.final img{
+    margin-top: 3%;
+    margin-left: 3%;
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    border-width: 3px;
+    margin-right: 5px;
+}  
+.peca{
+    display: inline-block;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  /* minmax(300px, 1fr)*/
+  grid-gap: 30px;
+  padding: 20px;
+  justify-items: center;
+  justify-content: center;
+  align-items: start;
+}
+.box {
+  padding: 2em;
+}
+.item {
+  margin-bottom: 2em;
+}
+
+
+.toggle-pill-dark input[type="checkbox"] {
+  display: none;
+}
+.toggle-pill-dark input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  width: 3em;
+  height: 1.6em;
+  margin-bottom: 20px;
+  border-radius: 1em;
+  background: #303e58;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+}
+.toggle-pill-dark input[type="checkbox"] + label:before {
+  content: "";
+  display: block;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 1em;
+  background: #e84d4d;
+  position: absolute;
+  left: 0.2em;
+  top: 0.2em;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.toggle-pill-dark input[type="checkbox"]:checked + label:before {
+  background: #47cf73;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+  left: 1.6em;
+  -webkit-transform: rotate(295deg);
+  transform: rotate(295deg);
 }
