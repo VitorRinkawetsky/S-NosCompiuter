@@ -1,6 +1,6 @@
 <?php
-$host = "localhost";
-$db = "db_sonoscompiuter";
+$host = "127.0.0.1:3312";
+$db = "db_compiuter1";
 $user = "root";
 $senha = "";
 $mysqli = new mysqli($host, $user, $senha, $db);
@@ -10,4 +10,3 @@ $mysqli = new mysqli($host, $user, $senha, $db);
     }
 
 ?>
-
