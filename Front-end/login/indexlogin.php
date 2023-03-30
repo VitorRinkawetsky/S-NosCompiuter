@@ -1,3 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/horta" type="text/css" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
+  </header>
+
+    <main>
+
+    <h1>Login dos administradores</h1>
+
+    <div class="games">
+    <form action="" method="POST">
+        <p>
+            <label class="label-login">Login:</label>
+            <input class="input-login" type="text" name="login">
+        </p>
+        <p>
+            <label class="label-login">Senha:</label>
+            <input class="input-login" type="password" name="senha">
+        </p>
+        <p>
+            <input class="proximo" type="submit" name="" id=""></input>
+        </p>
+    </form>
+    </div>
+    </main>
+    
+</body>
+</html>
+
 <?php
     include('conexao.php');
 
@@ -32,29 +73,3 @@
         }
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Login dos administradores</h1>
-    <form action="" method="POST">
-        <p>
-            <label>Login</label>
-            <input type="text" name="login">
-        </p>
-        <p>
-            <label>Senha</label>
-            <input type="password" name="senha">
-        </p>
-        <p>
-            <button type="submit">Enviar</button>
-        </p>
-    </form>
-</body>
-</html>

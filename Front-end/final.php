@@ -26,17 +26,17 @@
     <div class="peca">
     <input type="checkbox" name="" id="">
     <img src="img/processador.PNG" alt="processador">
-    <p>___</p>
+    <p>Descrição</p>
     </div>
     <div class="peca">
     <input type="checkbox" name="" id="">
     <img src="img/placa-mae.PNG" alt="placa-mae">
-    <p>___</p>
+    <p>Descrição</p>
     </div>
     <div class="peca">
     <input type="checkbox" name="" id="">
     <img src="img/placa-video.PNG" alt="placa-video">
-    <p>___</p>
+    <p>Descrição</p>
     </div>
     </div>
     <div class="grid-container">
