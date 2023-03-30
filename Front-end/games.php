@@ -31,7 +31,7 @@
         <br>
         <p class="pgames">Desempenho geral:</p>
 
-        <select name = "desempenho">
+        <select name = "desempenho" id = btnDesempenhoGeral>
           <option value="Alto">Alto</option>
           <option value="Médio">Médio</option>
           <option value="Baixo">Baixo</option>
@@ -45,7 +45,7 @@
 
         <div class="avançado">
           <p class="pavançado">FPS:</p>
-          <select name = "fps" class = "selectavançado">
+          <select name = "fps" class = "selectavançado" id = "btnFps">
             <option value="60" selected>60</option>
             <option value="144">144</option>
             <option value="240">240</option>
@@ -53,7 +53,7 @@
           </select>
           <br><br>
           <p class="pavançado">Gráficos:</p>
-          <select name = "grafico" class="selectavançado">
+          <select name = "grafico" class="selectavançado" id = "btnGrafico">
             <option value="ultra" selected>Ultra</option>
             <option value="Alto">Alto</option>
             <option value="Médio">Médio</option>
