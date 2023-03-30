@@ -1,3 +1,7 @@
+<?php
+    include('protect.php')
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,11 +19,14 @@
 
         <p>Soquete CPU: <input type="text" id="soquete_cpu" name="soquete_cpu"></p>
 
-        <p>Gráfico Integrado: <input type="text" id="grafico_integrado" name="grafico_integrado"></p>
+        <p>Gráfico Integrado: <select name="grafico_integrado" id="grafico_integrado">
+            <option value="true">Sim</option>
+            <option value="false">Não</option>
+        </select></p>
 
         <p>Pontuação: <input type="number" id="pontuacao_cpu" name="pontuacao_cpu"></p>
 
-        <p>Preço: <input type="number" id="preco_cpu" name="preco_cpu"></p>
+        <p>Preço: <input type="text" id="preco_cpu" name="preco_cpu"></p>
 
         <button type="submit">Cadastrar</button>
     </form>
@@ -57,7 +64,7 @@
         if(mysqli_insert_id($mysqli)) {
             echo "<p>CPU cadastrada com sucesso!</p>";
         }
-    }else {
+    }else if($row >= 1) {                                           
         echo "CPU ja cadastrada";
     }
 ?>

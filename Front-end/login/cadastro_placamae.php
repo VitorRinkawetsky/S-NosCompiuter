@@ -1,3 +1,7 @@
+<?php
+    include('protect.php')
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,7 +21,7 @@
 
         <p>Marca: <input type="text" id="marca_mae" name="marca_mae"></p>
 
-        <p>Preço: <input type="number" id="preco_mae" name="preco_mae"></p>
+        <p>Preço: <input type="text" id="preco_mae" name="preco_mae"></p>
 
         <button type="submit">Cadastrar</button>
     </form>
