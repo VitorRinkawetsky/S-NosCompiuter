@@ -13,8 +13,6 @@
     }else{
 		while($rows = mysqli_fetch_assoc($resultado_softwares)){
 			echo "<li onclick='selecionarItem(this)'>".$rows['nome']."</li>";
-
-           
 		}
 	}
 ?>
