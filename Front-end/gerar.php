@@ -6,7 +6,13 @@
     $desempenho = $_POST['desempenho'];
     $fps = $_POST['fps'];
     $grafico = $_POST['grafico'];
-    $softwares = $_POST["pesquisaApp"];
+
+
+    $softwares = $_POST["software_nome"];
+
+
+    $soft = "select * from requisito_software where nome like '%$softwares%'";
+    $resultado_softwares = mysqli_query($mysqli, $soft);
 
 
     if($desempenho !== null){
