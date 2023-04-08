@@ -1,3 +1,4 @@
+<script type="./js/selecionar_software"></script>
 <?php
 
     include_once('conexao.php');
@@ -8,7 +9,7 @@
     $grafico = $_POST['grafico'];
 
 
-    $softwares = $_POST["software_nome"];
+    $softwares = array($_POST['software_nome']);
 
 
     $soft = "select * from requisito_software where nome like '%$softwares%'";
@@ -32,5 +33,5 @@
     echo $orcamento;
     echo $fps;
     echo $grafico;
-    echo $softwares;
+    echo $softwares[0];
 ?>

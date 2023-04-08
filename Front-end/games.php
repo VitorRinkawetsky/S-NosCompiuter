@@ -37,14 +37,14 @@
         <br>
         <p class="pgames">Desempenho geral:</p>
 
-        <select name = "desempenho" id = btnDesempenhoGeral>
+        <select name = "desempenho" id = "btnDesempenhoGeral">
           <option value="Alto">Alto</option>
           <option value="Médio">Médio</option>
           <option value="Baixo">Baixo</option>
         </select>
         <br>
         <p class="pgames">Configurações avançadas:</p>
-        <select>
+        <select id="onOff">
           <option value="Off" selected>Off</option>
           <option value="On">On</option>
         </select>
@@ -82,6 +82,7 @@
     </div>
 
   </main>
+  <script src="./js/games.js"></script>
 </body>
 
 </html>
