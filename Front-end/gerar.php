@@ -2,20 +2,20 @@
 <?php
 
     include_once('conexao.php');
-
+    
+    // Cria uma variavel para armazenar as informações dadas pelo usuário
     $orcamento = $_POST["orcamento"];
     $desempenho = $_POST['desempenho'];
     $fps = $_POST['fps'];
     $grafico = $_POST['grafico'];
 
+    // Cria e armazena os softwares escolhidos pelo usuário em um array
+    $softwares = array();
+    for($i = 0; $i < count($softwares); $i++){
+        $softwares[$i] = $_POST['software_nome'];
+    }
 
-    $softwares = array($_POST['software_nome']);
-
-
-    $soft = "select * from requisito_software where nome like '%$softwares%'";
-    $resultado_softwares = mysqli_query($mysqli, $soft);
-
-
+    // Da valores de FPS e desempenho caso as opções avançadas não tenham sido ativadas
     if($desempenho !== null){
         if($desempenho == "Baixo"){
             $fps = 60;
@@ -29,7 +29,6 @@
         }
     }
     
-    echo $desempenho;
     echo $orcamento;
     echo $fps;
     echo $grafico;
