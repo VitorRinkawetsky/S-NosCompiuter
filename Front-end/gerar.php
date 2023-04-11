@@ -9,11 +9,12 @@
     $fps = $_POST['fps'];
     $grafico = $_POST['grafico'];
 
-    // Cria e armazena os softwares escolhidos pelo usuário em um array
-    $softwares = array();
-    for($i = 0; $i < count($softwares); $i++){
-        $softwares[$i] = $_POST['software_nome'];
-    }
+    // Receba a informação da variável "software_nome" enviada pela classe JavaScript via AJAX
+    $data = json_decode(file_get_contents("php://input"), true);
+    var_dump($data);
+
+    // Armazene a informação em uma variável chamada "softwareNome_php"
+    $software_nome = $data->software_nome;
 
     // Da valores de FPS e desempenho caso as opções avançadas não tenham sido ativadas
     if($desempenho !== null){
@@ -32,5 +33,5 @@
     echo $orcamento;
     echo $fps;
     echo $grafico;
-    echo $softwares[0];
+    echo $software_nome
 ?>
