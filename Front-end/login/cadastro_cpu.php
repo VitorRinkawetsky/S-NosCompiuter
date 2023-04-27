@@ -5,30 +5,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro CPU</title>
+    <title>Painel</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/horta" type="text/css" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+  <header>
+    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
+  </header>
+
     <h1>Cadastro de CPU</h1>
     <form action="" method="POST">
-        <p>Nome da CPU: <input type="text" id="nome_cpu" name="nome_cpu"></p>
+    <div class="games">
+        <div>
+        <p class="pgames">Nome da CPU:</p> 
+        <input class="label orçamento" type="text" id="nome_cpu" name="nome_cpu">
+        </div>
 
-        <p>Marca: <input type="text" id="marca_cpu" name="marca_cpu"></p>
+        <div>
+        <p class="pgames">Marca:</p> 
+        <input class="label orçamento" type="text" id="marca_cpu" name="marca_cpu">
+        </div>
 
-        <p>Soquete CPU: <input type="text" id="soquete_cpu" name="soquete_cpu"></p>
+        <div>
+        <p class="pgames">Soquete CPU:</p> 
+        <input class="label orçamento" type="text" id="soquete_cpu" name="soquete_cpu">
+        </div>
 
-        <p>Gráfico Integrado: <select name="grafico_integrado" id="grafico_integrado">
+        <p class="pgames">Gráfico Integrado:</p> 
+        <select name="grafico_integrado" id="grafico_integrado">
             <option value="true">Sim</option>
             <option value="false">Não</option>
-        </select></p>
+        </select>
 
-        <p>Pontuação: <input type="number" id="pontuacao_cpu" name="pontuacao_cpu"></p>
+        <div>
+        <p class="pgames">Pontuação:</p> 
+        <input class="label orçamento" type="number" id="pontuacao_cpu" name="pontuacao_cpu">
+        </div>
 
-        <p>Preço: <input type="text" id="preco_cpu" name="preco_cpu"></p>
+        <p class="pgames">Preço:</p> 
+        <input class="label orçamento" type="text" id="preco_cpu" name="preco_cpu">
 
-        <button type="submit">Cadastrar</button>
+        <button class="proximo" type="submit">Cadastrar</button>
+        </div>
     </form>
 </body>
 </html>
