@@ -1,3 +1,5 @@
+<script src="../js/logout.js"></script>
+
 <?php
     include('protect.php')
 ?>
@@ -17,6 +19,6 @@
     <p><a href="cadastro_placamae.php">Cadastrar Placa Mãe</p>
     <p><a href="cadastro_software.php">Cadastrar Software</p>
 
-    <p><a href="logout.php">Sair</p>
+    <button onclick="logout()">Deslogar</button>
 </body>
 </html>

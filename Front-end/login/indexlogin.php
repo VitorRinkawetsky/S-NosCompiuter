@@ -68,7 +68,7 @@
                 header("Location: painel.php");
 
             }else {
-                echo "Login ou senha incorretos";
+                echo "<h1>Login ou senha incorretos</h1>";
             }
         }
     }

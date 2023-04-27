@@ -1,20 +1,19 @@
-<script type="./js/selecionar_software"></script>
+<script src="./js/selecionar_software.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <?php
 
     include_once('conexao.php');
     
     // Cria uma variavel para armazenar as informações dadas pelo usuário
     $orcamento = $_POST["orcamento"];
-    $desempenho = $_POST['desempenho'];
-    $fps = $_POST['fps'];
-    $grafico = $_POST['grafico'];
+    $desempenho = isset($_POST['desempenho']) ? $_POST['desempenho'] : null;
+    $software_nome = $_POST['software_nome'];
+    $dados = json_decode($software_nome, true);
 
-    // Receba a informação da variável "software_nome" enviada pela classe JavaScript via AJAX
-    $data = json_decode(file_get_contents("php://input"), true);
-    var_dump($data);
-
-    // Armazene a informação em uma variável chamada "softwareNome_php"
-    $software_nome = $data->software_nome;
+    if($desempenho == null) {
+        $fps = $_POST['fps'];
+        $grafico = $_POST['grafico'];
+    }
 
     // Da valores de FPS e desempenho caso as opções avançadas não tenham sido ativadas
     if($desempenho !== null){
@@ -30,8 +29,8 @@
         }
     }
     
-    echo $orcamento;
-    echo $fps;
-    echo $grafico;
-    echo $software_nome
+    echo $orcamento . "<br>";
+    echo $fps . "<br>";
+    echo $grafico . "<br>";
+    echo $software_nome;
 ?>
