@@ -19,7 +19,6 @@
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <script type="text/javascript" src="./js/buscajs.js"></script>
-  <script src="./js/selecionar_software.js"></script>
 </head>
 
 <body>
@@ -72,17 +71,23 @@
           <button class="submit-lente" type="submit" value = "pesquisar">
             <i class="fa fa-search"></i>
           </button>
+        </div>
+      
     </form>
         
-      </div>
-      <ul class ="resultado">
+      
+    <ul class ="resultado" id="lista-software-selecionado">
+    </ul>
 
-        </ul>
-      <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
+    <ul id="output">
+    </ul>
+      
+    <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
+    
     </div>
-
   </main>
   <script src="./js/games.js"></script>
+  <script src="./js/selecionar_software.js"></script>
 </body>
 
 </html>
