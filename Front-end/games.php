@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -66,6 +68,16 @@
             <option value="Baixo">Baixo</option>
           </select>
         </div>
+
+      <?php 
+        if(isset($array_produtos)){
+      ?>
+
+        <input type="text" name="txtsoftwares" id="idtxtsoftwares" value="<?php echo $array_produtos; ?>">
+        <br><br>
+
+      <?php } ?>
+        
         <div class="submit-line">
 
           <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisaApp" id="pesquisa">
@@ -74,15 +86,24 @@
           </button>
     </form>
         
-      </div>
-      <ul class ="resultado">
+    </div>
+    
+    <ul class ="resultado" id="lista-software">
+    </ul>
 
-        </ul>
-      <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
+    <ul id="output">
+    </ul>
+
+
+
+    <div id="demo"></div>
+
+    <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
     </div>
 
   </main>
   <script src="./js/games.js"></script>
+  
 </body>
 
 </html>
