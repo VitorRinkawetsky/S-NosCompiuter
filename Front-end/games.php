@@ -69,14 +69,7 @@
           </select>
         </div>
 
-      <?php 
-        if(isset($array_produtos)){
-      ?>
-
-        <input type="text" name="txtsoftwares" id="idtxtsoftwares" value="<?php echo $array_produtos; ?>">
-        <br><br>
-
-      <?php } ?>
+        <div id="demo"></div>
         
         <div class="submit-line">
 
@@ -93,10 +86,6 @@
 
     <ul id="output">
     </ul>
-
-
-
-    <div id="demo"></div>
 
     <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
     </div>

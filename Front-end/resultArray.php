@@ -6,7 +6,14 @@
 
     //mostra o conteúdo do array 
    
-     print_r($array_produtos); 
+     //print_r($array_produtos); 
+
+    for($i as $array_produtos){
+        echo $i;
+
+    }
+        echo "<input type='hidden' name='txtsoftwares' id='txtsoftwares' value='$array_produtos[0]'> <br><br>";
+        
      ?>
 
  

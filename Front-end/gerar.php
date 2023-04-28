@@ -7,7 +7,7 @@
     // Cria uma variavel para armazenar as informações dadas pelo usuário
     $orcamento = $_POST["orcamento"];
     $desempenho = isset($_POST['desempenho']) ? $_POST['desempenho'] : null;
-    $software_nome = $_POST['data'];
+    $software_nome = $_POST['txtsoftwares'];
 
     if($desempenho == null) {
         $fps = $_POST['fps'];
