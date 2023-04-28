@@ -5,28 +5,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro GPU</title>
+    <title>CadastroGPU</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/horta" type="text/css" />
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <h1>Cadastro de GPU</h1>
-    <form action="" method="POST">
-        <p>Nome da GPU: <input type="text" id="nome_gpu" name="nome_gpu"></p>
+  <header>
+    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
+  </header>
+  <h1>Cadastro de GPU</h1>
+  <form action="" method="POST">
+  <div class="games">
+        <div>
+        <p class="pgames">Nome da GPU:</p> 
+        <input class="label orçamento" type="text" id="nome_gpu" name="nome_gpu">
+        </div>
+        
+        <p class="pgames">Interface:</p> 
+        <input class="label orçamento" type="text" id="interface_gpu" name="interface_gpu">
 
-        <p>Interface: <input type="text" id="interface_gpu" name="interface_gpu"></p>
+        <div>
+        <p class="pgames">Chip Gráfico:</p> 
+        <input class="label orçamento" type="text" id="chip_grafico" name="chip_grafico">
+        </div>
 
-        <p>Chip Gráfico: <input type="text" id="chip_grafico" name="chip_grafico"></p>
+        <p class="pgames">Marca:</p> 
+        <input class="label orçamento" type="text" id="marca_gpu" name="marca_gpu">
 
-        <p>Marca: <input type="text" id="marca_gpu" name="marca_gpu"></p>
+        <div>
+        <p class="pgames">Pontuação:</p> 
+        <input class="label orçamento" type="number" id="pontuacao_gpu" name="pontuacao_gpu">
+        </div>
 
-        <p>Pontuação: <input type="number" id="pontuacao_gpu" name="pontuação_gpu"></p>
+        <p class="pgames">Preço:</p> 
+        <input class="label orçamento" type="text" id="preco_gpu" name="preco_gpu">
 
-        <p>Preço: <input type="text" id="preco_gpu" name="preco_gpu"></p>
-
-        <button type="submit">Cadastrar</button>
-    </form>
+        <button class="proximo" type="submit">Cadastrar</button>
+        </div>
+        </form>
+    
+   
+   
 </body>
 </html>
 
