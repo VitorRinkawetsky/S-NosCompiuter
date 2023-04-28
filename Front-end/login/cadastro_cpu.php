@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel</title>
+    <title>Cadastro CPU</title>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/horta" type="text/css" />
     <link rel="stylesheet" href="../css/reset.css">
@@ -27,10 +27,8 @@
         <input class="label orçamento" type="text" id="nome_cpu" name="nome_cpu">
         </div>
 
-        <div>
         <p class="pgames">Marca:</p> 
         <input class="label orçamento" type="text" id="marca_cpu" name="marca_cpu">
-        </div>
 
         <div>
         <p class="pgames">Soquete CPU:</p> 
