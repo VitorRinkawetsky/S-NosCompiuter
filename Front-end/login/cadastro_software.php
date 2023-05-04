@@ -34,24 +34,6 @@
             <input class="label orçamento" type="number" id="pontuacao_cpu" name="pontuacao_cpu">
             </div>
 
-            <p class="pgames">FPS:</p> 
-              <select name="fps" id="fps">
-                <option value="60">60</option>
-                <option value="144">144</option>
-                <option value="240">240</option>
-                <option value="360">360</option>
-              </select>
-              
-            <div>
-            <p class="pgames">Qualidade Gráfica:</p> 
-            <select name="qualidade_grafica" id="qualidade_grafica">
-            <option value="Baixo">Baixo</option>
-            <option value="Medio">Medio</option>
-            <option value="Alto">Alto</option>
-            <option value="Ultra">Ultra</option>
-             </select>
-             </div>
-
         <button class="proximo" type="submit">Cadastrar</button>
         </div>
     </form>
@@ -69,17 +51,11 @@
 
     $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
 
-    $fps = filter_input(INPUT_POST, 'fps', FILTER_SANITIZE_STRING);
-
-    $qualidade_grafica = filter_input(INPUT_POST, 'qualidade_grafica', FILTER_SANITIZE_STRING);
-
-    $qualidade_grafica = filter_input(INPUT_POST, 'qualidade_grafica', FILTER_SANITIZE_STRING);
-
     $query = "select nome_cpu from cpu where nome_cpu = '{$nome_software}'";
 
     $resultado = mysqli_query($mysqli, $query);
 
-    $sql = "insert into requisito_software (nome, pontuacao_gpu, pontuacao_cpu, fps, qualidade_grafica) values('$nome_software', '$pontuacao_gpu', '$pontuacao_cpu', $fps, '$qualidade_grafica')";
+    $sql = "insert into requisito_software (nome, pontuacao_gpu, pontuacao_cpu) values('$nome_software', '$pontuacao_gpu', '$pontuacao_cpu')";
 
     $result = mysqli_query($mysqli, $sql);
 ?>
