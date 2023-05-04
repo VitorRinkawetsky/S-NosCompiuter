@@ -28,6 +28,22 @@
             $grafico = "Alto";
         }
     }
+
+    $query = "select pontuacao_gpu from requisito_software where nome = '{$software_nome}'";
+
+    $result_pont_gpu = mysqli_query($mysqli, $query);
+
+    while ($pontuacao_gpu = $result_pont_gpu->fetch_assoc()) {
+        echo "Pontuação da GPU: $pontuacao_gpu['pontuacao_gpu'].<br>";
+    }
+
+    $query = "select pontuacao_cpu from requisito_software where nome = '{$software_nome}'";
+
+    $result_pont_cpu = mysqli_query($mysqli, $query);
+
+    while ($pontuacao_cpu = $result_pont_cpu->fetch_assoc()) {
+        echo "Pontuação da CPU: $pontuacao_cpu['pontuacao_gpu'].<br>";
+    }
     
     echo $orcamento . "<br>";
     echo $fps . "<br>";
