@@ -37,8 +37,8 @@
 
         <p class="pgames">Gráfico Integrado:</p> 
         <select name="grafico_integrado" id="grafico_integrado">
-            <option value="true">Sim</option>
-            <option value="false">Não</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
         </select>
 
         <div>
