@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Mar-2023 às 20:50
+-- Tempo de geração: 04-Maio-2023 às 19:55
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -106,19 +106,17 @@ CREATE TABLE `requisito_software` (
   `id` int(5) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `pontuacao_gpu` int(5) DEFAULT NULL,
-  `pontuacao_cpu` int(5) DEFAULT NULL,
-  `fps` int(5) DEFAULT NULL,
-  `qualidade_grafica` varchar(20) DEFAULT NULL
+  `pontuacao_cpu` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `requisito_software`
 --
 
-INSERT INTO `requisito_software` (`id`, `nome`, `pontuacao_gpu`, `pontuacao_cpu`, `fps`, `qualidade_grafica`) VALUES
-(1, 'Valorant', NULL, NULL, NULL, NULL),
-(2, 'Counter Strike', NULL, NULL, NULL, NULL),
-(3, 'League of Legends', NULL, NULL, NULL, NULL);
+INSERT INTO `requisito_software` (`id`, `nome`, `pontuacao_gpu`, `pontuacao_cpu`) VALUES
+(1, 'Valorant', NULL, NULL),
+(2, 'Counter Strike', NULL, NULL),
+(3, 'League of Legends', NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
