@@ -44,7 +44,6 @@
     include("conexao.php");
     session_start();
 
-    
     $nome_software = filter_input(INPUT_POST, 'nome_software', FILTER_SANITIZE_STRING);
     
     $pontuacao_gpu = filter_input(INPUT_POST, 'pontuacao_gpu', FILTER_SANITIZE_STRING);

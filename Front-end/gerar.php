@@ -7,7 +7,8 @@
     // Cria uma variavel para armazenar as informações dadas pelo usuário
     $orcamento = $_POST["orcamento"];
     $desempenho = isset($_POST['desempenho']) ? $_POST['desempenho'] : null;
-    $software_nome = $_POST['txtsoftwares'];
+    $software_nome_string = $_POST['txtsoftwares'];
+    $array_softwares = explode(",", $software_nome_string); 
 
     if($desempenho == null) {
         $fps = $_POST['fps'];
@@ -31,5 +32,7 @@
     echo $orcamento . "<br>";
     echo $fps . "<br>";
     echo $grafico . "<br>";
-    echo $software_nome;
+    print_r($array_softwares);
+    echo $software_nome_string . "<br>";
+    echo count($array_softwares);
 ?>

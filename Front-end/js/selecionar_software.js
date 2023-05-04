@@ -39,9 +39,6 @@ function selecionarItem(item){
 
   //j é a variavel para armazenar o numero total de softwares ja selecionados
   j++;
-
-  
- // let produtos = ['mouse', 'teclado', 'monitor', 'desktop', 'notebook'];
   
   // REQUISIÇÃO AJAX
   // cria o objeto XMLHttpRequest
@@ -57,38 +54,4 @@ function selecionarItem(item){
   // especifica os dados que deseja enviar 
   xhttp.send("array="+softwares); 
 
-}
-
-function enviarSoftwares() {
-
-  var software = selecionarItem();
-
-   // Use a função ajax para enviar a variável para o arquivo PHP via AJAX
-   $.ajax({
-    type: "POST",
-    url: "games.php",
-    data: { data: software_nome },
-    success: function(response) {
-      console.log("Requisição enviada com sucesso " + software_nome);
-    }
-  });
-
-}
-
-function sendArray() {
-  let produtos = ['mouse', 'teclado', 'monitor', 'desktop', 'notebook'];
-  
-// REQUISIÇÃO AJAX
-// cria o objeto XMLHttpRequest
-const xhttp = new XMLHttpRequest(); 
-// chama a função quando a requisição é recebida
-xhttp.onload = function() { 
-     document.querySelector("#demo").innerHTML = this.responseText;
-}
-// faz a requisição AJAX - método POST
-xhttp.open("POST", "resultArray.php");
-// adiciona um header para a requisição HTTP
-xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-// especifica os dados que deseja enviar 
-xhttp.send("array="+produtos);  
 }
