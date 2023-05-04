@@ -34,6 +34,12 @@
             <input class="label orçamento" type="number" id="pontuacao_cpu" name="pontuacao_cpu">
             </div>
 
+            <p class="pgames">Preferência:</p> 
+            <select name="preferencia" id="preferencia">
+                <option value="gpu">gpu</option>
+                <option value="cpu">cpu</option>
+            </select>
+
         <button class="proximo" type="submit">Cadastrar</button>
         </div>
     </form>
@@ -50,11 +56,13 @@
 
     $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
 
+    $preferencia = filter_input(INPUT_POST, 'preferencia', FILTER_SANITIZE_STRING);
+
     $query = "select nome_cpu from cpu where nome_cpu = '{$nome_software}'";
 
     $resultado = mysqli_query($mysqli, $query);
 
-    $sql = "insert into requisito_software (nome, pontuacao_gpu, pontuacao_cpu) values('$nome_software', '$pontuacao_gpu', '$pontuacao_cpu')";
+    $sql = "insert into requisito_software (nome, pontuacao_gpu, pontuacao_cpu, preferencia) values('$nome_software', '$pontuacao_gpu', '$pontuacao_cpu', '$preferencia')";
 
     $result = mysqli_query($mysqli, $sql);
 ?>
