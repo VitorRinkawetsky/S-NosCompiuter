@@ -32,17 +32,20 @@
         }
     }
 
+    // Cria um loop para armazenar somente a maior pontuação de GPU e CPU
     for($i = 0; $i < count($array_softwares); $i++){
+
         // Pega as pontuações da GPU recomendada para rodar os softwares
         $query = "select pontuacao_gpu from requisito_software where nome = '{$array_softwares[$i]}'";
     
         $result_pont_gpu = mysqli_query($mysqli, $query);
 
-        // Cria uma váriavel para armazenar a informação vinda do banco de dados
+        // Cria uma váriavel para armazenar o valor da pontuação vinda do banco de dados
         while ($resultado = $result_pont_gpu->fetch_assoc()) {
             $pontuacao_gpu = $resultado['pontuacao_gpu'];
         } 
 
+        // Armazena a maior pontuação
         if($pont_gpu_final < $pontuacao_gpu){
             $pont_gpu_final = $pontuacao_gpu;
         } 
@@ -52,11 +55,12 @@
 
         $result_pont_cpu = mysqli_query($mysqli, $query);
 
-        // Cria uma váriavel para armazenar a informação vinda do banco de dados
+        // Cria uma váriavel para armazenar o valor da pontuação vinda do banco de dados
         while ($resultado = $result_pont_cpu->fetch_assoc()) {
             $pontuacao_cpu = $resultado['pontuacao_cpu'];
         }
 
+        // Armazena a maior pontuação
         if($pont_cpu_final < $pontuacao_cpu){
             $pont_cpu_final = $pontuacao_cpu;
         } 
