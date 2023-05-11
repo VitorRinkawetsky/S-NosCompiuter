@@ -148,7 +148,6 @@ input[type=number] {
     padding-top: 3%;
     padding-left: 3%;
     padding-right: 3%;
-    opacity: 0.5;
     margin-bottom: 5%;
     width: 23%;
 }
@@ -327,17 +326,32 @@ input[type=number] {
     color: white;
     font-family: 'HortaRegular';
     font-weight: bold;
-    text-align: center; 
     cursor: pointer;
     transition: 0.15s;
-    background-color: black;
     border-color: rgb(180, 24, 24);
-    bord
+    background-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    text-align: center;
+    width: 85%;
 }
 .list-item:hover{
     color:rgb(180, 24, 24);
+    background-color: white;
+    border-color: black;
 }
 .selected{
     color:rgb(180, 24, 24);
     background-color:rgb(197, 183, 183);
+}
+.resultado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+.software-name{
+    color: white;
 }
