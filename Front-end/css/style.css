@@ -322,3 +322,22 @@ input[type=number] {
     padding-bottom: 1%;
     padding-top: 1%;
 }
+.list-item{
+    margin-top: 1%;
+    color: white;
+    font-family: 'HortaRegular';
+    font-weight: bold;
+    text-align: center; 
+    cursor: pointer;
+    transition: 0.15s;
+    background-color: black;
+    border-color: rgb(180, 24, 24);
+    bord
+}
+.list-item:hover{
+    color:rgb(180, 24, 24);
+}
+.selected{
+    color:rgb(180, 24, 24);
+    background-color:rgb(197, 183, 183);
+}
