@@ -12,7 +12,7 @@
         echo "Nenhum software encontrado...";
     }else{
 		while($rows = mysqli_fetch_assoc($resultado_softwares)){
-			echo "<li onclick='selecionarItem(this)'>".$rows['nome']."</li>";
+			echo "<li class='list-item' onclick='selecionarItem(this)'>".$rows['nome']."</li>";
 		}
 	}
 ?>

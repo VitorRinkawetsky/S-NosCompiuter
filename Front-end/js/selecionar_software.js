@@ -35,7 +35,7 @@ function selecionarItem(item){
 
   // Exibe o texto fora da tabela
   const container = document.querySelector('#output');
-  container.insertAdjacentHTML('beforeend', '<li>' + software_nome + '</li>');
+  container.insertAdjacentHTML('beforeend', "<li class='software-name'>"+ software_nome + '</li>');
 
   //j é a variavel para armazenar o numero total de softwares ja selecionados
   j++;

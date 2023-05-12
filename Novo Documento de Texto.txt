@@ -1,0 +1,7 @@
+estilizar o resultado dos softwares
+nos cadastros fazer uma tela de listagem e edição
+terminar a mostragem de peças para o usuario
+criptografar a senha do usuario do banco
+retirar o web crawler caso n seja feito
+acertar o texto para mostrar que o cadastro de peças ta manual
+rever texto geral e os diagramas
