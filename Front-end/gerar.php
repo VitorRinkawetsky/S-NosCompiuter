@@ -64,6 +64,25 @@
         if($pont_cpu_final < $pontuacao_cpu){
             $pont_cpu_final = $pontuacao_cpu;
         } 
+
+        // Aumenta os pontos da CPU conforme o requerimento de performance do usuário
+        if($fps == 144){
+            $pont_cpu_final += 7;
+        }elseif($fps == 240){
+            $pont_cpu_final += 14;
+        }elseif ($fps == 360) {
+            $pont_cpu_final += 19;
+        }
+
+        // Aumenta os pontos da GPU conforme o requerimento de performance do usuário
+        if (strcmp($desempenho, "Médio") !== 1) {
+            $pont_gpu_final += 7;
+        }elseif (strcmp($desempenho, "Alto") !== 1) {
+            $pont_cpu_final += 14;
+        }elseif (strcmp($desempenho, "Ultra") !== 1) {
+            $pont_cpu_final += 19;
+        }
+
     }
 
     echo "Pontuaçao GPU: $pont_gpu_final <br>";
