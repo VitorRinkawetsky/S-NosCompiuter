@@ -67,24 +67,104 @@
 
         // Aumenta os pontos da CPU conforme o requerimento de performance do usuário
         if($fps == 144){
-            $pont_cpu_final += 7;
+            $pont_cpu_final += 5;
         }elseif($fps == 240){
-            $pont_cpu_final += 14;
+            $pont_cpu_final += 12;
         }elseif ($fps == 360) {
-            $pont_cpu_final += 19;
+            $pont_cpu_final += 18;
         }
 
         // Aumenta os pontos da GPU conforme o requerimento de performance do usuário
         if (strcmp($desempenho, "Médio") !== 1) {
-            $pont_gpu_final += 7;
+            $pont_gpu_final += 5;
         }elseif (strcmp($desempenho, "Alto") !== 1) {
-            $pont_cpu_final += 14;
+            $pont_cpu_final += 12;
         }elseif (strcmp($desempenho, "Ultra") !== 1) {
-            $pont_cpu_final += 19;
+            $pont_cpu_final += 18;
         }
+    }
+    
+    // Procura uma CPU do banco de dados correspondente a pontuação da cpu obtida
+    $query = "select nome_cpu from cpu where pontuacao = '{$pont_cpu_final}'";
 
+    $resultado_cpu = mysqli_query($mysqli, $query);
+
+    // Caso encontrada armazena o nome da CPU em uma váriavel
+    while ($resultado = $resultado_cpu->fetch_assoc()) {
+        $result_cpu_final = $resultado['nome_cpu'];
+    } 
+
+    // Verifica se teve uma CPU correspondente
+    if($result_cpu_final != null){
+        echo "CPU necessária = $result_cpu_final<br>";
+
+    // Caso não tenha sido encontrado, armazena a com a menor pontação acima da requerida
+    }else{
+        while($result_cpu_final == null){
+            $pont_cpu_final++;
+
+            $query = "select nome_cpu from cpu where pontuacao = '{$pont_cpu_final}'";
+
+            $resultado_cpu = mysqli_query($mysqli, $query);
+        
+            while ($resultado = $resultado_cpu->fetch_assoc()) {
+                $result_cpu_final = $resultado['nome_cpu'];
+            }
+        }
     }
 
+    // Procura uma GPU do banco de dados correspondente a pontuação da cpu obtida
+    $query = "select nome_gpu from gpu where pontuacao = '{$pont_gpu_final}'";
+
+    $resultado_gpu = mysqli_query($mysqli, $query);
+
+    // Caso encontrada armazena o nome da GPU em uma váriavel
+    while ($resultado = $resultado_gpu->fetch_assoc()) {
+        $result_gpu_final = $resultado['nome_gpu'];
+    } 
+
+    // Verifica se teve uma GPU correspondente
+    if($result_gpu_final != null){
+        echo "GPU necessária = $result_gpu_final<br>";
+
+    // Caso não tenha sido encontrado, armazena a com a menor pontação acima da requerida
+    }else{
+        while($result_gpu_final == null){
+            $pont_gpu_final++;
+
+            $query = "select nome_gpu from gpu where pontuacao = '{$pont_gpu_final}'";
+
+            $resultado_gpu = mysqli_query($mysqli, $query);
+        
+            while ($resultado = $resultado_gpu->fetch_assoc()) {
+                $result_gpu_final = $resultado['nome_gpu'];
+            }
+        }
+    }
+
+    // Procura qual o soquete do processador selecionado
+    $query = "select soquete from cpu where nome_cpu = '{$result_cpu_final}'";
+
+    $result_soquete = mysqli_query($mysqli, $query);
+
+    // Armazena qual o soquete numa váriavel
+    while ($resultado = $result_soquete->fetch_assoc()) {
+        $resultado_soquete = $resultado['soquete'];
+    } 
+
+    // Procura uma placa mãe com o mesmo soquete que o do processador
+    $query = "select nome_mae from placa_mae where soquete_mae = '{$resultado_soquete}'";
+
+    $result_mae = mysqli_query($mysqli, $query);
+
+    // Armazena o nome da placa mãe numa variável
+    while ($resultado = $result_mae->fetch_assoc()) {
+        $resultado_mae = $resultado['nome_mae'];
+    }  
+
+    echo "GPU necessária = $result_gpu_final<br>";
+    echo "CPU necessária = $result_cpu_final<br>";
+    echo "Placa mãe necessária = $resultado_mae<br>";
     echo "Pontuaçao GPU: $pont_gpu_final <br>";
     echo "Pontuaçao CPU: $pont_cpu_final <br>";
     echo "Orçamento: $orcamento <br>";
