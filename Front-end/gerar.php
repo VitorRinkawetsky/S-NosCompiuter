@@ -8,7 +8,7 @@
     $orcamento = $_POST["orcamento"];
     $desempenho = isset($_POST['desempenho']) ? $_POST['desempenho'] : null;
     $software_nome_string = $_POST['txtsoftwares'];
-    $array_softwares = explode(",", $software_nome_string); 
+    $array_softwares = explode(",", $software_nome_string);
     $pont_gpu_final = 0;
     $pont_cpu_final = 0;
 
@@ -96,9 +96,33 @@
         array_push($resultados_cpu, $resultado['nome_cpu']);
     }
 
+    // Caso somente uma CPU tenha sido encontrada, armazena ela com CPU a ser utilizada
+    if(count($resultados_cpu) == 1){
+        $result_cpu_final = $resultados_cpu[0];
+        echo "CPU necessária = $result_cpu_final<br>";
+
+    // Caso não tenha sido encontrado, armazena a com a menor pontação acima da requerida
+    }elseif($resultados_cpu == null){ 
+        while($resultados_cpu == null){
+            $pont_cpu_final++;
+
+            $query = "select nome_cpu from cpu where pontuacao = '{$pont_cpu_final}'";
+
+            $resultado_cpu = mysqli_query($mysqli, $query);
+
+            $resultados_cpu = array();
+            
+            while ($resultado = $resultado_cpu->fetch_assoc()) {
+                array_push($resultados_cpu, $resultado['nome_cpu']);
+            }
+        }
+    }
+
+    // Cria uma váriavel para armazenar o menor valor
+    $valorMenor = 999999;
+
     // Cria um loop para ver os valores das peças
-    for($i = 0; $i < count($resultados); $i++){
-        $valorMenor = 99999;
+    for($i = 0; $i < count($resultados_cpu); $i++){
 
         $query = "select preco from cpu where nome_cpu = '{$resultados_cpu[$i]}'";
 
@@ -116,30 +140,7 @@
         }
     }
 
-    // Verifica se teve uma CPU correspondente
-    if($result_cpu_final != null){
-        echo "CPU necessária = $result_cpu_final<br>";
-
-    // Caso não tenha sido encontrado, armazena a com a menor pontação acima da requerida
-    }else{
-        while($result_cpu_final == null){
-            $pont_cpu_final++;
-
-            $query = "select nome_cpu from cpu where pontuacao = '{$pont_cpu_final}'";
-
-            $resultado_cpu = mysqli_query($mysqli, $query);
-
-            $resultados = array();
-        
-            while ($resultado = $resultado_cpu->fetch_assoc()) {
-                array_push($resultados, $resultado['nome_cpu']);
-            }
-        }
-    }
-
-
-
-    // Procura uma GPU do banco de dados correspondente a pontuação da cpu obtida
+   /* // Procura uma GPU do banco de dados correspondente a pontuação da cpu obtida
     $query = "select nome_gpu from gpu where pontuacao = '{$pont_gpu_final}'";
 
     $resultado_gpu = mysqli_query($mysqli, $query);
@@ -186,11 +187,11 @@
     // Armazena o nome da placa mãe numa variável
     while ($resultado = $result_mae->fetch_assoc()) {
         $resultado_mae = $resultado['nome_mae'];
-    }  
+    }  */
 
+    /*echo "CPU necessária = $result_cpu_final<br>";
     echo "GPU necessária = $result_gpu_final<br>";
-    echo "CPU necessária = $result_cpu_final<br>";
-    echo "Placa mãe necessária = $resultado_mae<br>";
+    echo "Placa mãe necessária = $resultado_mae<br>"; 
     echo "Pontuaçao GPU: $pont_gpu_final <br>";
     echo "Pontuaçao CPU: $pont_cpu_final <br>";
     echo "Orçamento: $orcamento <br>";
@@ -199,5 +200,5 @@
 
     for($i = 0; $i < count($array_softwares); $i++){
         echo "Jogo: $array_softwares[$i] <br>";
-    }
+    }*/
 ?>
