@@ -84,15 +84,37 @@
         }
     }
     
-    // Procura uma CPU do banco de dados correspondente a pontuação da cpu obtida
+    // Procura CPUs no banco de dados correspondentes a pontuação de cpu obtida
     $query = "select nome_cpu from cpu where pontuacao = '{$pont_cpu_final}'";
 
     $resultado_cpu = mysqli_query($mysqli, $query);
 
-    // Caso encontrada armazena o nome da CPU em uma váriavel
+    $resultados_cpu = array();
+
+    // Caso encontre CPUs correspondentes armazena-as no array
     while ($resultado = $resultado_cpu->fetch_assoc()) {
-        $result_cpu_final = $resultado['nome_cpu'];
-    } 
+        array_push($resultados_cpu, $resultado['nome_cpu']);
+    }
+
+    // Cria um loop para ver os valores das peças
+    for($i = 0; $i < count($resultados); $i++){
+        $valorMenor = 99999;
+
+        $query = "select preco from cpu where nome_cpu = '{$resultados_cpu[$i]}'";
+
+        $result_preco = mysqli_query($mysqli, $query);
+
+        // Armazena o valor do preço da peça atual do loop
+        while ($resultado = $result_preco->fetch_assoc()) {
+            $resultado_preco = $resultado['preco'];
+        }
+
+        // Guarda qual o menor valor e o nome da peça mais barata
+        if($resultado_preco < $valorMenor){
+            $valorMenor = $resultado_preco;
+            $cpuValorMenor = $resultados_cpu[$i];
+        }
+    }
 
     // Verifica se teve uma CPU correspondente
     if($result_cpu_final != null){
@@ -106,12 +128,16 @@
             $query = "select nome_cpu from cpu where pontuacao = '{$pont_cpu_final}'";
 
             $resultado_cpu = mysqli_query($mysqli, $query);
+
+            $resultados = array();
         
             while ($resultado = $resultado_cpu->fetch_assoc()) {
-                $result_cpu_final = $resultado['nome_cpu'];
+                array_push($resultados, $resultado['nome_cpu']);
             }
         }
     }
+
+
 
     // Procura uma GPU do banco de dados correspondente a pontuação da cpu obtida
     $query = "select nome_gpu from gpu where pontuacao = '{$pont_gpu_final}'";
