@@ -96,7 +96,7 @@
         array_push($resultados_cpu, $resultado['nome_cpu']);
     }
 
-    // Caso somente uma CPU tenha sido encontrada, armazena ela com CPU a ser utilizada
+    // Caso somente uma CPU tenha sido encontrada, armazena ela como CPU a ser utilizada
     if(count($resultados_cpu) == 1){
         $result_cpu_final = $resultados_cpu[0];
         echo "CPU necessária = $result_cpu_final<br>";
@@ -136,62 +136,114 @@
         // Guarda qual o menor valor e o nome da peça mais barata
         if($resultado_preco < $valorMenor){
             $valorMenor = $resultado_preco;
-            $cpuValorMenor = $resultados_cpu[$i];
+            $result_cpu_final = $resultados_cpu[$i];
         }
     }
 
-   /* // Procura uma GPU do banco de dados correspondente a pontuação da cpu obtida
-    $query = "select nome_gpu from gpu where pontuacao = '{$pont_gpu_final}'";
+        // Procura GPUs no banco de dados correspondentes a pontuação de gpu obtida
+        $query = "select nome_gpu from gpu where pontuacao = '{$pont_gpu_final}'";
 
-    $resultado_gpu = mysqli_query($mysqli, $query);
-
-    // Caso encontrada armazena o nome da GPU em uma váriavel
-    while ($resultado = $resultado_gpu->fetch_assoc()) {
-        $result_gpu_final = $resultado['nome_gpu'];
-    } 
-
-    // Verifica se teve uma GPU correspondente
-    if($result_gpu_final != null){
-        echo "GPU necessária = $result_gpu_final<br>";
-
-    // Caso não tenha sido encontrado, armazena a com a menor pontação acima da requerida
-    }else{
-        while($result_gpu_final == null){
-            $pont_gpu_final++;
-
-            $query = "select nome_gpu from gpu where pontuacao = '{$pont_gpu_final}'";
-
-            $resultado_gpu = mysqli_query($mysqli, $query);
-        
-            while ($resultado = $resultado_gpu->fetch_assoc()) {
-                $result_gpu_final = $resultado['nome_gpu'];
+        $resultado_gpu = mysqli_query($mysqli, $query);
+    
+        $resultados_gpu = array();
+    
+        // Caso encontre GPUs correspondentes armazena-as no array
+        while ($resultado = $resultado_gpu->fetch_assoc()) {
+            array_push($resultados_gpu, $resultado['nome_gpu']);
+        }
+    
+        // Caso somente uma GPU tenha sido encontrada, armazena ela como GPU a ser utilizada
+        if(count($resultados_gpu) == 1){
+            $result_gpu_final = $resultados_gpu[0];
+            echo "GPU necessária = $result_gpu_final<br>";
+    
+        // Caso não tenha sido encontrado, armazena a com a menor pontação acima da requerida
+        }elseif($resultados_gpu == null){ 
+            while($resultados_gpu == null){
+                $pont_gpu_final++;
+    
+                $query = "select nome_gpu from gpu where pontuacao = '{$pont_gpu_final}'";
+    
+                $resultado_gpu = mysqli_query($mysqli, $query);
+    
+                $resultados_gpu = array();
+                
+                while ($resultado = $resultado_gpu->fetch_assoc()) {
+                    array_push($resultados_gpu, $resultado['nome_gpu']);
+                }
             }
         }
-    }
+    
+        // Cria uma váriavel para armazenar o menor valor
+        $valorMenor = 999999;
+    
+        // Cria um loop para ver os valores das peças
+        for($i = 0; $i < count($resultados_gpu); $i++){
+    
+            $query = "select preco from gpu where nome_gpu = '{$resultados_gpu[$i]}'";
+    
+            $result_preco = mysqli_query($mysqli, $query);
+    
+            // Armazena o valor do preço da peça atual do loop
+            while ($resultado = $result_preco->fetch_assoc()) {
+                $resultado_preco = $resultado['preco'];
+            }
+    
+            // Guarda qual o menor valor e o nome da peça mais barata
+            if($resultado_preco < $valorMenor){
+                $valorMenor = $resultado_preco;
+                $result_gpu_final = $resultados_gpu[$i];
+            }
+        }
 
-    // Procura qual o soquete do processador selecionado
+    // Procura qual o soquete da CPU selecionada
     $query = "select soquete from cpu where nome_cpu = '{$result_cpu_final}'";
 
     $result_soquete = mysqli_query($mysqli, $query);
-
-    // Armazena qual o soquete numa váriavel
+    
     while ($resultado = $result_soquete->fetch_assoc()) {
-        $resultado_soquete = $resultado['soquete'];
+        $soquete_cpu = $resultado['soquete'];
     } 
 
-    // Procura uma placa mãe com o mesmo soquete que o do processador
-    $query = "select nome_mae from placa_mae where soquete_mae = '{$resultado_soquete}'";
+    // Procura Placas mãe no banco de dados correspondentes ao soquete da CPU obtida
+    $query = "select nome_mae from placa_mae where soquete_mae = '{$soquete_cpu}'";
 
     $result_mae = mysqli_query($mysqli, $query);
-
-    // Armazena o nome da placa mãe numa variável
+ 
+    $resultados_mae = array();
+ 
+    // Caso encontre GPUs correspondentes armazena-as no array
     while ($resultado = $result_mae->fetch_assoc()) {
-        $resultado_mae = $resultado['nome_mae'];
-    }  */
+        array_push($resultados_mae, $resultado['nome_mae']);
+    }
+
+    // Cria uma váriavel para armazenar o menor valor
+    $valorMenor = 999999;
+    
+    // Cria um loop para ver os valores das peças
+    for($i = 0; $i < count($resultados_mae); $i++){
+
+        $query = "select preco from placa_mae where nome_mae = '{$resultados_mae[$i]}'";
+
+        $result_preco = mysqli_query($mysqli, $query);
+
+        // Armazena o valor do preço da peça atual do loop
+        while ($resultado = $result_preco->fetch_assoc()) {
+            $resultado_preco = $resultado['preco'];
+        }
+
+        // Guarda qual o menor valor e o nome da peça mais barata
+        if($resultado_preco < $valorMenor){
+            $valorMenor = $resultado_preco;
+            $result_mae_final = $resultados_mae[$i];
+        }
+    }
+
+
 
     /*echo "CPU necessária = $result_cpu_final<br>";
     echo "GPU necessária = $result_gpu_final<br>";
-    echo "Placa mãe necessária = $resultado_mae<br>"; 
+    echo "Placa mãe necessária = $result_mae_final<br>"; 
     echo "Pontuaçao GPU: $pont_gpu_final <br>";
     echo "Pontuaçao CPU: $pont_cpu_final <br>";
     echo "Orçamento: $orcamento <br>";
