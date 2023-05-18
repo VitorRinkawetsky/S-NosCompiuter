@@ -11,6 +11,7 @@
     $array_softwares = explode(",", $software_nome_string);
     $pont_gpu_final = 0;
     $pont_cpu_final = 0;
+    $valor_pc = 0;
 
     // Caso o desempenho Geral seja nulo ele cria as variaveis para o FPS e o Gráfico avançado
     if($desempenho == null) {
@@ -67,20 +68,20 @@
 
         // Aumenta os pontos da CPU conforme o requerimento de performance do usuário
         if($fps == 144){
-            $pont_cpu_final += 5;
+            $pont_cpu_final += 1500;
         }elseif($fps == 240){
-            $pont_cpu_final += 12;
+            $pont_cpu_final += 3800;
         }elseif ($fps == 360) {
-            $pont_cpu_final += 18;
+            $pont_cpu_final += 5500;
         }
 
         // Aumenta os pontos da GPU conforme o requerimento de performance do usuário
         if (strcmp($desempenho, "Médio") !== 1) {
-            $pont_gpu_final += 5;
+            $pont_gpu_final += 3000;
         }elseif (strcmp($desempenho, "Alto") !== 1) {
-            $pont_cpu_final += 12;
+            $pont_cpu_final += 4200;
         }elseif (strcmp($desempenho, "Ultra") !== 1) {
-            $pont_cpu_final += 18;
+            $pont_cpu_final += 6000;
         }
     }
     
@@ -137,6 +138,7 @@
         if($resultado_preco < $valorMenor){
             $valorMenor = $resultado_preco;
             $result_cpu_final = $resultados_cpu[$i];
+            $valor_pc += $valorMenor;
         }
     }
 
@@ -193,6 +195,7 @@
             if($resultado_preco < $valorMenor){
                 $valorMenor = $resultado_preco;
                 $result_gpu_final = $resultados_gpu[$i];
+                $valor_pc += $valorMenor;
             }
         }
 
@@ -236,14 +239,21 @@
         if($resultado_preco < $valorMenor){
             $valorMenor = $resultado_preco;
             $result_mae_final = $resultados_mae[$i];
+            $valor_pc += $valorMenor;
         }
+    }
+
+    if($valor_pc <= $orcamento){
+        echo "CPU necessária = $result_cpu_final<br>";
+        echo "GPU necessária = $result_gpu_final<br>";
+        echo "Placa mãe necessária = $result_mae_final<br>"; 
+    }else{
+        echo "O orçamento é muito pequeno para montar um PC conforme requisitado!";
     }
 
 
 
-    /*echo "CPU necessária = $result_cpu_final<br>";
-    echo "GPU necessária = $result_gpu_final<br>";
-    echo "Placa mãe necessária = $result_mae_final<br>"; 
+    /*
     echo "Pontuaçao GPU: $pont_gpu_final <br>";
     echo "Pontuaçao CPU: $pont_cpu_final <br>";
     echo "Orçamento: $orcamento <br>";
