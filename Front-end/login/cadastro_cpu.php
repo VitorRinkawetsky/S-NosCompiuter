@@ -35,12 +35,6 @@
         <input class="label orçamento" type="text" id="soquete_cpu" name="soquete_cpu">
         </div>
 
-        <p class="pgames">Gráfico Integrado:</p> 
-        <select name="grafico_integrado" id="grafico_integrado">
-            <option value="sim">Sim</option>
-            <option value="nao">Não</option>
-        </select>
-
         <div>
         <p class="pgames">Pontuação:</p> 
         <input class="label orçamento" type="number" id="pontuacao_cpu" name="pontuacao_cpu">
@@ -66,8 +60,6 @@
 
     $soquete_cpu = filter_input(INPUT_POST, 'soquete_cpu', FILTER_SANITIZE_STRING);
 
-    $grafico_integrado = filter_input(INPUT_POST, 'grafico_integrado', FILTER_SANITIZE_STRING);
-
     $preco_cpu = filter_input(INPUT_POST, 'preco_cpu', FILTER_SANITIZE_STRING);
 
     $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
@@ -79,7 +71,7 @@
     $row = mysqli_num_rows($resultado);
 
     if($row == 0){
-        $sql = "insert into cpu (marca, soquete, grafico_integrado, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', '$grafico_integrado', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
+        $sql = "insert into cpu (marca, soquete, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
 
         $result = mysqli_query($mysqli, $sql);
 

@@ -25,9 +25,6 @@
         <p class="pgames">Nome da GPU:</p> 
         <input class="label orçamento" type="text" id="nome_gpu" name="nome_gpu">
         </div>
-        
-        <p class="pgames">Interface:</p> 
-        <input class="label orçamento" type="text" id="interface_gpu" name="interface_gpu">
 
         <div>
         <p class="pgames">Chip Gráfico:</p> 
@@ -58,33 +55,31 @@
     include("conexao.php");
     session_start();
 
-    $nome_cpu = filter_input(INPUT_POST, 'nome_cpu', FILTER_SANITIZE_STRING);
+    $nome_gpu = filter_input(INPUT_POST, 'nome_gpu', FILTER_SANITIZE_STRING);
 
-    $marca_cpu = filter_input(INPUT_POST, 'marca_cpu', FILTER_SANITIZE_STRING);
+    $marca_gpu = filter_input(INPUT_POST, 'marca_gpu', FILTER_SANITIZE_STRING);
 
-    $soquete_cpu = filter_input(INPUT_POST, 'soquete_cpu', FILTER_SANITIZE_STRING);
+    $preco_gpu = filter_input(INPUT_POST, 'preco_gpu', FILTER_SANITIZE_STRING);
 
-    $grafico_integrado = filter_input(INPUT_POST, 'grafico_integrado', FILTER_SANITIZE_STRING);
+    $pontuacao_gpu = filter_input(INPUT_POST, 'pontuacao_gpu', FILTER_SANITIZE_STRING);
 
-    $preco_cpu = filter_input(INPUT_POST, 'preco_mae', FILTER_SANITIZE_STRING);
+    $chip_grafico = filter_input(INPUT_POST, 'chip_grafico', FILTER_SANITIZE_STRING);
 
-    $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
-
-    $query = "select nome_cpu from cpu where nome_cpu = '{$nome_cpu}'";
+    $query = "select nome_gpu from gpu where nome_gpu = '{$nome_gpu}'";
 
     $resultado = mysqli_query($mysqli, $query);
 
     $row = mysqli_num_rows($resultado);
 
     if($row == 0){
-        $sql = "insert into cpu (marca, soquete, grafico_integrado, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', '$grafico_integrado', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
+        $sql = "insert into gpu (nome_gpu, marca, preco, pontuacao, chip_grafico) values('$nome_gpu', '$marca_gpu', '$preco_gpu', '$pontuacao_gpu', '$chip_grafico')";
 
         $result = mysqli_query($mysqli, $sql);
 
         if(mysqli_insert_id($mysqli)) {
-            echo "<p>CPU cadastrada com sucesso!</p>";
+            echo "<p>GPU cadastrada com sucesso!</p>";
         }
     }else {
-        echo "CPU ja cadastrada";
+        echo "<p>GPU ja cadastrada</p>";
     }
 ?>

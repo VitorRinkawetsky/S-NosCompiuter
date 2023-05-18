@@ -28,12 +28,7 @@
         </div>
 
         <p class="pgames">Soquete Placa Mãe:</p>
-        <input class="label orçamento" type="text" id="soquete_placa_mae" n_ame="soqueteplaca_mae">
-
-        <div>
-        <p class="pgames">Interface Gráfica:</p>
-        <input class="label orçamento" type="text" id="interface_grafica_mae" name="interface_grafica_mae">
-        </div>
+        <input class="label orçamento" type="text" id="soquete_mae" name="soquete_mae">
         
         <div>
         <p class="pgames">Marca:</p>
@@ -55,9 +50,7 @@
 
     $nome_mae = filter_input(INPUT_POST, 'nome_placa_mae', FILTER_SANITIZE_STRING);
 
-    $soquete_mae = filter_input(INPUT_POST, 'soquete_placa_mae', FILTER_SANITIZE_STRING);
-
-    $interface_grafica = filter_input(INPUT_POST, 'interface_grafica_mae', FILTER_SANITIZE_STRING);
+    $soquete_mae = filter_input(INPUT_POST, 'soquete_mae', FILTER_SANITIZE_STRING);
 
     $marca = filter_input(INPUT_POST, 'marca_mae', FILTER_SANITIZE_STRING);
 
@@ -70,7 +63,7 @@
     $row = mysqli_num_rows($resultado);
 
     if($row == 0){
-        $sql = "insert into placa_mae (soquete_mae, interface_grafica, marca, preco, nome_mae) values('$soquete_mae', '$interface_grafica', '$marca', $preco, '$nome_mae')";
+        $sql = "insert into placa_mae (soquete_mae, marca, preco, nome_mae) values('$soquete_mae', '$marca', $preco, '$nome_mae')";
 
         $result = mysqli_query($mysqli, $sql);
 
@@ -78,6 +71,6 @@
             echo "<p>Placa mãe cadastrada com sucesso!</p>";
         }
     }else {
-        echo "Placa ja cadastrada";
+        echo "<p>Placa ja cadastrada</p>";
     }
 ?>
