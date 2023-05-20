@@ -143,8 +143,7 @@ CREATE TABLE `requisito_software` (
   `id` int(5) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `pontuacao_gpu` int(5) DEFAULT NULL,
-  `pontuacao_cpu` int(5) DEFAULT NULL,
-  `preferencia` varchar(5) DEFAULT NULL
+  `pontuacao_cpu` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
