@@ -151,18 +151,18 @@ CREATE TABLE `requisito_software` (
 -- Extraindo dados da tabela `requisito_software`
 --
 
-INSERT INTO `requisito_software` (`id`, `nome`, `pontuacao_gpu`, `pontuacao_cpu`, `preferencia`) VALUES
-(14, 'Call of Duty: Warzone', 49, 32, 'gpu'),
-(16, 'Battlefield V', 52, 42, 'gpu'),
-(17, 'Cyberpunk 2077', 52, 47, 'gpu'),
-(18, 'Destiny 2', 39, 38, 'gpu'),
-(19, 'Valorant', 39, 34, 'cpu'),
-(20, 'Watch Dogs Legion', 52, 47, 'gpu'),
-(21, 'Scarlet Nexus', 49, 46, 'gpu'),
-(22, 'Red Dead Redemption 2', 52, 45, 'gpu'),
-(23, 'Naruto Ultimate Ninja Storm 4', 30, 30, 'gpu'),
-(24, 'Mafia 3', 44, 37, 'gpu'),
-(25, 'Counter Strike:Global Offensive', 30, 30, 'cpu');
+INSERT INTO `requisito_software` (`id`, `nome`, `pontuacao_gpu`, `pontuacao_cpu`) VALUES
+(14, 'Call of Duty: Warzone', 11744, 4113),
+(16, 'Battlefield V', 10070, 7236),
+(17, 'Cyberpunk 2077', 9642, 4964),
+(18, 'Destiny 2', 10070, 5513),
+(19, 'Valorant', 824, 3378),
+(20, 'Watch Dogs Legion', 6024, 4867),
+(21, 'Scarlet Nexus', 4771, 4683),
+(22, 'Red Dead Redemption 2', 10070, 6914),
+(23, 'Naruto Ultimate Ninja Storm 4', 2790, 1492),
+(24, 'Mafia 3', 3990, 4113),
+(25, 'Counter Strike:Global Offensive', 930, 2190);
 
 --
 -- Índices para tabelas despejadas
