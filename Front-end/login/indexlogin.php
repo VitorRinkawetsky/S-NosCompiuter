@@ -51,24 +51,27 @@
             $login = $mysqli->real_escape_string($_POST['login']);
             $senha = $mysqli->real_escape_string($_POST['senha']);
 
-            $sql_code = "select * from admin_login where login = '$login' and senha = '$senha'";
+            $sql_code = "select * from admin_login where login = '$login'";
             $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
             $quantidade = $sql_query->num_rows;
+            $resultado = $sql_query->fetch_assoc();
 
-            if($quantidade == 1){
-                $usuario = $sql_query->fetch_assoc();
-
-                if(!isset($_SESSION)){
-                    session_start();
-                }
-
-                $_SESSION['id'] = $usuario['id'];
-
-                header("Location: painel.php");
-
+            if($quantidade == 0 || $quantidade > 1) {
+                echo "<h1>Login ou senha Inválido</h1>";
             }else {
-                echo "<h1>Login ou senha incorretos</h1>";
+                if(password_verify($senha, $resultado['senha']) == 1) {
+                    if(!isset($_SESSION)){
+                        session_start();
+                    }
+
+                    $_SESSION['id'] = $resultado['id'];
+
+                    header("Location: painel.php");
+
+                }else {
+                    echo "<h1>Login ou senha Inválido</h1>";
+                }
             }
         }
     }

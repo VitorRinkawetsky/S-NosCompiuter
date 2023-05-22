@@ -38,6 +38,9 @@
             <div class="div-painel">
                 <p class="style-p"><a class="style-href" href="cadastro_software.php">Cadastrar Software</p>
             </div>
+            <div class="div-painel">
+                <p class="style-p"><a class="style-href" href="cadastro_admin.php">Cadastrar Login de Adiministrador</p>
+            </div>
             </div>
        <button class="proximo" onclick="logout()">Deslogar</button>
     </div>
