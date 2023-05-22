@@ -9,7 +9,7 @@
     $resultado_softwares = mysqli_query($mysqli, $soft);
 
     if(mysqli_num_rows($resultado_softwares) <= 0) {
-        echo "Nenhum software encontrado...";
+        echo "<li class='resultado'>Nenhum software encontrado...</li>";
     }else{
 		while($rows = mysqli_fetch_assoc($resultado_softwares)){
 			echo "<li class='list-item' onclick='selecionarItem(this)'>".$rows['nome']."</li>";

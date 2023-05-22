@@ -76,12 +76,11 @@
         
     </div>
     
-    <ul class ="resultado" id="lista-software">
-    </ul>
-
-    <ul id="output">
-    </ul>
-
+    <ul class ="resultado" id="lista-software"></ul>
+      <div class="output-container">
+        <ul id="output"></ul>
+      </div>
+   
     <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
     </div>
 
