@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 18-Maio-2023 às 21:44
+-- Host: 127.0.0.1:3312
+-- Tempo de geração: 25-Maio-2023 às 00:00
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin_login` (
   `id` int(5) NOT NULL,
   `login` varchar(50) DEFAULT NULL,
-  `senha` varchar(50) DEFAULT NULL
+  `senha` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `admin_login` (
 --
 
 INSERT INTO `admin_login` (`id`, `login`, `senha`) VALUES
-(1, 'admin', 'admin');
+(7, 'admin', '$2y$12$fmhcl4MmSpvWGOJl3mRYKedQYcbgKN.Titfrgt6Clvc2vYLbd7LOK');
 
 -- --------------------------------------------------------
 
@@ -205,7 +205,7 @@ ALTER TABLE `requisito_software`
 -- AUTO_INCREMENT de tabela `admin_login`
 --
 ALTER TABLE `admin_login`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `cpu`
