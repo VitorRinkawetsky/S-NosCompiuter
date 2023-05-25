@@ -43,17 +43,16 @@
         <input class="label orçamento" type="text" id="preco_gpu" name="preco_gpu">
 
         <button class="proximo" type="submit">Cadastrar</button>
+        <div class="div-painel">
+            <p class="style-p"><a class="style-href" href="painel.php">Voltar</p>
+        </div>
         </div>
         </form>
-    
-   
-   
 </body>
 </html>
 
 <?php
     include("conexao.php");
-    session_start();
 
     $nome_gpu = filter_input(INPUT_POST, 'nome_gpu', FILTER_SANITIZE_STRING);
 
@@ -79,7 +78,7 @@
         if(mysqli_insert_id($mysqli)) {
             echo "<p>GPU cadastrada com sucesso!</p>";
         }
-    }else {
-        echo "<p>GPU ja cadastrada</p>";
+    }else if($row >= 1) {                                           
+        echo "GPU ja cadastrada";
     }
 ?>
