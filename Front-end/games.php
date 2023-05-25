@@ -86,6 +86,7 @@
 
   </main>
   <script src="./js/games.js"></script>
+  <script src="./js/avisoFps.js"></script>
   
 </body>
 
