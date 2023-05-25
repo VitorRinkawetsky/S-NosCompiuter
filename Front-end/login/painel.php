@@ -27,7 +27,7 @@
     <div class="painel">
             <div class="flexbox">
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="cadastro_cpu.php">Cadastrar CPU</p>
+                <p class="style-p"><a class="style-href" href="painel_cpu.php">Painel CPU</p>
             </div>
             <div class="div-painel">
                 <p class="style-p"><a class="style-href" href="cadastro_gpu.php">Cadastrar GPU</p>
