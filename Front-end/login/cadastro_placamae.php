@@ -39,6 +39,9 @@
         <input class="label orçamento" type="text" id="preco_mae" name="preco_mae">
 
         <button class="proximo" type="submit">Cadastrar</button>
+        <div class="div-painel">
+            <p class="style-p"><a class="style-href" href="painel.php">Voltar</p>
+        </div>
         </div>
     </form>
 </body>
@@ -46,7 +49,6 @@
 
 <?php
     include("conexao.php");
-    session_start();
 
     $nome_mae = filter_input(INPUT_POST, 'nome_placa_mae', FILTER_SANITIZE_STRING);
 

@@ -8,7 +8,7 @@
     //mostra o conteúdo do array 
      //print_r($array_produtos); 
 
-    echo "<input type='text' name='txtsoftwares' id='txtsoftwares' value='$array_string'> <br><br>";
+    echo "<input type='hidden' name='txtsoftwares' id='txtsoftwares' value='$array_string'> <br><br>";
 ?>
 
  

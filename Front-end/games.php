@@ -86,7 +86,6 @@
 
   </main>
   <script src="./js/games.js"></script>
-
 </body>
 
 </html>
