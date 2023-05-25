@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><button class="titulo">SóNosCompiuter</button></a>
+        <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
     </header>
     
     <main>

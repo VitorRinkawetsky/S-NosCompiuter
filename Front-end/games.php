@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,11 +28,11 @@
     <form method="post" id="form-pesquisa" action="gerar.php">
       <div class="games">
         <p class="pgames">Orçamento:</p>
-        <input class="label orçamento" type="number" name = "orcamento" placeholder="R$">
+        <input class="label orçamento" type="number" name="orcamento" placeholder="R$">
         <br>
         <p class="pgames">Desempenho geral:</p>
 
-        <select name = "desempenho" id = "btnDesempenhoGeral">
+        <select name="desempenho" id="btnDesempenhoGeral">
           <option value="Alto">Alto</option>
           <option value="Médio">Médio</option>
           <option value="Baixo">Baixo</option>
@@ -48,45 +46,47 @@
 
         <div class="avançado">
           <p class="pavançado">FPS:</p>
-          <select name = "fps" class = "selectavançado" id = "btnFps">
+          <select name="fps" class="selectavançado" id="btnFps">
             <option value="60" selected>60</option>
             <option value="144">144</option>
             <option value="240">240</option>
             <option value="360">360</option>
           </select>
-          <br><br>
-          <p class="pavançado">Gráficos:</p>
-          <select name = "grafico" class="selectavançado" id = "btnGrafico">
-            <option value="ultra" selected>Ultra</option>
-            <option value="Alto">Alto</option>
-            <option value="Médio">Médio</option>
-            <option value="Baixo">Baixo</option>
-          </select>
+          <div class="selected-graficos">
+            <p class="pavançado">Gráficos:</p>
+            <select name="grafico" class="selectavançado" id="btnGrafico">
+              <option value="ultra" selected>Ultra</option>
+              <option value="Alto">Alto</option>
+              <option value="Médio">Médio</option>
+              <option value="Baixo">Baixo</option>
+            </select>
+          </div>
         </div>
 
         <div id="demo"></div>
         
-        <div class="submit-line">
-
-          <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisaApp" id="pesquisa">
-          <button class="submit-lente" type="submit" value = "pesquisar">
-            <i class="fa fa-search"></i>
-          </button>
+        <div class="submit-container">
+          <div class="submit-line">
+            <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisaApp" id="pesquisa">
+            <button class="submit-lente" type="submit" value="pesquisar">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
     </form>
-        
+
+
+    <ul class="resultado" id="lista-software"></ul>
+    <div class="output-container">
+      <ul id="output"></ul>
     </div>
-    
-    <ul class ="resultado" id="lista-software"></ul>
-      <div class="output-container">
-        <ul id="output"></ul>
-      </div>
-   
-    <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
+
+    <button class="proximo" type="submit" name="Próximo" id="proximo"></button>
     </div>
 
   </main>
   <script src="./js/games.js"></script>
-  
+
 </body>
 
 </html>
