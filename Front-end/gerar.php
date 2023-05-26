@@ -74,7 +74,6 @@
     // Aumenta os pontos da CPU conforme o requerimento de performance do usuário
     if($fps == 144){
         $pont_cpu_final += 2200;
-
     }elseif($fps == 240){
         $pont_cpu_final += 4800;
     }elseif ($fps == 360) {
@@ -120,7 +119,7 @@
                 }
             }
             // Cria uma váriavel para armazenar o menor valor
-            $valorMenor = 999999;
+            $valorMenorCpu = 999999;
 
             // Cria um loop para ver os valores das peças
             for($i = 0; $i < count($resultados_cpu); $i++){
@@ -135,13 +134,13 @@
                 }
 
                 // Guarda qual o menor valor e o nome da peça mais barata
-                if($resultado_preco < $valorMenor){
-                    $valorMenor = $resultado_preco;
+                if($resultado_preco < $valorMenorCpu){
+                    $valorMenorCpu = $resultado_preco;
                     $result_cpu_final = $resultados_cpu[$i];
                 }
             }
             // Agrega o valor da peça no valor final do PC
-            $valor_pc += $valorMenor;
+            $valor_pc += $valorMenorCpu;
 
         }else{
             // Cria um loop para rodar por todas as CPUs cadastradas
@@ -159,7 +158,7 @@
                 }
             }
             // Cria uma váriavel para armazenar o menor valor
-            $valorMenor = 999999;
+            $valorMenorCpu = 999999;
 
             // Cria um loop para ver os valores das peças
             for($i = 0; $i < count($resultados_cpu); $i++){
@@ -171,24 +170,27 @@
                 // Armazena o valor do preço da peça atual do loop
                 while ($resultado = $result_preco->fetch_assoc()) {
                     $resultado_preco = $resultado['preco'];
-                }
+                } 
 
                 // Guarda qual o menor valor e o nome da peça mais barata
-                if($resultado_preco < $valorMenor){
-                    $valorMenor = $resultado_preco;
+                if($resultado_preco < $valorMenorCpu){
+                    $valorMenorCpu = $resultado_preco;
                     $result_cpu_final = $resultados_cpu[$i];
                 }
             }
-            // Armazena qual a GPU integrada do processador
-            $valor_pc += $valorMenor;
 
             $query = "select gpu_integrado from cpu where nome_cpu = '{$result_cpu_final}'";
 
-            $result_gpu_integrado = mysqli_query($mysqli, $query);
+            $resultado_integrado = mysqli_query($mysqli, $query);
 
-            // Armazena a GPU integrada como GPU final
-            $result_gpu_final = $result_gpu_integrado;
+            // Armazena o gráfico integrado da CPU escolhida
+            while ($resultado = $resultado_integrado->fetch_assoc()) {
+                $result_gpu_final = $resultado['gpu_integrado'];
+            } 
+            $valorMenorGpu = 0;  
         }
+
+
 
         // Procura qual o soquete da CPU selecionada
         $query = "select soquete from cpu where nome_cpu = '{$result_cpu_final}'";
@@ -212,7 +214,7 @@
         }
 
         // Cria uma váriavel para armazenar o menor valor
-        $valorMenor = 999999;
+        $valorMenorMae = 999999;
         
         // Cria um loop para ver os valores das peças
         for($i = 0; $i < count($resultados_mae); $i++){
@@ -227,14 +229,11 @@
             }
 
             // Guarda qual o menor valor e o nome da peça mais barata
-            if($resultado_preco < $valorMenor){
-                $valorMenor = $resultado_preco;
+            if($resultado_preco < $valorMenorMae){
+                $valorMenorMae = $resultado_preco;
                 $result_mae_final = $resultados_mae[$i];
             }
         }
-
-        // Agrega o valor da peça no valor final do PC
-        $valor_pc += $valorMenor;
 
         if($contWhile == 0){  
             // Consulta o banco de dados para saber quantas GPUs temos cadastradas
@@ -263,7 +262,7 @@
             }   
         
             // Cria uma váriavel para armazenar o menor valor
-            $valorMenor = 999999;
+            $valorMenorGpu = 999999;
         
             // Cria um loop para ver os valores das peças
             for($i = 0; $i < count($resultados_gpu); $i++){
@@ -278,28 +277,31 @@
                 }
         
                 // Guarda qual o menor valor e o nome da peça mais barata
-                if($resultado_preco < $valorMenor){
-                    $valorMenor = $resultado_preco;
+                if($resultado_preco < $valorMenorGpu){
+                    $valorMenorGpu = $resultado_preco;
                     $result_gpu_final = $resultados_gpu[$i];
                 }
             }
-            // Agrega o valor da peça no valor final do PC
-            $valor_pc += $valorMenor;
         }
+
+        $valor_pc = $valorMenorCpu + $valorMenorMae + $valorMenorGpu;
 
         if($valor_pc <= $orcamento){
             echo "CPU necessária = $result_cpu_final<br>";
             echo "GPU necessária = $result_gpu_final<br>";
             echo "Placa mãe necessária = $result_mae_final<br>"; 
             echo "valor = $valor_pc<br>"; 
-
+    
             $result_pc = true;
         }elseif($contWhile == 0){
             $contWhile++;
         }else{
             echo "Não é possível montar um PC que cumpra os requisitos com o orçamento atual!";
+            break;
         }
     }
+    
+    
     /*echo "Pontuaçao GPU: $pont_gpu_final <br>";
     echo "Pontuaçao CPU: $pont_cpu_final <br>";
     echo "Orçamento: $orcamento <br>";
