@@ -20,7 +20,7 @@
         <a href="games.php"><button class="index-btn">Clique para montar seu PC</button></a>
         <div class="desc">
             <p class="p-index">SóNosCompiuter</p>
-            <p class="p-index">Criado por leigos, para leigos</p>
+            <p class="p-index">Criado por gamers, para gamers</p>
             <p class="p-index">O único site que te ajuda a montar o seu PC ideal apartir de suas necessidades</p>
         </div>
       </div>
