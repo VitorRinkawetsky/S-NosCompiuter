@@ -1,3 +1,16 @@
+<?php
+  include('gerar.php');
+
+  // Verificar se as variáveis de sessão estão definidas antes de acessá-las
+  $result_cpu_final = isset($_SESSION['cpu']) ? $_SESSION['cpu'] : null;
+  $result_gpu_final = isset($_SESSION['gpu']) ? $_SESSION['gpu'] : null;
+  $result_mae_final = isset($_SESSION['placaMae']) ? $_SESSION['placaMae'] : null;
+  $valorMenorCpu = isset($_SESSION['precoCpu']) ? $_SESSION['precoCpu'] : null;
+  $valorMenorGpu = isset($_SESSION['precoGpu']) ? $_SESSION['precoGpu'] : null;
+  $valorMenorMae = isset($_SESSION['precoMae']) ? $_SESSION['precoMae'] : null;
+  $valor_pc = isset($_SESSION['precoPc']) ? $_SESSION['precoPc'] : null;
+  $erro = isset($_SESSION['erro']) ? $_SESSION['erro'] : null;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,38 +34,51 @@
 
     <h1>Peças</h1>
 
+    <?php if ($result_cpu_final != null): ?>
     <div class="final">
+      <div class="peca">
+        <img src="img/processador.PNG" alt="processador">
+        <?php
+          echo "CPU: $result_cpu_final<br>";
+          echo "Preço: $valorMenorCpu<br>";
+        ?>
+        <p>Descrição</p>
+      </div>
+      <div class="peca">
+        <img src="img/placa-mae.PNG" alt="placa-mae">
+        <?php
+          echo "GPU: $result_gpu_final<br>";
+          if($valorMenorGpu != 0){
+            echo "Preço: $valorMenorGpu<br>";
+          }else{
+            echo "Placa gráfica integrada na CPU";
+          }
+        ?>
+        <p>Descrição</p>
+      </div>
+      <div class="peca">
+        <img src="img/placa-video.PNG" alt="placa-video">
+        <?php
+          echo "CPU: $result_mae_final<br>";
+          echo "Preço: $valorMenorMae<br>";
+        ?>
+        <p>Descrição</p>
+      </div>
+    </div>
+    <?php else: ?>
+      <div class="final">
+        <?php echo $erro; ?>
+      </div>
+    <?php endif; ?>
 
-    <div class="peca">
-    <input type="checkbox" name="" id="">
-    <img src="img/processador.PNG" alt="processador">
-    <p>Descrição</p>
-    </div>
-    <div class="peca">
-    <input type="checkbox" name="" id="">
-    <img src="img/placa-mae.PNG" alt="placa-mae">
-    <p>Descrição</p>
-    </div>
-    <div class="peca">
-    <input type="checkbox" name="" id="">
-    <img src="img/placa-video.PNG" alt="placa-video">
-    <p>Descrição</p>
-    </div>
-    </div>
     <div class="grid-container">
-
-<div class="box">
-
-  <div class="item">
-   
-    <div class="toggle-pill-dark">
-      <input type="checkbox" id="pill4" name="check">
-      <label for="pill4"></label>
+      <div class="box">
+        <div class="item">
+          <div class="toggle-pill-dark">
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
-</div>
-</div>
   </main>
 </body>
 

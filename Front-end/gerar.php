@@ -287,28 +287,23 @@
         $valor_pc = $valorMenorCpu + $valorMenorMae + $valorMenorGpu;
 
         if($valor_pc <= $orcamento){
-            echo "CPU necessária = $result_cpu_final<br>";
-            echo "GPU necessária = $result_gpu_final<br>";
-            echo "Placa mãe necessária = $result_mae_final<br>"; 
-            echo "valor = $valor_pc<br>"; 
+            session_start();
+
+            $_SESSION['cpu'] = $result_cpu_final;
+            $_SESSION['gpu'] = $result_gpu_final;
+            $_SESSION['placaMae'] = $result_mae_final;
+            $_SESSION['precoCpu'] = $valorMenorCpu;
+            $_SESSION['precoGpu'] = $valorMenorGpu;
+            $_SESSION['precoMae'] = $valorMenorMae;
+            $_SESSION['precoPc'] = $valor_pc;
     
             $result_pc = true;
         }elseif($contWhile == 0){
             $contWhile++;
         }else{
-            echo "Não é possível montar um PC que cumpra os requisitos com o orçamento atual!";
-            break;
+            $_SESSION['erro'] = "Não é possível montar um PC que cumpra os requisitos com o orçamento atual!";
+            
+            $result_pc = true;
         }
     }
-    
-    
-    /*echo "Pontuaçao GPU: $pont_gpu_final <br>";
-    echo "Pontuaçao CPU: $pont_cpu_final <br>";
-    echo "Orçamento: $orcamento <br>";
-    echo "Fps: $fps <br>";
-    echo "grafico $grafico <br>";
-
-    for($i = 0; $i < count($array_softwares); $i++){
-        echo "Jogo: $array_softwares[$i] <br>";
-    } */
 ?>

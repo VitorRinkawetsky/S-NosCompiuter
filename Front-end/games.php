@@ -25,7 +25,7 @@
   <main>
 
     <h1>Games</h1>
-    <form method="post" id="form-pesquisa" action="gerar.php">
+    <form method="post" id="form-pesquisa" action="final.php">
       <div class="games">
         <p class="pgames">Orçamento:</p>
         <input class="label orçamento" type="number" name="orcamento" placeholder="R$">
@@ -64,10 +64,10 @@
         </div>
 
         <div id="demo"></div>
-        
+
         <div class="submit-container">
           <div class="submit-line">
-            <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisaApp" id="pesquisa">
+            <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisaApp" required id="pesquisa">
             <button class="submit-lente" type="submit" value="pesquisar">
               <i class="fa fa-search"></i>
             </button>
