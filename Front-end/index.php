@@ -10,18 +10,27 @@
   <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/horta" type="text/css"/>
 </head>
-<body>
+<body class="index-body">
     <header>
         <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
     </header>
     
     <main>
-        <div class="index-container">
-            <h1>Escolha o uso do PC</h1>
-            <div><a href="games.php"><img src="img/btn-games.png" alt="btn-games"></a></div>
-            <div><a href="trabalho.php"><img src="img/btn-trabalho.PNG" alt="btn-trabalho"></a></div>
-            <div><a href="ambos.php"><img src="img/btn-ambos.PNG" alt="btn-ambos"></a></div>
+      <div class="index-container">
+        <a href="games.php"><button class="index-btn">Clique para montar seu PC</button></a>
+        <div class="desc">
+            <p class="p-index">SóNosCompiuter</p>
+            <p class="p-index">Criado por leigos, para leigos</p>
+            <p class="p-index">O único site que te ajuda a montar o seu PC ideal apartir de suas necessidades</p>
         </div>
+      </div>
+      <div class="img-container">
+      <img class="ahri" src="img/Champion_Ahri_HP.png" alt="">
+      <img src="img/Personagem_Chongyun_Retrato.webp" alt="">
+      <img src="img/2BPrayingRein.webp" alt="">
+      <img src="img/horizon-zero-dawn-two-column-aloy-03-ps4-eu-22jun16.png" alt="">
+      <img class="ahri" src="img/5ee06655ec1b390da4063cd1c8082b65.png" alt="">
+      </div>
     </main>
 </body>
 </html>
