@@ -30,7 +30,7 @@
                 <p class="style-p"><a class="style-href" href="painel_cpu.php">Painel CPU</p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="cadastro_gpu.php">Cadastrar GPU</p>
+                <p class="style-p"><a class="style-href" href="painel_gpu.php">Painel GPU</p>
             </div>
             <div class="div-painel">
                 <p class="style-p"><a class="style-href" href="cadastro_placamae.php">Cadastrar Placa Mãe</p>
