@@ -27,19 +27,19 @@
     <div class="painel">
             <div class="flexbox">
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="painel_cpu.php">Painel CPU</p>
+                <p class="style-p"><a class="style-href" href="painel_cpu.php">Painel CPU</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="painel_gpu.php">Painel GPU</p>
+                <p class="style-p"><a class="style-href" href="painel_gpu.php">Painel GPU</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="cadastro_placamae.php">Cadastrar Placa Mãe</p>
+                <p class="style-p"><a class="style-href" href="cadastro_placamae.php">Cadastrar Placa Mãe</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="cadastro_software.php">Cadastrar Software</p>
+                <p class="style-p"><a class="style-href" href="cadastro_software.php">Cadastrar Software</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="cadastro_admin.php">Cadastrar Login de Adiministrador</p>
+                <p class="style-p"><a class="style-href" href="cadastro_admin.php">Cadastrar Login de Adiministrador</a></p>
             </div>
             </div>
        <button class="proximo" onclick="logout()">Deslogar</button>

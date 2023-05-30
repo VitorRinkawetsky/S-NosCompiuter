@@ -1,5 +1,46 @@
 <?php
-    include('protect.php')
+    include('protect.php');
+    include('conexao.php');
+
+    
+    $nome_cpu = filter_input(INPUT_POST, 'nome_cpu', FILTER_SANITIZE_STRING);
+
+    $marca_cpu = filter_input(INPUT_POST, 'marca_cpu', FILTER_SANITIZE_STRING);
+
+    $soquete_cpu = filter_input(INPUT_POST, 'soquete_cpu', FILTER_SANITIZE_STRING);
+
+    $preco_cpu = filter_input(INPUT_POST, 'preco_cpu', FILTER_SANITIZE_STRING);
+
+    $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
+
+    $query = "select nome_cpu from cpu where nome_cpu = '{$nome_cpu}'";
+
+    $resultado = mysqli_query($mysqli, $query);
+
+    $row = mysqli_num_rows($resultado);
+
+    if($nome_cpu == "" || $marca_cpu == "" || $soquete_cpu == "" || $preco_cpu == "" || $pontuacao_cpu == "") {
+        $erro_geral = "Todos os campos precisa ser preenchidos!";
+    }else if ($soquete_cpu < 0){
+        $mensagem_soquete_invalido = "Insira um soquete válido!";
+    }else if ($pontuacao_cpu < 0){
+        $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
+    }else if ($preco_cpu < 0){
+        $mensagem_preco_invalido = "Insira um preço válido!";
+    }else{
+
+        if($row == 0){
+            $sql = "insert into cpu (marca, soquete, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
+
+            $result = mysqli_query($mysqli, $sql);
+
+            if(mysqli_insert_id($mysqli)) {
+                $mensagem_cpu_cadastrada = "CPU cadastrada com sucesso!";
+            }
+        }else if($row >= 1) {                                           
+            echo "CPU ja cadastrada";
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -45,41 +86,30 @@
 
         <button class="proximo" type="submit">Cadastrar</button>
         <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel_cpu.php">Voltar</p>
+            <p class="style-p"><a class="style-href" href="painel_cpu.php">Voltar</a></p>
         </div>
+        <?php
+            if(isset($erro_geral)){
+                echo "<p>".$erro_geral."</p>";
+            }
+            
+            if(isset($mensagem_cpu_cadastrada)){
+                echo "<p>".$mensagem_cpu_cadastrada."</p>";
+            }
+
+            if(isset($mensagem_soquete_invalido)){
+                echo "<p>".$mensagem_soquete_invalido."</p>";
+            }
+            
+            if(isset($mensagem_pontuacao_invalido)){
+                echo "<p>".$mensagem_pontuacao_invalido."</p>";
+            }
+
+            if(isset($mensagem_preco_invalido)){
+                echo "<p>".$mensagem_preco_invalido."</p>";
+            }
+        ?>
         </div>
     </form>
 </body>
 </html>
-
-<?php
-    include("conexao.php");
-
-    $nome_cpu = filter_input(INPUT_POST, 'nome_cpu', FILTER_SANITIZE_STRING);
-
-    $marca_cpu = filter_input(INPUT_POST, 'marca_cpu', FILTER_SANITIZE_STRING);
-
-    $soquete_cpu = filter_input(INPUT_POST, 'soquete_cpu', FILTER_SANITIZE_STRING);
-
-    $preco_cpu = filter_input(INPUT_POST, 'preco_cpu', FILTER_SANITIZE_STRING);
-
-    $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
-
-    $query = "select nome_cpu from cpu where nome_cpu = '{$nome_cpu}'";
-
-    $resultado = mysqli_query($mysqli, $query);
-
-    $row = mysqli_num_rows($resultado);
-
-    if($row == 0){
-        $sql = "insert into cpu (marca, soquete, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
-
-        $result = mysqli_query($mysqli, $sql);
-
-        if(mysqli_insert_id($mysqli)) {
-            echo "<p>CPU cadastrada com sucesso!</p>";
-        }
-    }else if($row >= 1) {                                           
-        echo "CPU ja cadastrada";
-    }
-?>

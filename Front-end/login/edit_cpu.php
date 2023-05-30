@@ -1,9 +1,26 @@
 <?php
     include('protect.php');
+    include('conexao.php');
 
+    //se o id vier vazio redireciona para o painel
+    if(!isset($_GET['id'])) {
+        header("Location: painel.php");
+        exit;
+    }
+    //verifica se o id veio e atribui ele a uma variavel
     if(isset($_GET['id'])) {
         $id = (int)$_GET['id'];
     }
+
+    $sql = "SELECT * from cpu where id = $id";
+    $result = $mysqli->query($sql);
+    $row = $result->FETCH_ASSOC();
+
+    $nome = $row['nome_cpu'];
+    $marca = $row['marca'];
+    $soquete = $row['soquete'];
+    $pontuacao = $row['pontuacao'];
+    $preco = $row['preco'];
 ?>
 
 <!DOCTYPE html>
@@ -29,31 +46,31 @@
     <div class="games">
         <div>
         <p class="pgames">Nome da CPU:</p> 
-        <input class="label orçamento" type="text" id="nome_cpu" name="nome_cpu">
+        <input class="label orçamento" type="text" id="nome_cpu" name="nome_cpu" value="<?php echo $nome; ?>">
         </div>
 
         <p class="pgames">Marca:</p> 
-        <input class="label orçamento" type="text" id="marca_cpu" name="marca_cpu">
+        <input class="label orçamento" type="text" id="marca_cpu" name="marca_cpu" value="<?php echo $marca; ?>">
 
         <div>
         <p class="pgames">Soquete CPU:</p> 
-        <input class="label orçamento" type="number" id="soquete_cpu" name="soquete_cpu">
+        <input class="label orçamento" type="number" id="soquete_cpu" name="soquete_cpu" value="<?php echo $soquete; ?>">
         </div>
 
         <div>
         <p class="pgames">Pontuação:</p> 
-        <input class="label orçamento" type="number" id="pontuacao_cpu" name="pontuacao_cpu">
+        <input class="label orçamento" type="number" id="pontuacao_cpu" name="pontuacao_cpu" value="<?php echo $pontuacao; ?>">
         </div>
 
         <p class="pgames">Preço:</p> 
-        <input class="label orçamento" type="text" id="preco_cpu" name="preco_cpu">
+        <input class="label orçamento" type="text" id="preco_cpu" name="preco_cpu" value="<?php echo $preco; ?>">
 
         <button class="proximo" type="submit">Editar</button>
-        <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel_cpu.php">Voltar</p>
-        </div>
         </div>
     </form>
+    <div class="div-painel">
+        <p class="style-p"><a class="style-href" href="painel_cpu.php">Voltar</a></p>
+    </div>
 </body>
 </html>
 

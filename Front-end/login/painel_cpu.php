@@ -61,11 +61,11 @@
         </table>
 
         <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="cadastro_cpu.php">Cadastrar CPU</p>
+            <p class="style-p"><a class="style-href" href="cadastro_cpu.php">Cadastrar CPU</a></p>
         </div>
 
         <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel.php">Voltar</p>
+            <p class="style-p"><a class="style-href" href="painel.php">Voltar</a></p>
         </div>
 
     </div>
