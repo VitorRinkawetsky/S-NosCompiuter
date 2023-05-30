@@ -37,7 +37,7 @@
 
         <div>
         <p class="pgames">Soquete CPU:</p> 
-        <input class="label orçamento" type="text" id="soquete_cpu" name="soquete_cpu">
+        <input class="label orçamento" type="number" id="soquete_cpu" name="soquete_cpu">
         </div>
 
         <div>

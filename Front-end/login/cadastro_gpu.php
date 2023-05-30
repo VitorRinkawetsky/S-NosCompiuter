@@ -44,7 +44,7 @@
 
         <button class="proximo" type="submit">Cadastrar</button>
         <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel.php">Voltar</p>
+            <p class="style-p"><a class="style-href" href="painel_gpu.php">Voltar</p>
         </div>
         </div>
         </form>

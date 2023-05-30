@@ -5,7 +5,7 @@
     //verifica se foi clicado ou não no botão para excluir 
     if(isset($_GET['delete'])) {
         $id = (int)$_GET['delete'];
-        $conexao->exec("DELETE from cpu where id=$id");
+        $conexao->exec("DELETE from gpu where id=$id");
     }
 ?>
 
