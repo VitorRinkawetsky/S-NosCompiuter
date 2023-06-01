@@ -35,34 +35,37 @@
     <h1>Peças</h1>
 
     <?php if ($result_cpu_final != null): ?>
-    <div class="final">
-      <div class="peca">
-        <img src="img/processador.PNG" alt="processador">
-        <?php
-          echo "CPU: $result_cpu_final<br>";
-          echo "Preço: $valorMenorCpu<br>";
-        ?>
+    <div class="games">
+      <div>
         <p>Descrição</p>
-      </div>
-      <div class="peca">
-        <img src="img/placa-mae.PNG" alt="placa-mae">
+        <img src="" alt="">
         <?php
-          echo "GPU: $result_gpu_final<br>";
+          echo "<p>CPU: $result_cpu_final</p><br>";
+          echo "<p>Preço: $valorMenorCpu</p><br>";
+        ?>
+      </div>
+      <div>
+        <?php
+          echo "<p>GPU: $result_gpu_final</p><br>";
           if($valorMenorGpu != 0){
-            echo "Preço: $valorMenorGpu<br>";
+            echo "<p>Preço: $valorMenorGpu</p><br>";
           }else{
-            echo "Placa gráfica integrada na CPU";
+            echo "<p>Placa gráfica integrada na CPU</p>";
           }
         ?>
         <p>Descrição</p>
       </div>
-      <div class="peca">
-        <img src="img/placa-video.PNG" alt="placa-video">
+      <div>
         <?php
-          echo "CPU: $result_mae_final<br>";
-          echo "Preço: $valorMenorMae<br>";
+          echo "<p>CPU: $result_mae_final</p><br>";
+          echo "<p>Preço: $valorMenorMae</p><br>";
         ?>
         <p>Descrição</p>
+      </div>
+      <div class="valor-total">
+          <?php
+            echo "Valor do PC: R$ $valor_pc<br>";
+          ?>
       </div>
     </div>
     <?php else: ?>

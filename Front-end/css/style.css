@@ -217,31 +217,7 @@ input[type=number] {
 }
 .proximo:hover{
     opacity: 0.7;
-}
-
-.final{
-    border-color: rgb(100, 0, 0);
-    border-style: solid;
-    border-width: 2px;
-    background-color: rgb(32, 32, 32);
-    margin-left: 35%;
-    margin-right: 35%;
-    border-radius: 4px;
-    padding-bottom: 1%;
-    text-align: center;
-    padding-right: 0%;
-}
-.final img{
-    margin-top: 3%;
-    margin-left: 3%;
-    border-color: rgb(100, 0, 0);
-    border-style: solid;
-    border-width: 3px;
-    margin-right: 5px;
-}  
-.peca{
-    display: inline-block;
-}
+} 
 
 .label-login{
     margin-left: 5%;
@@ -422,4 +398,17 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+}
+.valor-total{
+    margin-left: 28vw;
+    background-color: red;
+    color: white;
+    border-radius: 1vw;
+    border-style: solid;
+    border-width: 0.1vw;
+    height: 5vh;
+    width: 8vw;
+    font-size: 2.5vh;
+    text-align: center;
+    border-color: black;
 }
