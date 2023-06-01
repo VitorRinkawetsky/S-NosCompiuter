@@ -26,7 +26,7 @@
     <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
   </header>
 
-    <h1>Cadastro de CPU</h1>
+    <h1>Painel CPU</h1>
     <form action="" method="POST">
     <div class="games">
 

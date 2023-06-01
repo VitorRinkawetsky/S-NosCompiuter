@@ -7,4 +7,6 @@ function logout() {
     };
     xhttp.open("POST", "logout.php", true);
     xhttp.send();
+
+    location.href="../login/indexlogin.php"
   }

@@ -22,7 +22,7 @@
   </header>
     <main>
  
-    <h1>Bem vindo a tela de cadastros</h1>
+    <h1>Bem vindo aos painéis</h1>
 
     <div class="painel">
             <div class="flexbox">
@@ -33,7 +33,7 @@
                 <p class="style-p"><a class="style-href" href="painel_gpu.php">Painel GPU</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="cadastro_placamae.php">Cadastrar Placa Mãe</a></p>
+                <p class="style-p"><a class="style-href" href="painel_placa_mae.php">Painel Placa Mãe</a></p>
             </div>
             <div class="div-painel">
                 <p class="style-p"><a class="style-href" href="cadastro_software.php">Cadastrar Software</a></p>

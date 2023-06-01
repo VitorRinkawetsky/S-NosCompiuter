@@ -21,6 +21,45 @@
     $soquete = $row['soquete'];
     $pontuacao = $row['pontuacao'];
     $preco = $row['preco'];
+
+    $id_cpu = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
+
+    $nome_cpu = filter_input(INPUT_POST, 'nome_cpu', FILTER_SANITIZE_STRING);
+
+    $marca_cpu = filter_input(INPUT_POST, 'marca_cpu', FILTER_SANITIZE_STRING);
+
+    $soquete_cpu = filter_input(INPUT_POST, 'soquete_cpu', FILTER_SANITIZE_STRING);
+
+    $preco_cpu = filter_input(INPUT_POST, 'preco_cpu', FILTER_SANITIZE_STRING);
+
+    $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
+
+    $query = "select id from cpu where id = '{$id}'";
+
+    $resultado = mysqli_query($mysqli, $query);
+
+    $row = mysqli_num_rows($resultado);
+
+    if($nome_cpu == "" || $marca_cpu == "" || $soquete_cpu == "" || $preco_cpu == "" || $pontuacao_cpu == "") {
+        $erro_geral = "Todos os campos precisa ser preenchidos!";
+    }else if ($soquete_cpu < 0){
+        $mensagem_soquete_invalido = "Insira um soquete válido!";
+    }else if ($pontuacao_cpu < 0){
+        $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
+    }else if ($preco_cpu < 0){
+        $mensagem_preco_invalido = "Insira um preço válido!";
+    }else{
+
+        if($row == 1){
+
+            $sql = "UPDATE cpu set nome_cpu = '$nome_cpu', marca = '$marca_cpu', soquete = '$soquete_cpu', preco = '$preco_cpu', pontuacao = '$pontuacao_cpu' where id = '$id'";
+    
+            $result = mysqli_query($mysqli, $sql);
+    
+            header('Location: painel_cpu.php');
+            
+        } 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -66,43 +105,35 @@
         <input class="label orçamento" type="text" id="preco_cpu" name="preco_cpu" value="<?php echo $preco; ?>">
 
         <button class="proximo" type="submit">Editar</button>
+        <div class="div-painel">
+            <p class="style-p"><a class="style-href" href="painel_cpu.php">Voltar</a></p>
+        </div>
+        <?php
+            if(isset($erro_geral)){
+                echo "<p>".$erro_geral."</p>";
+            }
+            
+            if(isset($mensagem_cpu_cadastrada)){
+                echo "<p>".$mensagem_cpu_cadastrada."</p>";
+            }
+
+            if(isset($mensagem_soquete_invalido)){
+                echo "<p>".$mensagem_soquete_invalido."</p>";
+            }
+            
+            if(isset($mensagem_pontuacao_invalido)){
+                echo "<p>".$mensagem_pontuacao_invalido."</p>";
+            }
+
+            if(isset($mensagem_preco_invalido)){
+                echo "<p>".$mensagem_preco_invalido."</p>";
+            }
+        ?>
         </div>
     </form>
-    <div class="div-painel">
-        <p class="style-p"><a class="style-href" href="painel_cpu.php">Voltar</a></p>
-    </div>
 </body>
 </html>
 
 <?php
-    include("conexao.php");
-
-    $id_cpu = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
-
-    $nome_cpu = filter_input(INPUT_POST, 'nome_cpu', FILTER_SANITIZE_STRING);
-
-    $marca_cpu = filter_input(INPUT_POST, 'marca_cpu', FILTER_SANITIZE_STRING);
-
-    $soquete_cpu = filter_input(INPUT_POST, 'soquete_cpu', FILTER_SANITIZE_STRING);
-
-    $preco_cpu = filter_input(INPUT_POST, 'preco_cpu', FILTER_SANITIZE_STRING);
-
-    $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
-
-    $query = "select id from cpu where id = '{$id}'";
-
-    $resultado = mysqli_query($mysqli, $query);
-
-    $row = mysqli_num_rows($resultado);
-
-    if($row == 1){
-
-        $sql = "UPDATE cpu set nome_cpu = '$nome_cpu', marca = '$marca_cpu', soquete = '$soquete_cpu', preco = '$preco_cpu', pontuacao = '$pontuacao_cpu' where id = '$id'";
-
-        $result = mysqli_query($mysqli, $sql);
-
-        if(mysqli_insert_id($mysqli)) {
-            echo "<p>CPU editada com sucesso!</p>";
-        }
-    }
+    
 ?>

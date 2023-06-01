@@ -1,5 +1,43 @@
 <?php
-    include('protect.php')
+    include('protect.php');
+    include('conexao.php');
+
+    
+    $nome_gpu = filter_input(INPUT_POST, 'nome_gpu', FILTER_SANITIZE_STRING);
+
+    $marca_gpu = filter_input(INPUT_POST, 'marca_gpu', FILTER_SANITIZE_STRING);
+
+    $preco_gpu = filter_input(INPUT_POST, 'preco_gpu', FILTER_SANITIZE_STRING);
+
+    $pontuacao_gpu = filter_input(INPUT_POST, 'pontuacao_gpu', FILTER_SANITIZE_STRING);
+
+    $chip_grafico = filter_input(INPUT_POST, 'chip_grafico', FILTER_SANITIZE_STRING);
+
+    $query = "select nome_gpu from gpu where nome_gpu = '{$nome_gpu}'";
+
+    $resultado = mysqli_query($mysqli, $query);
+
+    $row = mysqli_num_rows($resultado);
+
+    if($nome_gpu == "" || $marca_gpu == "" || $preco_gpu == "" || $pontuacao_gpu == "" || $chip_grafico == "") {
+        $erro_geral = "Todos os campos precisa ser preenchidos!";
+    }else if ($pontuacao_gpu < 0){
+        $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
+    }else if ($preco_gpu < 0){
+        $mensagem_preco_invalido = "Insira um preço válido!";
+    }else{
+        if($row == 0){
+            $sql = "insert into gpu (nome_gpu, marca, preco, pontuacao, chip_grafico) values('$nome_gpu', '$marca_gpu', '$preco_gpu', '$pontuacao_gpu', '$chip_grafico')";
+    
+            $result = mysqli_query($mysqli, $sql);
+    
+            if(mysqli_insert_id($mysqli)) {
+                $mensagem_gpu_cadastrada = "GPU cadastrada com sucesso!";
+            }
+        }else if($row >= 1) {                                           
+            echo "GPU ja cadastrada";
+        } 
+    }
 ?>
 
 <!DOCTYPE html>
@@ -44,41 +82,27 @@
 
         <button class="proximo" type="submit">Cadastrar</button>
         <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel_gpu.php">Voltar</p>
+            <p class="style-p"><a class="style-href" href="painel_gpu.php">Voltar</a></p>
         </div>
+        <?php
+            if(isset($erro_geral)){
+                echo "<p>".$erro_geral."</p>";
+            }
+            
+            if(isset($mensagem_gpu_cadastrada)){
+                echo "<p>".$mensagem_gpu_cadastrada."</p>";
+            }
+            
+            if(isset($mensagem_pontuacao_invalido)){
+                echo "<p>".$mensagem_pontuacao_invalido."</p>";
+            }
+
+            if(isset($mensagem_preco_invalido)){
+                echo "<p>".$mensagem_preco_invalido."</p>";
+            }
+        ?>
         </div>
         </form>
 </body>
 </html>
 
-<?php
-    include("conexao.php");
-
-    $nome_gpu = filter_input(INPUT_POST, 'nome_gpu', FILTER_SANITIZE_STRING);
-
-    $marca_gpu = filter_input(INPUT_POST, 'marca_gpu', FILTER_SANITIZE_STRING);
-
-    $preco_gpu = filter_input(INPUT_POST, 'preco_gpu', FILTER_SANITIZE_STRING);
-
-    $pontuacao_gpu = filter_input(INPUT_POST, 'pontuacao_gpu', FILTER_SANITIZE_STRING);
-
-    $chip_grafico = filter_input(INPUT_POST, 'chip_grafico', FILTER_SANITIZE_STRING);
-
-    $query = "select nome_gpu from gpu where nome_gpu = '{$nome_gpu}'";
-
-    $resultado = mysqli_query($mysqli, $query);
-
-    $row = mysqli_num_rows($resultado);
-
-    if($row == 0){
-        $sql = "insert into gpu (nome_gpu, marca, preco, pontuacao, chip_grafico) values('$nome_gpu', '$marca_gpu', '$preco_gpu', '$pontuacao_gpu', '$chip_grafico')";
-
-        $result = mysqli_query($mysqli, $sql);
-
-        if(mysqli_insert_id($mysqli)) {
-            echo "<p>GPU cadastrada com sucesso!</p>";
-        }
-    }else if($row >= 1) {                                           
-        echo "GPU ja cadastrada";
-    }
-?>
