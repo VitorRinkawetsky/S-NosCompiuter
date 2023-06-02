@@ -1,6 +1,24 @@
 <?php
     include('protect.php');
     include("conexao.php");
+
+    //se o id vier vazio redireciona para o painel
+    if(!isset($_GET['id'])) {
+        header("Location: painel.php");
+        exit;
+    }
+    //verifica se o id veio e atribui ele a uma variavel
+    if(isset($_GET['id'])) {
+        $id = (int)$_GET['id'];
+    }
+
+    $sql = "SELECT * from admin_login where id = $id";
+    $result = $mysqli->query($sql);
+    $row = $result->FETCH_ASSOC();
+
+    $login_admin = $row['login'];
+    $senha_admin = $row['senha'];
+    
     //pego as variaveis
     $login = filter_input(INPUT_POST, 'login', FILTER_SANITIZE_STRING);
     $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
@@ -10,13 +28,11 @@
     }else if (preg_match('/^[a-zA-Z0-9]+$/', $login) && preg_match('/^[a-zA-Z0-9]+$/', $senha)) {
             $senha = password_hash($senha, PASSWORD_BCRYPT, ['cost' => 12]);
 
-            $sql = "insert into admin_login(login, senha) values('$login', '$senha')";
-        
+            $sql = "UPDATE admin_login set login = '$login', senha = '$senha' where id = '$id'";
+    
             $result = mysqli_query($mysqli, $sql);
-        
-            if(mysqli_insert_id($mysqli)) {
-                $mensagem_login_cadastrado = "Login administrativo cadastrado com sucesso!";
-            }
+    
+            header('Location: painel_login.php');
     } else {
         $mensagem_caracteres_invalidos_letras_numeros = "Os campos login e senha só podem conter letras e números!";
     }
@@ -43,13 +59,13 @@
         <div class="games">
           <div>
             <p class="pgames">Login:</p>
-            <input class="label orçamento" type="text" id="login" name="login">
+            <input class="label orçamento" type="text" id="login" name="login" value="<?php echo $login_admin; ?>">
           </div>
 
             <p class="pgames">Senha:</p>
             <input class="label orçamento" type="text" id="senha" name="senha">
 
-            <button class="proximo" type="submit">Cadastrar</button>
+            <button class="proximo" type="submit">Editar</button>
 
             <div class="div-painel">
                     <p class="style-p"><a class="style-href" href="painel_login.php">Voltar</a></p>
