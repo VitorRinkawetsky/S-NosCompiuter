@@ -27,19 +27,24 @@
         $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
     }else if ($preco_cpu < 0){
         $mensagem_preco_invalido = "Insira um preço válido!";
-    }else{
-
-        if($row == 0){
-            $sql = "insert into cpu (marca, soquete, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
-
-            $result = mysqli_query($mysqli, $sql);
-
-            if(mysqli_insert_id($mysqli)) {
-                $mensagem_cpu_cadastrada = "CPU cadastrada com sucesso!";
+    }else if(preg_match('/^[0-9]+$/', $soquete_cpu) && preg_match('/^[0-9]+$/', $preco_cpu) && preg_match('/^[0-9]+$/', $pontuacao_cpu)) {
+        if (preg_match('/^[a-zA-Z0-9]+$/', $nome_cpu) && preg_match('/^[a-zA-Z0-9]+$/', $marca_cpu)) {
+            if($row == 0){
+                $sql = "insert into cpu (marca, soquete, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
+    
+                $result = mysqli_query($mysqli, $sql);
+    
+                if(mysqli_insert_id($mysqli)) {
+                    $mensagem_cpu_cadastrada = "CPU cadastrada com sucesso!";
+                }
+            }else if($row >= 1) {                                           
+                $mensagem_cpu_nao_cadastrada = "CPU já cadastrada!";
             }
-        }else if($row >= 1) {                                           
-            echo "CPU ja cadastrada";
+        } else {
+            $mensagem_caracteres_invalidos_letras_numeros = "Os campos nome e marca só podem conter letras e números!";
         }
+    }else{
+        $mensagem_caracteres_invalidos_numeros = "Os campos pontuação, preço e soquete só podem conter números!";
     }
 ?>
 
@@ -78,7 +83,7 @@
 
         <div>
         <p class="pgames">Pontuação:</p> 
-        <input class="label orçamento" type="number" id="pontuacao_cpu" name="pontuacao_cpu">
+        <input class="label orçamento" type="text" id="pontuacao_cpu" name="pontuacao_cpu">
         </div>
 
         <p class="pgames">Preço:</p> 
@@ -107,6 +112,22 @@
 
             if(isset($mensagem_preco_invalido)){
                 echo "<p>".$mensagem_preco_invalido."</p>";
+            }
+
+            if(isset($mensagem_cpu_nao_cadastrada)){
+                echo "<p>".$mensagem_cpu_nao_cadastrada."</p>";
+            }
+
+            if(isset($mensagem_caracteres_invalidos)){
+                echo "<p>".$mensagem_caracteres_invalidos."</p>";
+            }
+
+            if(isset($mensagem_caracteres_invalidos_letras_numeros)){
+                echo "<p>".$mensagem_caracteres_invalidos_letras_numeros."</p>";
+            }
+
+            if(isset($mensagem_caracteres_invalidos_numeros)){
+                echo "<p>".$mensagem_caracteres_invalidos_numeros."</p>";
             }
         ?>
         </div>

@@ -66,7 +66,7 @@
    <header>
     <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
    </header>
-    <h1>Cadastro de Placa Mãe</h1>
+    <h1>Edição de Placa Mãe</h1>
     <form action="" method="POST">
         <div class="games">
         
@@ -86,7 +86,7 @@
         <p class="pgames">Preço:</p>
         <input class="label orçamento" type="text" id="preco_mae" name="preco_mae" value="<?php echo $preco_placa_mae; ?>">
 
-        <button class="proximo" type="submit">Cadastrar</button>
+        <button class="proximo" type="submit">Editar</button>
         <div class="div-painel">
             <p class="style-p"><a class="style-href" href="painel_placa_mae.php">Voltar</a></p>
         </div>

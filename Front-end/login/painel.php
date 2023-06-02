@@ -36,10 +36,10 @@
                 <p class="style-p"><a class="style-href" href="painel_placa_mae.php">Painel Placa Mãe</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="cadastro_software.php">Cadastrar Software</a></p>
+                <p class="style-p"><a class="style-href" href="painel_software.php">Painel Software</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="cadastro_admin.php">Cadastrar Login de Adiministrador</a></p>
+                <p class="style-p"><a class="style-href" href="painel_login.php">Painel Login de Adiministrador</a></p>
             </div>
             </div>
        <button class="proximo" onclick="logout()">Deslogar</button>
