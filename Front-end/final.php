@@ -35,53 +35,59 @@
     <h1>Peças</h1>
 
     <?php if ($result_cpu_final != null): ?>
-    <div class="games">
-      <div>
-        <p>Descrição</p>
-        <img src="" alt="">
-        <?php
-          echo "<p>CPU: $result_cpu_final</p><br>";
-          echo "<p>Preço: $valorMenorCpu</p><br>";
-        ?>
-      </div>
-      <div>
-        <?php
-          echo "<p>GPU: $result_gpu_final</p><br>";
-          if($valorMenorGpu != 0){
-            echo "<p>Preço: $valorMenorGpu</p><br>";
-          }else{
-            echo "<p>Placa gráfica integrada na CPU</p>";
-          }
-        ?>
-        <p>Descrição</p>
-      </div>
-      <div>
-        <?php
-          echo "<p>CPU: $result_mae_final</p><br>";
-          echo "<p>Preço: $valorMenorMae</p><br>";
-        ?>
-        <p>Descrição</p>
-      </div>
-      <div class="valor-total">
+    <div class="final">
+      <div class="container-peca">
+        <div class="peca">
+          <p>Processador</p>
+          <img src="img/ryzen.png" alt="">
+          <div class="valor-container">
+            <?php
+              echo "<p>Preço:<span class='valor'> $valorMenorCpu </span></p><br>";
+              echo "<p>CPU: $result_cpu_final</p><br>";
+            ?>
+          </div>
+        </div>
+        
+        <div class="peca">
+          <p>Placa de Vídeo</p>
+          <img src="img/placa-video.png" alt="">
+          <div class="valor-container">
+            <?php
+              if($valorMenorGpu != 0){
+                echo "<p>Preço:<span class='valor'> $valorMenorGpu </span></p><br>";
+              }else{
+                echo "<p>Placa gráfica integrada na CPU</p>";
+              }
+              echo "<p>GPU: $result_gpu_final</p><br>";
+            ?>
+          </div>
+        </div>
+        
+        <div class="peca">
+          <p>Placa-Mãe</p>
+          <img src="img/placa-mae.png" alt="">
+          <div class="valor-container">
+            <?php
+              echo "<p>Preço:<span class='valor'> $valorMenorMae </span></p><br>";
+              echo "<p>CPU: $result_mae_final</p><br>";
+            ?>
+          </div>
+        </div>
+      </div> 
+      <div class="valorTotal-container">
+        <div class="valor-total">
           <?php
             echo "Valor do PC: R$ $valor_pc<br>";
           ?>
-      </div>
-    </div>
-    <?php else: ?>
-      <div class="final">
-        <?php echo $erro; ?>
-      </div>
-    <?php endif; ?>
-
-    <div class="grid-container">
-      <div class="box">
-        <div class="item">
-          <div class="toggle-pill-dark">
-          </div>
         </div>
       </div>
     </div>
+    <?php else: ?>
+    <div class="final">
+      <?php echo $erro; ?>
+    </div>
+    <?php endif; ?>
+
   </main>
 </body>
 

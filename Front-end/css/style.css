@@ -387,28 +387,70 @@ input[type=number] {
     height: 20vh;
     padding-bottom: 3vh;
 }
-img{
-    height: 35vh;
-    margin-top: -35vh;
+.img-container img{
+   height: 40vh;
 }
-.ahri{
-    height: 70vh;
+
+.peca{
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    border-width: 0.2vw;
+    color: white;
+    font-family: 'HortaRegular';
+    border-radius: 0.6vw;
+    background-color: rgb(13, 13, 13);
+    width: 33%;
+    
 }
-.img-container{
+.container-peca{
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    text-align: center;
+    flex-direction: row;
 }
 .valor-total{
-    margin-left: 28vw;
-    background-color: red;
     color: white;
-    border-radius: 1vw;
-    border-style: solid;
-    border-width: 0.1vw;
-    height: 5vh;
-    width: 8vw;
-    font-size: 2.5vh;
-    text-align: center;
+    font-family: 'HortaRegular';
+    background-color: rgb(233, 3, 9);
+    width: 11vw;
+    margin-top: 3vh;
+    border-radius: 3vw;
     border-color: black;
+    border-width: 0.2vw;
+    border-style: solid;
+    height: 4vh;
+    font-size: 2.5vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.final{
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    border-width: 0.2vw;
+    background-color: rgb(32, 32, 32);
+    margin-left: 30vw;
+    margin-right: 30vw;
+    border-radius: 0.5vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    font-size: 3vh;
+}
+.final img{
+    width: 100%;
+    margin-top: 3vh;
+    margin-bottom: 4vh;
+}
+.valorTotal-container{
+    display: flex;
+    justify-content: end;
+    text-align: center;
+}
+.valor{
+    color: red;
+}
+.valor-container{
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
 }
