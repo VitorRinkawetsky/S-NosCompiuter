@@ -53,12 +53,38 @@
                     echo '<td >' . $registro['soquete'] . '</td>';
                     echo '<td >' . $registro['pontuacao'] . '</td>';
                     echo '<td >' . $registro['preco'] . '</td>';
-                    echo '<td> <a href="?delete='.$registro['id'].'">(X)</a> </td>';
+                   // echo '<td> <a href="?delete='.$registro['id'].'">(X)</a> </td>';
+                    echo '<td><div class="wrapper"><a href="#demo-modal&id_modal='.$registro['id'].'">Abrir</a></div></td>';
                     echo '<td> <a href="edit_cpu.php?id='.$registro['id'].'">(E)</a> </td>';
                     echo "</tr>";
                 }
             ?>
         </table>
+        
+                        <div class="wrapper">
+                            <a href="#demo-modal">Abrir modal</a>
+                        </div>
+
+                        <div id="demo-modal" class="modal">
+                            <div class="content">
+                                <h1 class="title-modal">Tem certeza que deseja excluir?</h1>
+
+                                <a class="title-modal" href="?delete='.$id_modal.'">(X)</a>
+
+                                <div class="footer">
+                                <a href="#" class="footer-btn-close"> Fechar </a>
+                                </div>
+
+                                <a href="#" class="close">&times;</a>
+                                <?php
+                                    if(isset($_GET['id_modal'])) {
+                                        $id_modal = (int)$_GET['id_modal'];
+                                        echo "<p class='title-modal'>$id_modal</p>";
+                                    }
+                                ?>
+                            </div>
+                        </div>
+
 
         <div class="div-painel">
             <p class="style-p"><a class="style-href" href="cadastro_cpu.php">Cadastrar CPU</a></p>
