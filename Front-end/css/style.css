@@ -251,16 +251,18 @@ input[type=number] {
 .div-painel{
     background-color: rgb(23, 23, 23);
     border-color: rgb(56, 0, 0);
-    border-width: 3px;
+    border-width: 0.2vw;
     border-style: solid;
     transition: 0.30s;
-    border-radius: 3%;
+    border-radius: 1vw;
     display: flex;
     justify-content: center;
-    height: 52px;
-    margin-bottom: 3%;
-    width: 50%;
+    height: 5vh;
+    margin-bottom: 1vh;
+    width: 20vw;
     cursor: pointer;
+    font-size: 3vh;
+    padding-top: 2vh;
 }
 .div-painel:hover{
     background-color: rgb(0, 0, 0);
@@ -281,6 +283,10 @@ input[type=number] {
     border-radius: 4px;
     padding-bottom: 1%;
     padding-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .list-item{
     margin-top: 1%;
@@ -551,5 +557,67 @@ input[type=number] {
  .img-container{
      height: 4px;
  }
-
- 
+ .x{
+    color: red;
+    text-align: center;
+    background-color: rgb(110, 108, 108);
+    border-width: 0.2vw;
+    border-color: rgb(56, 0, 0);
+    border-style: solid;
+    font-size: 4vh;
+    font-family: 'HortaRegular';
+    transition: 0.15s;
+ }
+ .x:hover{
+    opacity: 0.5;
+ }
+  .e{
+    color: rgb(0, 0, 255);
+    text-align: center;
+    background-color: rgb(110, 108, 108);
+    border-width: 0.2vw;
+    border-color: rgb(56, 0, 0);
+    border-style: solid;
+    font-family: 'HortaRegular';
+    font-size: 4vh;
+    transition: 0.15s;
+ }
+ .e:hover{
+    opacity: 0.3;
+ }
+ .painel{
+    border-color: rgb(100, 0, 0);
+    border-style: solid;
+    border-width: 0.2vw;
+    background-color: rgb(32, 32, 32);
+    margin-left: 20vw;
+    margin-right: 20vw;
+    border-radius: 0.5vw;
+    padding-bottom: 1vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    font-size: 3vh;
+ }
+ .id-peca{
+    color: white;
+    text-align: center;
+    background-color: rgb(23, 23, 23);
+    border-width: 0.2vw;
+    border-color: rgb(56, 0, 0);
+    border-style: solid;
+ }
+.painel-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+}
+ .tabela{
+    color: rgb(119, 114, 114);
+    text-align: center;
+    background-color: rgb(23, 23, 23);
+    border-width: 0.2vw;
+    border-color: rgb(56, 0, 0);
+    border-style: solid;
+ }
