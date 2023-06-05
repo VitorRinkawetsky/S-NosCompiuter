@@ -25,7 +25,7 @@
   <main>
 
     <h1>Especificações</h1>
-    <form method="post" id="form-pesquisa" action="final.php">
+    <form method="post" id="form-pesquisa" action="gerar.php">
       <div class="games">
         <p class="pgames">Orçamento:</p>
         <input class="label orçamento" type="number" name="orcamento" placeholder="R$">
