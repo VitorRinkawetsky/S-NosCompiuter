@@ -54,7 +54,7 @@
                     echo '<td >' . $registro['pontuacao'] . '</td>';
                     echo '<td >' . $registro['preco'] . '</td>';
                    // echo '<td> <a href="?delete='.$registro['id'].'">(X)</a> </td>';
-                    echo '<td><div class="wrapper"><a href="#demo-modal&id_modal='.$registro['id'].'">Abrir</a></div></td>';
+                    echo '<td><div class="wrapper"><form method="post" action="./painel_cpu.php"><input type="hidden" id="abrirModal" name="abrirModal" onclick="abrirModal()"></input><input type="hidden" value="'.$registro['id'].'" id="id_modal" name="id_modal"></input><button type="submit">Abrir</button></form></div></td>';
                     echo '<td> <a href="edit_cpu.php?id='.$registro['id'].'">(E)</a> </td>';
                     echo "</tr>";
                 }
@@ -72,14 +72,15 @@
                                 <a class="title-modal" href="?delete='.$id_modal.'">(X)</a>
 
                                 <div class="footer">
-                                <a href="#" class="footer-btn-close"> Fechar </a>
+                                <a href="#" class="footer-btn-close" onclick="fecharModal()"> Fechar </a>
                                 </div>
 
-                                <a href="#" class="close">&times;</a>
+                                <a href="#" class="close" onclick="fecharModal()">&times;</a>
+                        
                                 <?php
                                     if(isset($_GET['id_modal'])) {
-                                        $id_modal = (int)$_GET['id_modal'];
-                                        echo "<p class='title-modal'>$id_modal</p>";
+                                        $id_modal = $_GET['id_modal'];
+                                        echo "<p>$id_modal</p>";
                                     }
                                 ?>
                             </div>
@@ -93,9 +94,29 @@
         <div class="div-painel">
             <p class="style-p"><a class="style-href" href="painel.php">Voltar</a></p>
         </div>
-
     </div>
     </form>
 </body>
 </html>
+<script>
+    function fecharModal() {
+        let el = document.getElementById('demo-modal');
+            el.classList.remove('modal-show');
+            el.classList.add('modal');
+    }
+
+    function abrirModal() {
+        let el = document.getElementById('demo-modal');
+            el.classList.remove('modal');
+            el.classList.add('modal-show');
+    }
+</script>
+
+
+<?php
+    if(isset($_POST['id_modal'])) {
+        $id_modal = (int)$_POST['id_modal'];
+        echo "<p>$id_modal</p>";
+    }
+?>
 

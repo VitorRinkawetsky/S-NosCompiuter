@@ -480,9 +480,19 @@ input[type=number] {
     transition: all 0.4s;
   }
   
-  .modal:target {
+  .modal-show {
     visibility: visible;
     opacity: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(77, 77, 77, 0.7);
+    transition: all 0.4s;
   }
   
   .content {
