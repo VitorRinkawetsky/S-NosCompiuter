@@ -387,9 +387,6 @@ input[type=number] {
     height: 20vh;
     padding-bottom: 3vh;
 }
-.img-container img{
-   height: 40vh;
-}
 
 .peca{
     border-color: rgb(100, 0, 0);
@@ -522,3 +519,27 @@ input[type=number] {
   .title-modal {
     color: #000000;
   }
+
+ .right-container{
+    position: relative;
+ }
+ .right-container img{
+    position: absolute;
+    bottom: -28vh;
+    right: 0;
+    height: 60vh;
+ }
+ .left-container{
+    position: relative;
+ }
+ .left-container img{
+    position: absolute;
+    bottom: -30vh;
+    left: -10;
+    height: 60vh;
+ }
+ .img-container{
+     height: 4px;
+ }
+
+ 
