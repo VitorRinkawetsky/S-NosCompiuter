@@ -18,7 +18,7 @@
 </head>
 <body>
   <header>
-    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
+    <a href="../index.php"><button class="titulo">SóNosCompiuter</button></a>
   </header>
     <main>
  
@@ -27,19 +27,19 @@
     <div class="painel">
             <div class="flexbox">
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="painel_cpu.php">Painel CPU</a></p>
+                <p class="painel-p"><a class="style-href" href="painel_cpu.php">Painel CPU</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="painel_gpu.php">Painel GPU</a></p>
+                <p class="painel-p"><a class="style-href" href="painel_gpu.php">Painel GPU</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="painel_placa_mae.php">Painel Placa Mãe</a></p>
+                <p class="painel-p"><a class="style-href" href="painel_placa_mae.php">Painel Placa Mãe</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="painel_software.php">Painel Software</a></p>
+                <p class="painel-p"><a class="style-href" href="painel_software.php">Painel Software</a></p>
             </div>
             <div class="div-painel">
-                <p class="style-p"><a class="style-href" href="painel_login.php">Painel Login de Adiministrador</a></p>
+                <p class="painel-p"><a class="style-href" href="painel_login.php">Painel Login de Adiministrador</a></p>
             </div>
             </div>
        <button class="proximo" onclick="logout()">Deslogar</button>

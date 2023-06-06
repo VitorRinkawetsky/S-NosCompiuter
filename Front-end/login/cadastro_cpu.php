@@ -89,10 +89,15 @@
         <p class="pgames">Preço:</p> 
         <input class="label orçamento" type="text" id="preco_cpu" name="preco_cpu">
 
-        <button class="proximo" type="submit">Cadastrar</button>
-        <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel_cpu.php">Voltar</a></p>
+        
+        <div class="voltar-painel">
+            <p class="style-voltar"><a class="style-href" href="painel_cpu.php">Voltar</a></p>
         </div>
+        
+        <div class="valor-container">
+            <button class="cadastrar" type="submit">Cadastrar</button>
+        </div>
+
         <?php
             if(isset($erro_geral)){
                 echo "<p>".$erro_geral."</p>";
