@@ -608,3 +608,25 @@ input[type=number] {
      height: 2vh;
      width: 1.5vw;
  }
+
+ dialog {
+    border: 1px solid grey;
+    border-radius: 6px;
+    background-color: #585858;
+    align-items: center;
+ }
+
+ div.content {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    background-color: #585858;
+    align-items: center;
+ }
+
+ span{
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
