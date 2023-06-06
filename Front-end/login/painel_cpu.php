@@ -81,10 +81,13 @@
         </div>
 
         <?php
-            $id = isset($_GET['id_modal']);
-        ?>
+        if(isset($_GET['id_modal'])){
+            $id_modal = $_GET['id_modal'];
+        }
+            echo $id_modal;
 
-        <a  href="?delete='fgf'">Excluir</a>
+            echo '<a href="?delete='.$id_modal.'">Excluir</a>';
+        ?>
     </dialog>
     
     <script>
