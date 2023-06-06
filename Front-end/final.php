@@ -56,7 +56,7 @@
               if($valorMenorGpu != 0){
                 echo "<p>Preço:<span class='valor'> $valorMenorGpu </span></p><br>";
               }else{
-                echo "<p>Placa gráfica integrada na CPU</p>";
+                echo "<p class='valor'>Placa gráfica integrada na CPU</p>";
               }
               echo "<p>GPU: $result_gpu_final</p><br>";
             ?>
