@@ -11,8 +11,9 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro CPU</title>
@@ -21,25 +22,26 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-  <header>
-    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
-  </header>
+    <header>
+        <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
+    </header>
 
     <h1>Painel CPU</h1>
     <form action="" method="POST">
-    <div class="games">
+        <div class="painel">
 
-        <table border = "1">
-            <tr>
-                <td>ID</td>
-                <td>Nome</td>
-                <td>Marca</td>
-                <td>Soquete</td>
-                <td>Pontuação</td>
-                <td>Preço</td>
-            </tr>
-            <?php
+            <table border="1">
+                <tr>
+                    <td class="tabela">ID</td>
+                    <td class="tabela">Nome</td>
+                    <td class="tabela">Marca</td>
+                    <td class="tabela">Soquete</td>
+                    <td class="tabela">Pontuação</td>
+                    <td class="tabela">Preço</td>
+                </tr>
+                <?php
 
                 // Consulta para obter todos os registros da tabela "cpu"
                 $consulta = $conexao->query('SELECT * FROM cpu');
@@ -47,68 +49,70 @@
                 // Exibir os registros
                 while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                     echo "<tr>";
-                    echo '<td >' . $registro['id'] . '</td>';
-                    echo '<td >' . $registro['nome_cpu'] . '</td>';
-                    echo '<td >' . $registro['marca'] . '</td>';
-                    echo '<td >' . $registro['soquete'] . '</td>';
-                    echo '<td >' . $registro['pontuacao'] . '</td>';
-                    echo '<td >' . $registro['preco'] . '</td>';
-                   // echo '<td> <a href="?delete='.$registro['id'].'">(X)</a> </td>';
+                    echo '<td class="id-peca">' . $registro['id'] . '</td>';
+                    echo '<td class="id-peca">' . $registro['nome_cpu'] . '</td>';
+                    echo '<td class="id-peca">' . $registro['marca'] . '</td>';
+                    echo '<td class="id-peca">' . $registro['soquete'] . '</td>';
+                    echo '<td class="id-peca">' . $registro['pontuacao'] . '</td>';
+                    echo '<td class="id-peca">' . $registro['preco'] . '</td>';
+                   // echo '<td class="pencil"> <a href="?delete='.$registro['id'].'"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
                     echo '<td><div class="wrapper"><form method="post" action="./painel_cpu.php"><input type="hidden" id="abrirModal" name="abrirModal" onclick="abrirModal()"></input><input type="hidden" value="'.$registro['id'].'" id="id_modal" name="id_modal"></input><button type="submit">Abrir</button></form></div></td>';
-                    echo '<td> <a href="edit_cpu.php?id='.$registro['id'].'">(E)</a> </td>';
+                    echo '<td class="pencil"> <a href="edit_cpu.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';
                     echo "</tr>";
                 }
             ?>
-        </table>
-        
-                        <div class="wrapper">
-                            <a href="#demo-modal">Abrir modal</a>
-                        </div>
+            </table>
 
-                        <div id="demo-modal" class="modal">
-                            <div class="content">
-                                <h1 class="title-modal">Tem certeza que deseja excluir?</h1>
+            <div class="wrapper">
+                <a href="#demo-modal">Abrir modal</a>
+            </div>
 
-                                <a class="title-modal" href="?delete='.$id_modal.'">(X)</a>
+            <div id="demo-modal" class="modal">
+                <div class="content">
+                    <h1 class="title-modal">Tem certeza que deseja excluir?</h1>
 
-                                <div class="footer">
-                                <a href="#" class="footer-btn-close" onclick="fecharModal()"> Fechar </a>
-                                </div>
+                    <a class="title-modal" href="?delete='.$id_modal.'">(X)</a>
 
-                                <a href="#" class="close" onclick="fecharModal()">&times;</a>
-                        
-                                <?php
+                    <div class="footer">
+                        <a href="#" class="footer-btn-close" onclick="fecharModal()"> Fechar </a>
+                    </div>
+
+                    <a href="#" class="close" onclick="fecharModal()">&times;</a>
+
+                    <?php
                                     if(isset($_GET['id_modal'])) {
                                         $id_modal = $_GET['id_modal'];
                                         echo "<p>$id_modal</p>";
                                     }
                                 ?>
-                            </div>
-                        </div>
+                </div>
+            </div>
 
+            <div class="painel-container">
+                <div class="div-painel">
+                    <p class="style-p"><a class="style-href" href="cadastro_cpu.php">Cadastrar CPU</a></p>
+                </div>
 
-        <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="cadastro_cpu.php">Cadastrar CPU</a></p>
+                <div class="div-painel">
+                    <p class="style-p"><a class="style-href" href="painel.php">Voltar</a></p>
+                </div>
+            </div>
         </div>
-
-        <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel.php">Voltar</a></p>
-        </div>
-    </div>
     </form>
 </body>
+
 </html>
 <script>
     function fecharModal() {
         let el = document.getElementById('demo-modal');
-            el.classList.remove('modal-show');
-            el.classList.add('modal');
+        el.classList.remove('modal-show');
+        el.classList.add('modal');
     }
 
     function abrirModal() {
         let el = document.getElementById('demo-modal');
-            el.classList.remove('modal');
-            el.classList.add('modal-show');
+        el.classList.remove('modal');
+        el.classList.add('modal-show');
     }
 </script>
 
@@ -119,4 +123,3 @@
         echo "<p>$id_modal</p>";
     }
 ?>
-

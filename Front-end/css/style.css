@@ -557,34 +557,6 @@ input[type=number] {
  .img-container{
      height: 4px;
  }
- .x{
-    color: red;
-    text-align: center;
-    background-color: rgb(110, 108, 108);
-    border-width: 0.2vw;
-    border-color: rgb(56, 0, 0);
-    border-style: solid;
-    font-size: 4vh;
-    font-family: 'HortaRegular';
-    transition: 0.15s;
- }
- .x:hover{
-    opacity: 0.5;
- }
-  .e{
-    color: rgb(0, 0, 255);
-    text-align: center;
-    background-color: rgb(110, 108, 108);
-    border-width: 0.2vw;
-    border-color: rgb(56, 0, 0);
-    border-style: solid;
-    font-family: 'HortaRegular';
-    font-size: 4vh;
-    transition: 0.15s;
- }
- .e:hover{
-    opacity: 0.3;
- }
  .painel{
     border-color: rgb(100, 0, 0);
     border-style: solid;
@@ -620,4 +592,19 @@ input[type=number] {
     border-width: 0.2vw;
     border-color: rgb(56, 0, 0);
     border-style: solid;
+ }
+ .pencil{
+    text-align: center;
+    background-color: rgb(156, 151, 151);
+    border-width: 0.2vw;
+    border-color: rgb(56, 0, 0);
+    border-style: solid;
+    transition: 0.15s;
+ }
+ .pencil:hover{
+     opacity: 0.4;
+ }
+ .trash{
+     height: 2vh;
+     width: 1.5vw;
  }
