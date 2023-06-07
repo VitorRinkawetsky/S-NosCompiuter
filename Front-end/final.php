@@ -29,7 +29,6 @@
   <header>
     <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
   </header>
-
   <main>
 
     <h1>Peças</h1>
@@ -47,7 +46,7 @@
             ?>
           </div>
         </div>
-        
+
         <div class="peca">
           <p>Placa de Vídeo</p>
           <img src="img/placa-video.png" alt="">
@@ -62,7 +61,7 @@
             ?>
           </div>
         </div>
-        
+
         <div class="peca">
           <p>Placa-Mãe</p>
           <img src="img/placa-mae.png" alt="">
@@ -73,7 +72,7 @@
             ?>
           </div>
         </div>
-      </div> 
+      </div>
       <div class="valorTotal-container">
         <div class="valor-total">
           <?php
@@ -87,7 +86,7 @@
       <?php echo $erro; ?>
     </div>
     <?php endif; ?>
-
+    
   </main>
 </body>
 

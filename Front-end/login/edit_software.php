@@ -49,8 +49,9 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Softwares</title>
@@ -59,52 +60,58 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-   <header>
-    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
-   </header>
+    <header>
+        <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
+    </header>
     <h1>Edição de Softwares</h1>
     <form action="" method="POST">
         <div class="games">
-          <div>
-            <p class="pgames">Nome do Software:</p>
-            <input class="label orçamento" type="text" id="nome_software" name="nome_software" value="<?php echo $nome_software; ?>">
-          </div>
-
-            <p class="pgames">Pontuação GPU:</p>
-            <input class="label orçamento" type="number" id="pontuacao_gpu" name="pontuacao_gpu" value="<?php echo $pontuacao_cpu_software; ?>">
-
             <div>
-            <p class="pgames">Pontuação CPU:</p>
-            <input class="label orçamento" type="number" id="pontuacao_cpu" name="pontuacao_cpu" value="<?php echo $pontuacao_gpu_software; ?>">
+                <p class="pgames">Nome do Software:</p>
+                <input class="label orçamento" type="text" id="nome_software" name="nome_software"
+                    value="<?php echo $nome_software; ?>">
             </div>
 
-        <button class="proximo" type="submit">Editar</button>
-        <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel_software.php">Voltar</a></p>
-        </div>
-        <?php
-            if(isset($erro_geral)){
-                echo "<p>".$erro_geral."</p>";
-            }
-            
-            if(isset($mensagem_pontuacao_cpu_invalido)){
-                echo "<p>".$mensagem_pontuacao_cpu_invalido."</p>";
-            }
+            <p class="pgames">Pontuação GPU:</p>
+            <input class="label orçamento" type="number" id="pontuacao_gpu" name="pontuacao_gpu"
+                value="<?php echo $pontuacao_cpu_software; ?>">
 
-            if(isset($mensagem_pontuacao_gpu_invalido)){
-                echo "<p>".$mensagem_pontuacao_gpu_invalido."</p>";
-            }
+            <div>
+                <p class="pgames">Pontuação CPU:</p>
+                <input class="label orçamento" type="number" id="pontuacao_cpu" name="pontuacao_cpu"
+                    value="<?php echo $pontuacao_gpu_software; ?>">
+            </div>
 
-            if(isset($mensagem_software_cadastrada)){
-                echo "<p>".$mensagem_software_cadastrada."</p>";
-            }
+            <div class="cadastrar-container">
+                <button class="cadastrar" type="submit">Editar</button>
+                <button class="cadastrar" type="submit"><a class="style-href"
+                        href="painel_software.php">Voltar</a></button>
+            </div>
+            <?php
+                if(isset($erro_geral)){
+                    echo "<p>".$erro_geral."</p>";
+                }
+                
+                if(isset($mensagem_pontuacao_cpu_invalido)){
+                    echo "<p>".$mensagem_pontuacao_cpu_invalido."</p>";
+                }
 
-            if(isset($mensagem_software_nao_cadastrado)){
-                echo "<p>".$mensagem_software_nao_cadastrado."</p>";
-            }
-        ?>
+                if(isset($mensagem_pontuacao_gpu_invalido)){
+                    echo "<p>".$mensagem_pontuacao_gpu_invalido."</p>";
+                }
+
+                if(isset($mensagem_software_cadastrada)){
+                    echo "<p>".$mensagem_software_cadastrada."</p>";
+                }
+
+                if(isset($mensagem_software_nao_cadastrado)){
+                    echo "<p>".$mensagem_software_nao_cadastrado."</p>";
+                }
+            ?>
         </div>
     </form>
 </body>
+
 </html>

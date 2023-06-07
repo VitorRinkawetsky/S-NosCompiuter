@@ -25,7 +25,7 @@
 
 <body>
     <header>
-        <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
+        <a href="../index.php"><button class="titulo">SóNosCompiuter</button></a>
     </header>
 
     <h1>Painel GPU</h1>
@@ -43,23 +43,23 @@
                 </tr>
                 <?php
 
-                // Consulta para obter todos os registros da tabela "cpu"
-                $consulta = $conexao->query('SELECT * FROM gpu');
+                    // Consulta para obter todos os registros da tabela "cpu"
+                    $consulta = $conexao->query('SELECT * FROM gpu');
 
-                // Exibir os registros
-                while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<tr>";
-                    echo '<td class="id-peca">' . $registro['id'] . '</td>';
-                    echo '<td class="id-peca">' . $registro['nome_gpu'] . '</td>';
-                    echo '<td class="id-peca">' . $registro['marca'] . '</td>';
-                    echo '<td class="id-peca">' . $registro['chip_grafico'] . '</td>';
-                    echo '<td class="id-peca">' . $registro['pontuacao'] . '</td>';
-                    echo '<td class="id-peca">' . $registro['preco'] . '</td>';
-                    echo '<td class="pencil"> <a href="?delete='.$registro['id'].'"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
-                    echo '<td class="pencil"> <a href="edit_gpu.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';
-                    echo "</tr>";
-                }
-            ?>
+                    // Exibir os registros
+                    while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<tr>";
+                        echo '<td class="id-peca">' . $registro['id'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['nome_gpu'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['marca'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['chip_grafico'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['pontuacao'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['preco'] . '</td>';
+                        echo '<td class="pencil"> <a href="?delete='.$registro['id'].'"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
+                        echo '<td class="pencil"> <a href="edit_gpu.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';
+                        echo "</tr>";
+                    }
+                ?>
             </table>
 
             <div class="painel-container">

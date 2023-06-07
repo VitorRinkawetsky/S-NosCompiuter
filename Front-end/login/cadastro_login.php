@@ -24,8 +24,9 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Login Administrativo</title>
@@ -34,40 +35,42 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-   <header>
-    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
-   </header>
+    <header>
+        <a href="../index.php"><button class="titulo">SóNosCompiuter</button></a>
+    </header>
     <h1>Cadastro de Login de Adiministrador</h1>
     <form action="" method="POST">
         <div class="games">
-          <div>
-            <p class="pgames">Login:</p>
-            <input class="label orçamento" type="text" id="login" name="login">
-          </div>
+            <div>
+                <p class="pgames">Login:</p>
+                <input class="label orçamento" type="text" id="login" name="login">
+            </div>
 
             <p class="pgames">Senha:</p>
             <input class="label orçamento" type="text" id="senha" name="senha">
 
-            <button class="proximo" type="submit">Cadastrar</button>
-
-            <div class="div-painel">
-                    <p class="style-p"><a class="style-href" href="painel_login.php">Voltar</a></p>
+            <div class="cadastrar-container">
+                <button class="cadastrar" type="submit">Cadastrar</button>
+                <button class="cadastrar" type="submit"><a class="style-href"
+                        href="painel_login.php">Voltar</a></button>
             </div>
             <?php
-            if(isset($erro_geral)){
-                echo "<p>".$erro_geral."</p>";
-            }
-            
-            if(isset($mensagem_caracteres_invalidos_letras_numeros)){
-                echo "<p>".$mensagem_caracteres_invalidos_letras_numeros."</p>";
-            }
+                if(isset($erro_geral)){
+                    echo "<p>".$erro_geral."</p>";
+                }
+                
+                if(isset($mensagem_caracteres_invalidos_letras_numeros)){
+                    echo "<p>".$mensagem_caracteres_invalidos_letras_numeros."</p>";
+                }
 
-            if(isset($mensagem_login_cadastrado)){
-                echo "<p>".$mensagem_login_cadastrado."</p>";
-            }
-        ?>
+                if(isset($mensagem_login_cadastrado)){
+                    echo "<p>".$mensagem_login_cadastrado."</p>";
+                }
+            ?>
         </div>
     </form>
 </body>
+
 </html>

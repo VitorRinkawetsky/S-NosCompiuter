@@ -25,7 +25,7 @@
 
 <body>
     <header>
-        <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
+        <a href="../index.php"><button class="titulo">SóNosCompiuter</button></a>
     </header>
 
     <h1>Painel Software</h1>
@@ -41,21 +41,21 @@
                 </tr>
                 <?php
 
-                // Consulta para obter todos os registros da tabela "cpu"
-                $consulta = $conexao->query('SELECT * FROM requisito_software');
+                    // Consulta para obter todos os registros da tabela "cpu"
+                    $consulta = $conexao->query('SELECT * FROM requisito_software');
 
-                // Exibir os registros
-                while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<tr>";
-                    echo '<td class="id-peca">' . $registro['id'] . '</td>';
-                    echo '<td class="id-peca">' . $registro['nome'] . '</td>';
-                    echo '<td class="id-peca">' . $registro['pontuacao_cpu'] . '</td>';
-                    echo '<td class="id-peca">' . $registro['pontuacao_gpu'] . '</td>';
-                    echo '<td class="pencil"> <a href="?delete='.$registro['id'].'"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
-                    echo '<td class="pencil"> <a href="edit_software.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';
-                    echo "</tr>";
-                }
-            ?>
+                    // Exibir os registros
+                    while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<tr>";
+                        echo '<td class="id-peca">' . $registro['id'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['nome'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['pontuacao_cpu'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['pontuacao_gpu'] . '</td>';
+                        echo '<td class="pencil"> <a href="?delete='.$registro['id'].'"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
+                        echo '<td class="pencil"> <a href="edit_software.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';
+                        echo "</tr>";
+                    }
+                ?>
             </table>
 
             <div class="painel-container">
