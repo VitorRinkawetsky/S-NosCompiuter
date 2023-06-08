@@ -23,7 +23,6 @@
   </header>
 
   <main>
-
     <h1>Especificações</h1>
     <form method="post" id="form-pesquisa" action="final.php">
       <div class="games">

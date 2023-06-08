@@ -20,16 +20,17 @@
         <a href="games.php"><button class="index-btn">Clique para montar seu PC</button></a>
         <div class="desc">
             <p class="p-index">SóNosCompiuter</p>
-            <p class="p-index">Criado por gamers, para gamers</p>
+            <p class="p-index">Feito por gamers, para gamers</p>
             <p class="p-index">O único site que te ajuda a montar o seu PC ideal apartir de suas necessidades</p>
         </div>
       </div>
       <div class="img-container">
-      <img class="ahri" src="img/Champion_Ahri_HP.png" alt="">
-      <img src="img/Personagem_Chongyun_Retrato.webp" alt="">
-      <img src="img/2BPrayingRein.webp" alt="">
-      <img src="img/horizon-zero-dawn-two-column-aloy-03-ps4-eu-22jun16.png" alt="">
-      <img class="ahri" src="img/5ee06655ec1b390da4063cd1c8082b65.png" alt="">
+        <div class="left-container">
+          <img src="img/Champion_Ahri_HP.png" alt="">
+        </div>
+        <div class="right-container">
+          <img src="img/5ee06655ec1b390da4063cd1c8082b65.png" alt="">
+        </div>
       </div>
     </main>
 </body>

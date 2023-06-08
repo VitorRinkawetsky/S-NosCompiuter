@@ -81,17 +81,17 @@
     }
 
     // Aumenta os pontos da GPU conforme o requerimento de performance do usuário
-    if (strcmp($desempenho, "Médio") !== 1) {
+    if (strcmp($grafico, "Médio") == 0) {
         $pont_gpu_final += 3000;
-    }elseif (strcmp($desempenho, "Alto") !== 1) {
+        echo "uso";
+    }elseif (strcmp($grafico, "Alto") == 0) {
         $pont_gpu_final += 4200;
-    }elseif (strcmp($desempenho, "Ultra") !== 1) {
+    }elseif (strcmp($grafico, "Ultra") == 0) {
         $pont_gpu_final += 6000;
     }
     
     // Cria um loop para gerar o computador
     while($result_pc == false){
-
         // Consulta o banco de dados para saber quantas CPUs temos cadastradas
         $query = "SELECT COUNT(*) as total_linhas FROM cpu";
         $resultado = mysqli_query($mysqli, $query);
@@ -103,7 +103,7 @@
         }
 
         // Caso seja a primeira vez rodando o loop gerará um computador normalmente
-        if($contWhile == 0){        
+        if($contWhile == 0){       
             // Cria um loop para rodar por todas as CPUs cadastradas
             for($i = 0; $i < $total_cpu; $i++){
                 // Pega todas as CPUs capazes de rodar nos pré-requisitos
@@ -143,54 +143,61 @@
             $valor_pc += $valorMenorCpu;
 
         }else{
+            // Cria um array associativo para armazenar a CPU e sua GPU integrada
+            $resultados_cpu = array();
+
             // Cria um loop para rodar por todas as CPUs cadastradas
             for($i = 0; $i < $total_cpu; $i++){
                 // Pega todas as CPUs capazes de rodar nos pré-requisitos
-                $query = "select nome_cpu from cpu where pontuacao >= '{$pont_cpu_final}' && gpu_integrado != 'NULL'";
+                $query = "select nome_cpu, gpu_integrado from cpu where pontuacao >= '{$pont_cpu_final}' && gpu_integrado != 'NULL'";
 
                 $resultado_cpu = mysqli_query($mysqli, $query);
 
-                $resultados_cpu = array();
-
                 // Armazena todas as CPUs capazes de rodar nos pré-requisitos num array
                 while ($resultado = $resultado_cpu->fetch_assoc()) {
-                    array_push($resultados_cpu, $resultado['nome_cpu']);
+                    $resultados_cpu[] = array(
+                        'nome_cpu' => $resultado['nome_cpu'],
+                        'gpu_integrado' => $resultado['gpu_integrado']
+                    );
                 }
             }
-            // Cria uma váriavel para armazenar o menor valor
-            $valorMenorCpu = 999999;
 
-            // Cria um loop para ver os valores das peças
+            // Cria um loop para rodar todas as CPUs selecionadas
             for($i = 0; $i < count($resultados_cpu); $i++){
+                $resultadoGPU = $resultados_cpu[$i]['gpu_integrado'];
+                $resultadoCPU = $resultados_cpu[$i]['nome_cpu'];
 
-                $query = "select preco from cpu where nome_cpu = '{$resultados_cpu[$i]}'";
+                // Fazer uma consulta ao banco de dados para obter a pontuação da GPU integrada
+                $query_gpu = "SELECT pontuacao FROM gpu WHERE nome_gpu = '{$resultadoGPU}'";
+                
+                $resultadoIntegrado = mysqli_query($mysqli, $query_gpu);
 
-                $result_preco = mysqli_query($mysqli, $query);
+                // Armazena a pontuação do gráfico integrado numa variável
+                $pontuacao_integrado = mysqli_fetch_assoc($resultadoIntegrado)['pontuacao'];
 
-                // Armazena o valor do preço da peça atual do loop
-                while ($resultado = $result_preco->fetch_assoc()) {
-                    $resultado_preco = $resultado['preco'];
+                // Cria uma condição para passarem somente GPUs com a pontuação necessária
+                if($pontuacao_integrado >= $pont_gpu_final){
+                    $valorMenorCpu = 999999;
+
+                    $query = "select preco from cpu where nome_cpu = '{$resultadoCPU}'";
+
+                    $result_preco = mysqli_query($mysqli, $query);
+
+                    // Armazena o valor do preço da peça atual do loop
+                    while ($resultado = $result_preco->fetch_assoc()) {
+                        $resultado_preco = $resultado['preco'];
+                    }
+                    
+                    // Armazena qual a CPU e o gráfico integrado finais
+                    if($valorMenorCpu > $resultado_preco){
+                        $valorMenorCpu = $resultado_preco;
+                        $valorMenorGpu = 0;
+                        $result_cpu_final = $resultadoCPU;
+                        $result_gpu_final = $resultadoGPU;
+                    }
                 } 
-
-                // Guarda qual o menor valor e o nome da peça mais barata
-                if($resultado_preco < $valorMenorCpu){
-                    $valorMenorCpu = $resultado_preco;
-                    $result_cpu_final = $resultados_cpu[$i];
-                }
-            }
-
-            $query = "select gpu_integrado from cpu where nome_cpu = '{$result_cpu_final}'";
-
-            $resultado_integrado = mysqli_query($mysqli, $query);
-
-            // Armazena o gráfico integrado da CPU escolhida
-            while ($resultado = $resultado_integrado->fetch_assoc()) {
-                $result_gpu_final = $resultado['gpu_integrado'];
             } 
-            $valorMenorGpu = 0;  
         }
-
-
 
         // Procura qual o soquete da CPU selecionada
         $query = "select soquete from cpu where nome_cpu = '{$result_cpu_final}'";

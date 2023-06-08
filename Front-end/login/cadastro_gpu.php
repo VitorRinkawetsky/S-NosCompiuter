@@ -42,8 +42,9 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CadastroGPU</title>
@@ -52,57 +53,58 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-  <header>
-    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
-  </header>
-  <h1>Cadastro de GPU</h1>
-  <form action="" method="POST">
-  <div class="games">
-        <div>
-        <p class="pgames">Nome da GPU:</p> 
-        <input class="label orçamento" type="text" id="nome_gpu" name="nome_gpu">
+    <header>
+        <a href="../index.php"><button class="titulo">SóNosCompiuter</button></a>
+    </header>
+    <h1>Cadastro de GPU</h1>
+    <form action="" method="POST">
+        <div class="games">
+            <div>
+                <p class="pgames">Nome da GPU:</p>
+                <input class="label orçamento" type="text" id="nome_gpu" name="nome_gpu">
+            </div>
+
+            <div>
+                <p class="pgames">Chip Gráfico:</p>
+                <input class="label orçamento" type="text" id="chip_grafico" name="chip_grafico">
+            </div>
+
+            <p class="pgames">Marca:</p>
+            <input class="label orçamento" type="text" id="marca_gpu" name="marca_gpu">
+
+            <div>
+                <p class="pgames">Pontuação:</p>
+                <input class="label orçamento" type="number" id="pontuacao_gpu" name="pontuacao_gpu">
+            </div>
+
+            <p class="pgames">Preço:</p>
+            <input class="label orçamento" type="text" id="preco_gpu" name="preco_gpu">
+
+            <div class="cadastrar-container">
+                <button class="cadastrar" type="submit">Cadastrar</button>
+                <button class="cadastrar" type="submit"><a class="style-href" href="painel_gpu.php">Voltar</a></button>
+            </div>
+            <?php
+                if(isset($erro_geral)){
+                    echo "<p>".$erro_geral."</p>";
+                }
+                
+                if(isset($mensagem_gpu_cadastrada)){
+                    echo "<p>".$mensagem_gpu_cadastrada."</p>";
+                }
+                
+                if(isset($mensagem_pontuacao_invalido)){
+                    echo "<p>".$mensagem_pontuacao_invalido."</p>";
+                }
+
+                if(isset($mensagem_preco_invalido)){
+                    echo "<p>".$mensagem_preco_invalido."</p>";
+                }
+            ?>
         </div>
-
-        <div>
-        <p class="pgames">Chip Gráfico:</p> 
-        <input class="label orçamento" type="text" id="chip_grafico" name="chip_grafico">
-        </div>
-
-        <p class="pgames">Marca:</p> 
-        <input class="label orçamento" type="text" id="marca_gpu" name="marca_gpu">
-
-        <div>
-        <p class="pgames">Pontuação:</p> 
-        <input class="label orçamento" type="number" id="pontuacao_gpu" name="pontuacao_gpu">
-        </div>
-
-        <p class="pgames">Preço:</p> 
-        <input class="label orçamento" type="text" id="preco_gpu" name="preco_gpu">
-
-        <button class="proximo" type="submit">Cadastrar</button>
-        <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel_gpu.php">Voltar</a></p>
-        </div>
-        <?php
-            if(isset($erro_geral)){
-                echo "<p>".$erro_geral."</p>";
-            }
-            
-            if(isset($mensagem_gpu_cadastrada)){
-                echo "<p>".$mensagem_gpu_cadastrada."</p>";
-            }
-            
-            if(isset($mensagem_pontuacao_invalido)){
-                echo "<p>".$mensagem_pontuacao_invalido."</p>";
-            }
-
-            if(isset($mensagem_preco_invalido)){
-                echo "<p>".$mensagem_preco_invalido."</p>";
-            }
-        ?>
-        </div>
-        </form>
+    </form>
 </body>
-</html>
 
+</html>

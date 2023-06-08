@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,33 +11,33 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-  <header>
-    <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
-  </header>
-
+    <header>
+        <a href="index.php"><button class="titulo">SóNosCompiuter</button></a>
+    </header>
     <main>
+        <h1>Login dos administradores</h1>
 
-    <h1>Login dos administradores</h1>
-
-    <div class="games">
-    <form action="" method="POST">
-        <p>
-            <label class="label-login">Login:</label>
-            <input class="input-login" type="text" name="login">
-        </p>
-        <p>
-            <label class="label-login">Senha:</label>
-            <input class="input-login" type="password" name="senha">
-        </p>
-        <p>
-            <input class="proximo" type="submit" name="" id=""></input>
-        </p>
-    </form>
-    </div>
+        <div class="games">
+            <form action="" method="POST">
+                <p>
+                    <label class="label-login">Login:</label>
+                    <input class="input-login" type="text" name="login">
+                </p>
+                <p>
+                    <label class="label-login">Senha:</label>
+                    <input class="input-login" type="password" name="senha">
+                </p>
+                <p>
+                    <input class="proximo" type="submit" name="" id=""></input>
+                </p>
+            </form>
+        </div>
     </main>
-    
+
 </body>
+
 </html>
 
 <?php

@@ -69,48 +69,47 @@
     <h1>Edição de Placa Mãe</h1>
     <form action="" method="POST">
         <div class="games">
-        
-        <div> 
-        <p class="pgames">Nome da Placa Mãe:</p>
-        <input class="label orçamento" type="text" id="nome_placa_mae" name="nome_placa_mae" value="<?php echo $nome_placa_mae; ?>">
-        </div>
+            <div> 
+                <p class="pgames">Nome da Placa Mãe:</p>
+                <input class="label orçamento" type="text" id="nome_placa_mae" name="nome_placa_mae" value="<?php echo $nome_placa_mae; ?>">
+            </div>
 
-        <p class="pgames">Soquete Placa Mãe:</p>
-        <input class="label orçamento" type="text" id="soquete_mae" name="soquete_mae" value="<?php echo $soquete_placa_mae; ?>">
-        
-        <div>
-        <p class="pgames">Marca:</p>
-        <input class="label orçamento" type="text" id="marca_mae" name="marca_mae" value="<?php echo $marca_placa_mae; ?>">
-        </div>
-
-        <p class="pgames">Preço:</p>
-        <input class="label orçamento" type="text" id="preco_mae" name="preco_mae" value="<?php echo $preco_placa_mae; ?>">
-
-        <button class="proximo" type="submit">Editar</button>
-        <div class="div-painel">
-            <p class="style-p"><a class="style-href" href="painel_placa_mae.php">Voltar</a></p>
-        </div>
-        <?php
-            if(isset($erro_geral)){
-                echo "<p>".$erro_geral."</p>";
-            }
+            <p class="pgames">Soquete Placa Mãe:</p>
+            <input class="label orçamento" type="text" id="soquete_mae" name="soquete_mae" value="<?php echo $soquete_placa_mae; ?>">
             
-            if(isset($mensagem_placa_mae_cadastrada)){
-                echo "<p>".$mensagem_placa_mae_cadastrada."</p>";
-            }
+            <div>
+                <p class="pgames">Marca:</p>
+                <input class="label orçamento" type="text" id="marca_mae" name="marca_mae" value="<?php echo $marca_placa_mae; ?>">
+            </div>
 
-            if(isset($mensagem_soquete_invalido)){
-                echo "<p>".$mensagem_soquete_invalido."</p>";
-            }
+            <p class="pgames">Preço:</p>
+            <input class="label orçamento" type="text" id="preco_mae" name="preco_mae" value="<?php echo $preco_placa_mae; ?>">
 
-            if(isset($mensagem_preco_invalido)){
-                echo "<p>".$mensagem_preco_invalido."</p>";
-            }
+            <div class="cadastrar-container">
+                <button class="cadastrar" type="submit">Editar</button>
+                <button class="cadastrar" type="submit"><a class="style-href" href="painel_placa_mae.php">Voltar</a></button>
+            </div>
+            <?php
+                if(isset($erro_geral)){
+                    echo "<p>".$erro_geral."</p>";
+                }
+                
+                if(isset($mensagem_placa_mae_cadastrada)){
+                    echo "<p>".$mensagem_placa_mae_cadastrada."</p>";
+                }
 
-            if(isset($mensagem_placa_mae_nao_cadastrada)){
-                echo "<p>".$mensagem_placa_mae_nao_cadastrada."</p>";
-            }
-        ?>
+                if(isset($mensagem_soquete_invalido)){
+                    echo "<p>".$mensagem_soquete_invalido."</p>";
+                }
+
+                if(isset($mensagem_preco_invalido)){
+                    echo "<p>".$mensagem_preco_invalido."</p>";
+                }
+
+                if(isset($mensagem_placa_mae_nao_cadastrada)){
+                    echo "<p>".$mensagem_placa_mae_nao_cadastrada."</p>";
+                }
+            ?>
         </div>
     </form>
 </body>
