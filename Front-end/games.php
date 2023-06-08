@@ -72,16 +72,16 @@
               <i class="fa fa-search"></i>
             </button>
           </div>
+        </div>
+
+
+
+        <ul class="resultado" id="lista-software"></ul>
+        <div class="output-container">
+          <ul id="output"></ul>
+        </div>
+        <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
       </div>
-    
-
-
-    <ul class="resultado" id="lista-software"></ul>
-    <div class="output-container">
-      <ul id="output"></ul>
-    </div>
-    <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
-    </div>
     </form>
   </main>
   <script src="./js/games.js"></script>
