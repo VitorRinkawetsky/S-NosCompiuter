@@ -83,7 +83,6 @@
     // Aumenta os pontos da GPU conforme o requerimento de performance do usuário
     if (strcmp($grafico, "Médio") == 0) {
         $pont_gpu_final += 3000;
-        echo "uso";
     }elseif (strcmp($grafico, "Alto") == 0) {
         $pont_gpu_final += 4200;
     }elseif (strcmp($grafico, "Ultra") == 0) {
