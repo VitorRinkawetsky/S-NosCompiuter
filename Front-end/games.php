@@ -66,7 +66,7 @@
 
         <div class="submit-container">
           <div class="submit-line">
-            <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisaApp" required id="pesquisa">
+            <input class="busca" type="text" placeholder="Jogo desejado" name="pesquisaApp" id="pesquisa">
             <button class="submit-lente" type="submit" value="pesquisar">
               <i class="fa fa-search"></i>
             </button>
@@ -79,11 +79,12 @@
         <div class="output-container">
           <ul id="output"></ul>
         </div>
-        <button class="proximo" type="submit" name="Próximo" id="proximo" onclick="enviarSoftware(softwares)">Próximo</button>
+        <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
       </div>
     </form>
   </main>
   <script src="./js/games.js"></script>
+  <script src="./js/avisoFps.js"></script>
 </body>
 
 </html>

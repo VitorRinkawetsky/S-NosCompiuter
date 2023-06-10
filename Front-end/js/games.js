@@ -25,3 +25,14 @@ onOff.addEventListener('change', function(){
     }
 });
 
+document.getElementById("form-pesquisa").addEventListener("submit", function(event) {
+    if (softwares.length === 0) {
+        console.log("A array está vazia.");
+        // Exibe um aviso
+        alert("Ao menos um software deve ser selecionado!");
+        // Bloqueia o envio do formulário
+        event.preventDefault();
+    }
+});
+
+

@@ -26,10 +26,13 @@ function selecionarItem(item) {
   // Exibe o texto fora da tabela
   const container = document.querySelector('#output');
   var softwareId = 'software-' + j; // identificador único
-  container.insertAdjacentHTML('beforeend', "<li id='" + softwareId + "' class='software-name'>" + software_nome + '<button type="button" onclick="removerSoftware(\'' + softwareId + '\')">Excluir</button></li>');
+  container.insertAdjacentHTML('beforeend', "<li id='" + softwareId + "' class='software-name'>" + software_nome + '<button type="button" onclick="removerSoftware(this)">Excluir</button></li>');
 
   // j é a variável para armazenar o número total de softwares já selecionados
   j++;
+
+  // Atualizar os índices dos botões "Excluir"
+  atualizarIndicesBotoesExcluir();
 
   // REQUISIÇÃO AJAX
   // cria o objeto XMLHttpRequest
@@ -46,23 +49,21 @@ function selecionarItem(item) {
   xhttp.send("array=" + softwares);
 }
 
-function removerSoftware(item) {
+function removerSoftware(button) {
   console.log("Excluído");
 
-  var softwareId = item;
-  var softwareRemovido = document.getElementById(softwareId);
-
-  if (softwareRemovido) {
-    softwareRemovido.remove(); // Remove o elemento do HTML
-  }
-
-  var softwareIndex = softwares.findIndex(function(software) {
-    return softwareId === 'software-' + (softwares.indexOf(software) + 1);
-  });
+  var listItem = button.parentNode;
+  var softwareId = listItem.id;
+  var softwareIndex = Array.from(listItem.parentNode.children).indexOf(listItem);
 
   if (softwareIndex !== -1) {
     softwares.splice(softwareIndex, 1);
+
+    // Atualizar os índices dos botões "Excluir"
+    atualizarIndicesBotoesExcluir();
   }
+
+  listItem.remove();
 
   // REQUISIÇÃO AJAX
   // cria o objeto XMLHttpRequest
@@ -77,4 +78,15 @@ function removerSoftware(item) {
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   // especifica os dados que deseja enviar
   xhttp.send("array=" + softwares);
+}
+
+function atualizarIndicesBotoesExcluir() {
+  var buttons = document.getElementsByClassName('software-name');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].querySelector('button').setAttribute('data-index', i);
+  }
+}
+
+function bruh () {
+  alert("bruhhh");
 }
