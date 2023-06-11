@@ -1,5 +1,5 @@
 <?php
-$host = "127.0.0.1:3312";
+$host = "localhost";
 $db = "db_sonoscompiuter";
 $user = "root";
 $senha = "";
