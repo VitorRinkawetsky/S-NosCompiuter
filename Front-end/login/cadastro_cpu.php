@@ -13,6 +13,8 @@
 
     $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
 
+    $nome_gpu_integrado = filter_input(INPUT_POST, 'gpu_integrada', FILTER_SANITIZE_STRING);
+
     $query = "select nome_cpu from cpu where nome_cpu = '{$nome_cpu}'";
 
     $resultado = mysqli_query($mysqli, $query);
@@ -25,32 +27,36 @@
         $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
     }else if ($preco_cpu < 0){
         $mensagem_preco_invalido = "Insira um preço válido!";
-    }else if(preg_match('/^[a-zA-Z0-9]+$/', $soquete_cpu)) {
-        if(preg_match('/^[0-9]+$/', $preco_cpu) || preg_match('/^[0-9]+$/', $pontuacao_cpu)) {
-            if (preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_cpu)) {
-                if(preg_match('/^[a-zA-Z0-9]+$/', $marca_cpu)){
-                    if($row == 0){
-                        $sql = "insert into cpu (marca, soquete, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
-            
-                        $result = mysqli_query($mysqli, $sql);
-            
-                        if(mysqli_insert_id($mysqli)) {
-                            $mensagem_cpu_cadastrada = "CPU cadastrada com sucesso!";
+    }else if (preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_gpu_integrado) || $nome_gpu_integrado == "") {
+        if(preg_match('/^[a-zA-Z0-9]+$/', $soquete_cpu)) {
+            if(preg_match('/^[0-9]+$/', $preco_cpu) || preg_match('/^[0-9]+$/', $pontuacao_cpu)) {
+                if (preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_cpu)) {
+                    if(preg_match('/^[a-zA-Z0-9]+$/', $marca_cpu)){
+                        if($row == 0){
+                            $sql = "insert into cpu (marca, soquete, pontuacao, preco, nome_cpu, gpu_integrado) values('$marca_cpu', '$soquete_cpu', $pontuacao_cpu, '$preco_cpu', '$nome_cpu', '$nome_gpu_integrado')";
+                
+                            $result = mysqli_query($mysqli, $sql);
+                
+                            if(mysqli_insert_id($mysqli)) {
+                                $mensagem_cpu_cadastrada = "CPU cadastrada com sucesso!";
+                            }
+                        }else if($row >= 1) {                                           
+                            $mensagem_cpu_nao_cadastrada = "CPU já cadastrada!";
                         }
-                    }else if($row >= 1) {                                           
-                        $mensagem_cpu_nao_cadastrada = "CPU já cadastrada!";
+                    }else {
+                        $mensagem_marca_invalida = "O campo marca só pode conter letras e números!";
                     }
-                }else {
-                    $mensagem_marca_invalida = "O campo marca só pode conter letras e números!";
+                } else {
+                    $mensagem_caracteres_invalidos_letras_numeros = "Os campos nome e marca só podem conter letras e números!";
                 }
-            } else {
-                $mensagem_caracteres_invalidos_letras_numeros = "Os campos nome e marca só podem conter letras e números!";
+            }else{
+                $mensagem_caracteres_invalidos_numeros = "Os campos pontuaçãoe e preço só podem conter números inteiros!";
             }
-        }else{
-            $mensagem_caracteres_invalidos_numeros = "Os campos pontuaçãoe e preço só podem conter números inteiros!";
+        }else {
+            $mensagem_soquete_invalido = "O campo soquete só pode conter letras e números!";
         }
     }else {
-        $mensagem_soquete_invalido = "O campo soquete só pode conter letras e números";
+        $mensagem_nome_gpu_integrado_invalido = "O campo GPU Integrada só pode conter letras e números!";
     }
 ?>
 
@@ -94,6 +100,11 @@
 
             <p class="pgames">Preço:</p> 
             <input class="label orçamento" type="text" id="preco_cpu" name="preco_cpu">
+
+            <div>
+                <p class="pgames">GPU Integrada:</p>
+                <input class="label orçamento" type="text" id="gpu_integrada" name="gpu_integrada">
+            <div>
 
             
             <div class="cadastrar-container">
@@ -140,6 +151,10 @@
 
                 if(isset($mensagem_marca_invalida)){
                     echo "<div class='info'>".$mensagem_marca_invalida."</div>";
+                }
+
+                if(isset($mensagem_nome_gpu_integrado_invalido)){
+                    echo "<div class='info'>".$mensagem_nome_gpu_integrado_invalido."</div>";
                 }
             ?>
         </div>

@@ -40,6 +40,7 @@
                     <td class="tabela">Soquete</td>
                     <td class="tabela">Pontuação</td>
                     <td class="tabela">Preço</td>
+                    <td class="tabela">GPU Integrada</td>
                 </tr>
                 <?php
 
@@ -55,6 +56,7 @@
                         echo '<td class="id-peca">' . $registro['soquete'] . '</td>';
                         echo '<td class="id-peca">' . $registro['pontuacao'] . '</td>';
                         echo '<td class="id-peca">' . $registro['preco'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['gpu_integrado'] . '</td>';
                     // echo '<td class="pencil"> <a href="?delete='.$registro['id'].'"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
                     echo '<td class="pencil"> <a href="?id_modal='.$registro['id'].'&modal_show=1"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
                         echo '<td class="pencil"> <a href="edit_cpu.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';

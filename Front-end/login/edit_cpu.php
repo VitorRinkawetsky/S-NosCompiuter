@@ -21,6 +21,7 @@
     $soquete = $row['soquete'];
     $pontuacao = $row['pontuacao'];
     $preco = $row['preco'];
+    $gpu_integrada = $row['gpu_integrado'];
 
     $id_cpu = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
 
@@ -34,6 +35,8 @@
 
     $pontuacao_cpu = filter_input(INPUT_POST, 'pontuacao_cpu', FILTER_SANITIZE_STRING);
 
+    $gpu_integrada_cpu = filter_input(INPUT_POST, 'gpu_integrada', FILTER_SANITIZE_STRING);
+
     $query = "select id from cpu where id = '{$id}'";
 
     $resultado = mysqli_query($mysqli, $query);
@@ -46,26 +49,30 @@
         $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
     }else if ($preco_cpu < 0){
         $mensagem_preco_invalido = "Insira um preço válido!";
-    }else if(preg_match('/^[a-zA-Z0-9]+$/', $soquete_cpu)) {
-        if(preg_match('/^[0-9]+$/', $preco_cpu) || preg_match('/^[0-9]+$/', $pontuacao_cpu)) {
-            if (preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_cpu)) {
-                if(preg_match('/^[a-zA-Z0-9]+$/', $marca_cpu)){
-                    $sql = "UPDATE cpu set nome_cpu = '$nome_cpu', marca = '$marca_cpu', soquete = '$soquete_cpu', preco = '$preco_cpu', pontuacao = '$pontuacao_cpu' where id = '$id'";
+    }else if (preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_gpu_integrado) || $nome_gpu_integrado == "") {
+        if(preg_match('/^[a-zA-Z0-9]+$/', $soquete_cpu)) {
+            if(preg_match('/^[0-9]+$/', $preco_cpu) || preg_match('/^[0-9]+$/', $pontuacao_cpu)) {
+                if (preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_cpu)) {
+                    if(preg_match('/^[a-zA-Z0-9]+$/', $marca_cpu)){
+                        $sql = "UPDATE cpu set nome_cpu = '$nome_cpu', marca = '$marca_cpu', soquete = '$soquete_cpu', preco = '$preco_cpu', pontuacao = '$pontuacao_cpu', gpu_integrado = '$gpu_integrada_cpu' where id = '$id'";
     
-                    $result = mysqli_query($mysqli, $sql);
-            
-                    header('Location: painel_cpu.php');
-                }else {
-                    $mensagem_marca_invalida = "O campo marca só pode conter letras e números!";
+                        $result = mysqli_query($mysqli, $sql);
+                
+                        header('Location: painel_cpu.php');
+                    }else {
+                        $mensagem_marca_invalida = "O campo marca só pode conter letras e números!";
+                    }
+                } else {
+                    $mensagem_caracteres_invalidos_letras_numeros = "Os campos nome e marca só podem conter letras e números!";
                 }
-            } else {
-                $mensagem_caracteres_invalidos_letras_numeros = "Os campos nome e marca só podem conter letras e números!";
+            }else{
+                $mensagem_caracteres_invalidos_numeros = "Os campos pontuaçãoe e preço só podem conter números inteiros!";
             }
-        }else{
-            $mensagem_caracteres_invalidos_numeros = "Os campos pontuaçãoe e preço só podem conter números inteiros!";
+        }else {
+            $mensagem_soquete_invalido = "O campo soquete só pode conter letras e números!";
         }
     }else {
-        $mensagem_soquete_invalido = "O campo soquete só pode conter letras e números";
+        $mensagem_nome_gpu_integrado_invalido = "O campo GPU Integrada só pode conter letras e números!";
     }
 ?>
 
@@ -102,7 +109,7 @@
 
             <div>
                 <p class="pgames">Soquete CPU:</p>
-                <input class="label orçamento" type="number" id="soquete_cpu" name="soquete_cpu"
+                <input class="label orçamento" type="text" id="soquete_cpu" name="soquete_cpu"
                     value="<?php echo $soquete; ?>">
             </div>
 
@@ -112,8 +119,15 @@
                     value="<?php echo $pontuacao; ?>">
             </div>
 
-            <p class="pgames">Preço:</p>
-            <input class="label orçamento" type="text" id="preco_cpu" name="preco_cpu" value="<?php echo $preco; ?>">
+            <div>
+                <p class="pgames">Preço:</p>
+                <input class="label orçamento" type="text" id="preco_cpu" name="preco_cpu" value="<?php echo $preco; ?>">
+            <div>
+
+            <div>
+                <p class="pgames">GPU Integrada:</p>
+                <input class="label orçamento" type="text" id="gpu_integrada" name="gpu_integrada" value="<?php echo $gpu_integrada; ?>">
+            <div>
 
             <div class="cadastrar-container">
                 <button class="cadastrar" type="submit">Editar</button>

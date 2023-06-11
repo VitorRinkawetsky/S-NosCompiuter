@@ -40,7 +40,7 @@
                     $mensagem_gpu_ja_cadastrada = "GPU já cadastrada!";
                 } 
             }else{
-                $mensagem_nome_invalido = "O campo nome só pode conter letras e números";
+                $mensagem_nome_invalido = "O campo nome só pode conter letras e números!";
             }
         }else {
             $mensagem_chip_invalido = "O campo Chip-G´rafico só pode conter letras e números!";
