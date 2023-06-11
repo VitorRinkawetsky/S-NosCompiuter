@@ -27,7 +27,7 @@
     <form method="post" id="form-pesquisa" action="final.php">
       <div class="games">
         <p class="pgames">Orçamento:</p>
-        <input class="label orçamento" type="number" name="orcamento" placeholder="R$">
+        <input id="orcamento" class="label orçamento" type="number" name="orcamento" placeholder="R$" required>
         <br>
         <p class="pgames">Desempenho geral:</p>
 
@@ -79,7 +79,7 @@
         <div class="output-container">
           <ul id="output"></ul>
         </div>
-        <button class="proximo" type="submit" name="Próximo" id="proximo">Próximo</button>
+        <button class="proximo" type="submit" name="Próximo" id="proximo" onclick="validarCampo(event)">Próximo</button>
       </div>
     </form>
   </main>

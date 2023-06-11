@@ -26,7 +26,7 @@ function selecionarItem(item) {
   // Exibe o texto fora da tabela
   const container = document.querySelector('#output');
   var softwareId = 'software-' + j; // identificador único
-  container.insertAdjacentHTML('beforeend', "<li id='" + softwareId + "' class='software-name'>" + software_nome + '<button type="button" onclick="removerSoftware(this)">Excluir</button></li>');
+  container.insertAdjacentHTML('beforeend', "<li id='" + softwareId + "' class='software-name'>" + software_nome + '<button type="button" onclick="removerSoftware(this)" class="invisible"><img class="delete-software" src="./img/delete-software.png" alt=""></button></li>');
 
   // j é a variável para armazenar o número total de softwares já selecionados
   j++;

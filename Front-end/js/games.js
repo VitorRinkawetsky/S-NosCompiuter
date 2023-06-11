@@ -35,4 +35,18 @@ document.getElementById("form-pesquisa").addEventListener("submit", function(eve
     }
 });
 
+function validarCampo(event) {
+    event.preventDefault(); // Impede o envio do formulário
+
+    var campo = document.getElementById("orcamento").value;
+    console.log(campo);
+    if (campo < 0) {
+      alert("O orçamento não pode conter números negativos");
+      return;
+    }
+
+    // Se o campo for válido, você pode prosseguir com o envio do formulário ou executar outras ações.
+    document.querySelector("form").submit(); // Envio do formulário
+  }
+
 
