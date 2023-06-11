@@ -41,24 +41,31 @@
     $row = mysqli_num_rows($resultado);
 
     if($nome_cpu == "" || $marca_cpu == "" || $soquete_cpu == "" || $preco_cpu == "" || $pontuacao_cpu == "") {
-        $erro_geral = "Todos os campos precisa ser preenchidos!";
-    }else if ($soquete_cpu < 0){
-        $mensagem_soquete_invalido = "Insira um soquete válido!";
+        $erro_geral = "Todos os campos precisam ser preenchidos!";
     }else if ($pontuacao_cpu < 0){
         $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
     }else if ($preco_cpu < 0){
         $mensagem_preco_invalido = "Insira um preço válido!";
-    }else{
-
-        if($row == 1){
-
-            $sql = "UPDATE cpu set nome_cpu = '$nome_cpu', marca = '$marca_cpu', soquete = '$soquete_cpu', preco = '$preco_cpu', pontuacao = '$pontuacao_cpu' where id = '$id'";
+    }else if(preg_match('/^[a-zA-Z0-9]+$/', $soquete_cpu)) {
+        if(preg_match('/^[0-9]+$/', $preco_cpu) || preg_match('/^[0-9]+$/', $pontuacao_cpu)) {
+            if (preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_cpu)) {
+                if(preg_match('/^[a-zA-Z0-9]+$/', $marca_cpu)){
+                    $sql = "UPDATE cpu set nome_cpu = '$nome_cpu', marca = '$marca_cpu', soquete = '$soquete_cpu', preco = '$preco_cpu', pontuacao = '$pontuacao_cpu' where id = '$id'";
     
-            $result = mysqli_query($mysqli, $sql);
-    
-            header('Location: painel_cpu.php');
+                    $result = mysqli_query($mysqli, $sql);
             
-        } 
+                    header('Location: painel_cpu.php');
+                }else {
+                    $mensagem_marca_invalida = "O campo marca só pode conter letras e números!";
+                }
+            } else {
+                $mensagem_caracteres_invalidos_letras_numeros = "Os campos nome e marca só podem conter letras e números!";
+            }
+        }else{
+            $mensagem_caracteres_invalidos_numeros = "Os campos pontuaçãoe e preço só podem conter números inteiros!";
+        }
+    }else {
+        $mensagem_soquete_invalido = "O campo soquete só pode conter letras e números";
     }
 ?>
 
@@ -114,23 +121,43 @@
             </div>
             <?php
                 if(isset($erro_geral)){
-                    echo "<p>".$erro_geral."</p>";
+                    echo "<div class='info'>".$erro_geral."</div>";
                 }
                 
                 if(isset($mensagem_cpu_cadastrada)){
-                    echo "<p>".$mensagem_cpu_cadastrada."</p>";
+                    echo "<div class='success'>".$mensagem_cpu_cadastrada."</div>";
                 }
 
                 if(isset($mensagem_soquete_invalido)){
-                    echo "<p>".$mensagem_soquete_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_soquete_invalido."</div>";
                 }
                 
                 if(isset($mensagem_pontuacao_invalido)){
-                    echo "<p>".$mensagem_pontuacao_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_pontuacao_invalido."</div>";
                 }
 
                 if(isset($mensagem_preco_invalido)){
-                    echo "<p>".$mensagem_preco_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_preco_invalido."</div>";
+                }
+
+                if(isset($mensagem_cpu_nao_cadastrada)){
+                    echo "<div class='info'>".$mensagem_cpu_nao_cadastrada."</div>";
+                }
+
+                if(isset($mensagem_caracteres_invalidos)){
+                    echo "<div class='info'>".$mensagem_caracteres_invalidos."</div>";
+                }
+
+                if(isset($mensagem_caracteres_invalidos_letras_numeros)){
+                    echo "<div class='info'>".$mensagem_caracteres_invalidos_letras_numeros."</div>";
+                }
+
+                if(isset($mensagem_caracteres_invalidos_numeros)){
+                    echo "<div class='info'>".$mensagem_caracteres_invalidos_numeros."</div>";
+                }
+
+                if(isset($mensagem_marca_invalida)){
+                    echo "<div class='info'>".$mensagem_marca_invalida."</div>";
                 }
             ?>
         </div>

@@ -5,7 +5,7 @@
     //verifica se foi clicado ou não no botão para excluir 
     if(isset($_GET['delete'])) {
         $id = (int)$_GET['delete'];
-        $conexao->exec("DELETE from requisito_software where id=$id");
+        $conexao->exec("DELETE from placa_mae where id=$id");
     }
 ?>
 
@@ -36,22 +36,24 @@
                 <tr>
                     <td class="tabela">ID</td>
                     <td class="tabela">Nome</td>
-                    <td class="tabela">Pontuação CPU</td>
-                    <td class="tabela">Pontuação GPU</td>
+                    <td class="tabela">Soquete</td>
+                    <td class="tabela">Marca</td>
+                    <td class="tabela">Preço</td>
                 </tr>
                 <?php
 
                     // Consulta para obter todos os registros da tabela "cpu"
-                    $consulta = $conexao->query('SELECT * FROM requisito_software');
+                    $consulta = $conexao->query('SELECT * FROM placa_mae');
 
                     // Exibir os registros
                     while ($registro = $consulta->fetch(PDO::FETCH_ASSOC)) {
                         echo "<tr>";
                         echo '<td class="id-peca">' . $registro['id'] . '</td>';
-                        echo '<td class="id-peca">' . $registro['nome'] . '</td>';
-                        echo '<td class="id-peca">' . $registro['pontuacao_cpu'] . '</td>';
-                        echo '<td class="id-peca">' . $registro['pontuacao_gpu'] . '</td>';
-                        echo '<td class="pencil"> <a href="?delete='.$registro['id'].'"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
+                        echo '<td class="id-peca">' . $registro['nome_mae'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['soquete_mae'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['marca'] . '</td>';
+                        echo '<td class="id-peca">' . $registro['preco'] . '</td>';
+                        echo '<td class="pencil"> <a href="?id_modal='.$registro['id'].'&modal_show=1"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
                         echo '<td class="pencil"> <a href="edit_placa_mae.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';
                         echo "</tr>";
                     }
@@ -69,6 +71,35 @@
             </div>
         </div>
     </form>
+    <dialog id="modal-confirm">
+        <a onclick="close_modal()" href="?modal_show=0"><img class="trash-modal" src="../img/close-modal.png"
+                alt=""></a>
+        <div class="content">
+            <p>Tem certeza que quer excluir o item selecionado?</p>
+        </div>
+
+        <?php
+            if(isset($_GET['id_modal'])){
+                $id_modal = $_GET['id_modal'];
+            }
+
+                echo '<a href="?delete='.$id_modal.'"><img class="trash-modal" src="../img/trash-modal.png" alt=""></a>';
+        ?>
+    </dialog>>
+    <script>
+        let modal = document.getElementById('modal-confirm');
+
+        function close_modal() {
+            modal.close();
+        }
+    </script>
+    <?php
+        if(isset($_GET['modal_show'])){
+            if($_GET['modal_show'] == 1){
+                echo"<script>modal.showModal();</script>";
+            }
+        }
+    ?>
 </body>
 
 </html>

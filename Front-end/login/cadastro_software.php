@@ -15,7 +15,7 @@
     $row = mysqli_num_rows($resultado);
 
     if($nome_software == "" || $pontuacao_cpu == "" || $pontuacao_gpu == "") {
-        $erro_geral = "Todos os campos precisa ser preenchidos!";
+        $erro_geral = "Todos os campos precisam ser preenchidos!";
     }else if ($pontuacao_cpu < 0){
         $mensagem_pontuacao_cpu_invalido = "Insira uma pontuação de CPU válida!";
     }else if ($pontuacao_gpu < 0){
@@ -77,23 +77,23 @@
             </div>
             <?php
                 if(isset($erro_geral)){
-                    echo "<p>".$erro_geral."</p>";
+                    echo "<div class='info'>".$erro_geral."</div>";
                 }
                 
                 if(isset($mensagem_pontuacao_cpu_invalido)){
-                    echo "<p>".$mensagem_pontuacao_cpu_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_pontuacao_cpu_invalido."</div>";
                 }
 
                 if(isset($mensagem_pontuacao_gpu_invalido)){
-                    echo "<p>".$mensagem_pontuacao_gpu_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_pontuacao_gpu_invalido."</div>";
                 }
 
                 if(isset($mensagem_software_cadastrada)){
-                    echo "<p>".$mensagem_software_cadastrada."</p>";
+                    echo "<div class='success'>".$mensagem_software_cadastrada."</div>";
                 }
 
                 if(isset($mensagem_software_nao_cadastrado)){
-                    echo "<p>".$mensagem_software_nao_cadastrado."</p>";
+                    echo "<div class='info'>".$mensagem_software_nao_cadastrado."</div>";
                 }
             ?>
         </div>

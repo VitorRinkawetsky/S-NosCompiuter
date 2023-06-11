@@ -36,17 +36,25 @@
     $row = mysqli_num_rows($resultado);
 
     if(empty($nome_mae) || empty($soquete_mae) || empty($marca) || empty($preco)) {
-        $erro_geral = "Todos os campos precisa ser preenchidos!";
-    }else if ($soquete_mae < 0){
-        $mensagem_soquete_invalido = "Insira um soquete válido!";
+        $erro_geral = "Todos os campos precisam ser preenchidos!";
     }else if ($preco < 0){
         $mensagem_preco_invalido = "Insira um preço válido!";
-    }else{ 
-        $sql = "UPDATE placa_mae set nome_mae = '$nome_mae', marca = '$marca', soquete_mae = '$soquete_mae', preco = '$preco' where id = '$id'";
+    }else if(preg_match('/^[a-zA-Z0-9\s]+$/', $marca)) {
+        if(preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_mae)) {
+            if(preg_match('/^[a-zA-Z0-9\s]+$/', $soquete_mae)) {
+                $sql = "UPDATE placa_mae set nome_mae = '$nome_mae', marca = '$marca', soquete_mae = '$soquete_mae', preco = '$preco' where id = '$id'";
     
-        $result = mysqli_query($mysqli, $sql);
-    
-        header('Location: painel_placa_mae.php'); 
+                $result = mysqli_query($mysqli, $sql);
+            
+                header('Location: painel_placa_mae.php'); 
+            }else {
+                $mensagem_soquete_invalido = "O campo soquete só pode conter letras e numeros!";
+            }
+        }else {
+            $mensagem_nome_invalido = "O campo nome só pode conter letras, números e '-'!";
+        }
+    }else {
+        $mensagem_marca_invalido = "O campo marca só pode conter letras e números!";
     }
 ?>
 
@@ -91,23 +99,31 @@
             </div>
             <?php
                 if(isset($erro_geral)){
-                    echo "<p>".$erro_geral."</p>";
+                    echo "<div class='info'>".$erro_geral."</div>";
                 }
                 
                 if(isset($mensagem_placa_mae_cadastrada)){
-                    echo "<p>".$mensagem_placa_mae_cadastrada."</p>";
+                    echo "<div class='success'>".$mensagem_placa_mae_cadastrada."</div>";
                 }
 
                 if(isset($mensagem_soquete_invalido)){
-                    echo "<p>".$mensagem_soquete_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_soquete_invalido."</div>";
                 }
 
                 if(isset($mensagem_preco_invalido)){
-                    echo "<p>".$mensagem_preco_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_preco_invalido."</div>";
                 }
 
                 if(isset($mensagem_placa_mae_nao_cadastrada)){
-                    echo "<p>".$mensagem_placa_mae_nao_cadastrada."</p>";
+                    echo "<div class='info'>".$mensagem_placa_mae_nao_cadastrada."</div>";
+                }
+
+                if(isset($mensagem_nome_invalido)){
+                    echo "<div class='info'>".$mensagem_nome_invalido."</div>";
+                }
+
+                if(isset($mensagem_marca_invalido)){
+                    echo "<div class='info'>".$mensagem_marca_invalido."</div>";
                 }
             ?>
         </div>

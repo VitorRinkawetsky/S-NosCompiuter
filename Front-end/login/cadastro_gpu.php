@@ -20,23 +20,33 @@
     $row = mysqli_num_rows($resultado);
 
     if($nome_gpu == "" || $marca_gpu == "" || $preco_gpu == "" || $pontuacao_gpu == "" || $chip_grafico == "") {
-        $erro_geral = "Todos os campos precisa ser preenchidos!";
+        $erro_geral = "Todos os campos precisam ser preenchidos!";
     }else if ($pontuacao_gpu < 0){
         $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
     }else if ($preco_gpu < 0){
         $mensagem_preco_invalido = "Insira um preço válido!";
-    }else{
-        if($row == 0){
-            $sql = "insert into gpu (nome_gpu, marca, preco, pontuacao, chip_grafico) values('$nome_gpu', '$marca_gpu', '$preco_gpu', '$pontuacao_gpu', '$chip_grafico')";
-    
-            $result = mysqli_query($mysqli, $sql);
-    
-            if(mysqli_insert_id($mysqli)) {
-                $mensagem_gpu_cadastrada = "GPU cadastrada com sucesso!";
+    }else if(preg_match('/^[a-zA-Z0-9\s]+$/', $marca_gpu)) {
+        if(preg_match('/^[a-zA-Z0-9]+$/', $chip_grafico)) {
+            if(preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_gpu)) {
+                if($row == 0){
+                    $sql = "insert into gpu (nome_gpu, marca, preco, pontuacao, chip_grafico) values('$nome_gpu', '$marca_gpu', '$preco_gpu', '$pontuacao_gpu', '$chip_grafico')";
+            
+                    $result = mysqli_query($mysqli, $sql);
+            
+                    if(mysqli_insert_id($mysqli)) {
+                        $mensagem_gpu_cadastrada = "GPU cadastrada com sucesso!";
+                    }
+                }else if($row >= 1) {                                           
+                    $mensagem_gpu_ja_cadastrada = "GPU já cadastrada!";
+                } 
+            }else{
+                $mensagem_nome_invalido = "O campo nome só pode conter letras e números";
             }
-        }else if($row >= 1) {                                           
-            echo "GPU ja cadastrada";
-        } 
+        }else {
+            $mensagem_chip_invalido = "O campo Chip-G´rafico só pode conter letras e números!";
+        }
+    }else {
+        $mensagem_marca_invalida ="O campo Marca só pode conter letras e números!";
     }
 ?>
 
@@ -80,7 +90,7 @@
             </div>
 
             <p class="pgames">Preço:</p>
-            <input class="label orçamento" type="text" id="preco_gpu" name="preco_gpu">
+            <input class="label orçamento" type="number" id="preco_gpu" name="preco_gpu">
 
             <div class="cadastrar-container">
                 <button class="cadastrar" type="submit">Cadastrar</button>
@@ -88,19 +98,35 @@
             </div>
             <?php
                 if(isset($erro_geral)){
-                    echo "<p>".$erro_geral."</p>";
+                    echo "<div class='info'>".$erro_geral."</div>";
                 }
                 
                 if(isset($mensagem_gpu_cadastrada)){
-                    echo "<p>".$mensagem_gpu_cadastrada."</p>";
+                    echo "<div class='success'>".$mensagem_gpu_cadastrada."</div>";
                 }
                 
                 if(isset($mensagem_pontuacao_invalido)){
-                    echo "<p>".$mensagem_pontuacao_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_pontuacao_invalido."</div>";
                 }
 
                 if(isset($mensagem_preco_invalido)){
-                    echo "<p>".$mensagem_preco_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_preco_invalido."</div>";
+                }
+
+                if(isset($mensagem_gpu_ja_cadastrada)){
+                    echo "<div class='info'>".$mensagem_gpu_ja_cadastrada."</div>";
+                }
+
+                if(isset($mensagem_nome_invalido)){
+                    echo "<div class='info'>".$mensagem_nome_invalido."</div>";
+                }
+
+                if(isset($mensagem_marca_invalida)){
+                    echo "<div class='info'>".$mensagem_marca_invalida."</div>";
+                }
+
+                if(isset($mensagem_chip_invalido)){
+                    echo "<div class='info'>".$mensagem_chip_invalido."</div>";
                 }
             ?>
         </div>

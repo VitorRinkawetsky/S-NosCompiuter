@@ -20,35 +20,37 @@
     $row = mysqli_num_rows($resultado);
 
     if($nome_cpu == "" || $marca_cpu == "" || $soquete_cpu == "" || $preco_cpu == "" || $pontuacao_cpu == "") {
-        $erro_geral = "Todos os campos precisa ser preenchidos!";
-    }else if ($soquete_cpu < 0){
-        $mensagem_soquete_invalido = "Insira um soquete válido!";
+        $erro_geral = "Todos os campos precisam ser preenchidos!";
     }else if ($pontuacao_cpu < 0){
         $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
     }else if ($preco_cpu < 0){
         $mensagem_preco_invalido = "Insira um preço válido!";
-    }else if(preg_match('/^[0-9]+$/', $soquete_cpu) && preg_match('/^[0-9]+$/', $preco_cpu) && preg_match('/^[0-9]+$/', $pontuacao_cpu)) {
-        if (preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_cpu)) {
-            if(preg_match('/^[a-zA-Z0-9]+$/', $marca_cpu)){
-                if($row == 0){
-                    $sql = "insert into cpu (marca, soquete, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
-        
-                    $result = mysqli_query($mysqli, $sql);
-        
-                    if(mysqli_insert_id($mysqli)) {
-                        $mensagem_cpu_cadastrada = "CPU cadastrada com sucesso!";
+    }else if(preg_match('/^[a-zA-Z0-9]+$/', $soquete_cpu)) {
+        if(preg_match('/^[0-9]+$/', $preco_cpu) || preg_match('/^[0-9]+$/', $pontuacao_cpu)) {
+            if (preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_cpu)) {
+                if(preg_match('/^[a-zA-Z0-9]+$/', $marca_cpu)){
+                    if($row == 0){
+                        $sql = "insert into cpu (marca, soquete, pontuacao, preco, nome_cpu) values('$marca_cpu', '$soquete_cpu', $pontuacao_cpu, '$preco_cpu', '$nome_cpu')";
+            
+                        $result = mysqli_query($mysqli, $sql);
+            
+                        if(mysqli_insert_id($mysqli)) {
+                            $mensagem_cpu_cadastrada = "CPU cadastrada com sucesso!";
+                        }
+                    }else if($row >= 1) {                                           
+                        $mensagem_cpu_nao_cadastrada = "CPU já cadastrada!";
                     }
-                }else if($row >= 1) {                                           
-                    $mensagem_cpu_nao_cadastrada = "CPU já cadastrada!";
+                }else {
+                    $mensagem_marca_invalida = "O campo marca só pode conter letras e números!";
                 }
-            }else {
-                $mensagem_marca_invalida = "O campo marca só pode conter letras e números!";
+            } else {
+                $mensagem_caracteres_invalidos_letras_numeros = "Os campos nome e marca só podem conter letras e números!";
             }
-        } else {
-            $mensagem_caracteres_invalidos_letras_numeros = "Os campos nome e marca só podem conter letras e números!";
+        }else{
+            $mensagem_caracteres_invalidos_numeros = "Os campos pontuaçãoe e preço só podem conter números inteiros!";
         }
-    }else{
-        $mensagem_caracteres_invalidos_numeros = "Os campos pontuação, preço e soquete só podem conter números!";
+    }else {
+        $mensagem_soquete_invalido = "O campo soquete só pode conter letras e números";
     }
 ?>
 
@@ -101,43 +103,43 @@
 
             <?php
                 if(isset($erro_geral)){
-                    echo "<p>".$erro_geral."</p>";
+                    echo "<div class='info'>".$erro_geral."</div>";
                 }
                 
                 if(isset($mensagem_cpu_cadastrada)){
-                    echo "<p>".$mensagem_cpu_cadastrada."</p>";
+                    echo "<div class='success'>".$mensagem_cpu_cadastrada."</div>";
                 }
 
                 if(isset($mensagem_soquete_invalido)){
-                    echo "<p>".$mensagem_soquete_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_soquete_invalido."</div>";
                 }
                 
                 if(isset($mensagem_pontuacao_invalido)){
-                    echo "<p>".$mensagem_pontuacao_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_pontuacao_invalido."</div>";
                 }
 
                 if(isset($mensagem_preco_invalido)){
-                    echo "<p>".$mensagem_preco_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_preco_invalido."</div>";
                 }
 
                 if(isset($mensagem_cpu_nao_cadastrada)){
-                    echo "<p>".$mensagem_cpu_nao_cadastrada."</p>";
+                    echo "<div class='info'>".$mensagem_cpu_nao_cadastrada."</div>";
                 }
 
                 if(isset($mensagem_caracteres_invalidos)){
-                    echo "<p>".$mensagem_caracteres_invalidos."</p>";
+                    echo "<div class='info'>".$mensagem_caracteres_invalidos."</div>";
                 }
 
                 if(isset($mensagem_caracteres_invalidos_letras_numeros)){
-                    echo "<p>".$mensagem_caracteres_invalidos_letras_numeros."</p>";
+                    echo "<div class='info'>".$mensagem_caracteres_invalidos_letras_numeros."</div>";
                 }
 
                 if(isset($mensagem_caracteres_invalidos_numeros)){
-                    echo "<p>".$mensagem_caracteres_invalidos_numeros."</p>";
+                    echo "<div class='info'>".$mensagem_caracteres_invalidos_numeros."</div>";
                 }
 
                 if(isset($mensagem_marca_invalida)){
-                    echo "<p>".$mensagem_marca_invalida."</p>";
+                    echo "<div class='info'>".$mensagem_marca_invalida."</div>";
                 }
             ?>
         </div>

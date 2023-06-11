@@ -85,7 +85,6 @@
             if(isset($_GET['id_modal'])){
                 $id_modal = $_GET['id_modal'];
             }
-                echo $id_modal;
 
                 echo '<a href="?delete='.$id_modal.'"><img class="trash-modal" src="../img/trash-modal.png" alt=""></a>';
         ?>
@@ -108,9 +107,3 @@
 
 </html>
 
-<?php
-    if(isset($_POST['id_modal'])) {
-        $id_modal = (int)$_POST['id_modal'];
-        echo "<p>$id_modal</p>";
-    }
-?>

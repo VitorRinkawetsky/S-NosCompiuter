@@ -51,7 +51,7 @@
                         echo '<td class="id-peca">' . $registro['nome'] . '</td>';
                         echo '<td class="id-peca">' . $registro['pontuacao_cpu'] . '</td>';
                         echo '<td class="id-peca">' . $registro['pontuacao_gpu'] . '</td>';
-                        echo '<td class="pencil"> <a href="?delete='.$registro['id'].'"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
+                        echo '<td class="pencil"> <a href="?id_modal='.$registro['id'].'&modal_show=1"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
                         echo '<td class="pencil"> <a href="edit_software.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';
                         echo "</tr>";
                     }
@@ -69,6 +69,35 @@
             </div>
         </div>
     </form>
+    <dialog id="modal-confirm">
+        <a onclick="close_modal()" href="?modal_show=0"><img class="trash-modal" src="../img/close-modal.png"
+                alt=""></a>
+        <div class="content">
+            <p>Tem certeza que quer excluir o item selecionado?</p>
+        </div>
+
+        <?php
+            if(isset($_GET['id_modal'])){
+                $id_modal = $_GET['id_modal'];
+            }
+
+                echo '<a href="?delete='.$id_modal.'"><img class="trash-modal" src="../img/trash-modal.png" alt=""></a>';
+        ?>
+    </dialog>>
+    <script>
+        let modal = document.getElementById('modal-confirm');
+
+        function close_modal() {
+            modal.close();
+        }
+    </script>
+    <?php
+        if(isset($_GET['modal_show'])){
+            if($_GET['modal_show'] == 1){
+                echo"<script>modal.showModal();</script>";
+            }
+        }
+    ?>
 </body>
 
 </html>

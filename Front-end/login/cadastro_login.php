@@ -6,7 +6,7 @@
     $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_STRING);
 
     if($login == "" || $senha == "") {
-        $erro_geral = "Todos os campos precisa ser preenchidos!";
+        $erro_geral = "Todos os campos precisam ser preenchidos!";
     }else if (preg_match('/^[a-zA-Z0-9]+$/', $login) && preg_match('/^[a-zA-Z0-9]+$/', $senha)) {
             $senha = password_hash($senha, PASSWORD_BCRYPT, ['cost' => 12]);
 
@@ -58,15 +58,15 @@
             </div>
             <?php
                 if(isset($erro_geral)){
-                    echo "<p>".$erro_geral."</p>";
+                    echo "<div class='info'>".$erro_geral."</div>";
                 }
                 
                 if(isset($mensagem_caracteres_invalidos_letras_numeros)){
-                    echo "<p>".$mensagem_caracteres_invalidos_letras_numeros."</p>";
+                    echo "<div class='info'>".$mensagem_caracteres_invalidos_letras_numeros."</div>";
                 }
 
                 if(isset($mensagem_login_cadastrado)){
-                    echo "<p>".$mensagem_login_cadastrado."</p>";
+                    echo "<div class='success'>".$mensagem_login_cadastrado."</div>";
                 }
             ?>
         </div>

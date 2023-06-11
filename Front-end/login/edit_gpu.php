@@ -42,20 +42,28 @@
 
     $row = mysqli_num_rows($resultado);
 
-    if(empty($nome_gpu) || empty($marca_gpu) || empty($preco_gpu) || empty($pontuacao_gpu) || empty($chip_grafico)) {
-        $erro_geral = "Todos os campos precisa ser preenchidos!";
+    if($nome_gpu == "" || $marca_gpu == "" || $preco_gpu == "" || $pontuacao_gpu == "" || $chip_grafico == "") {
+        $erro_geral = "Todos os campos precisam ser preenchidos!";
     }else if ($pontuacao_gpu < 0){
         $mensagem_pontuacao_invalido = "Insira uma pontuaçâo válida!";
     }else if ($preco_gpu < 0){
         $mensagem_preco_invalido = "Insira um preço válido!";
-    }else{
-        
-        $sql = "UPDATE gpu set nome_gpu = '$nome_gpu', marca = '$marca_gpu', chip_grafico = '$chip_grafico', preco = '$preco_gpu', pontuacao = '$pontuacao_gpu' where id = '$id'";
+    }else if(preg_match('/^[a-zA-Z0-9\s]+$/', $marca_gpu)) {
+        if(preg_match('/^[a-zA-Z0-9]+$/', $chip_grafico)) {
+            if(preg_match('/^[a-zA-Z0-9\s-]+$/', $nome_gpu)) {
+                $sql = "UPDATE gpu set nome_gpu = '$nome_gpu', marca = '$marca_gpu', chip_grafico = '$chip_grafico', preco = '$preco_gpu', pontuacao = '$pontuacao_gpu' where id = '$id'";
     
-        $result = mysqli_query($mysqli, $sql);
-    
-        header('Location: painel_gpu.php'); 
-        
+                $result = mysqli_query($mysqli, $sql);
+            
+                header('Location: painel_gpu.php'); 
+            }else{
+                $mensagem_nome_invalido = "O campo nome só pode conter letras e números";
+            }
+        }else {
+            $mensagem_chip_invalido = "O campo Chip-G´rafico só pode conter letras e números!";
+        }
+    }else {
+        $mensagem_marca_invalida ="O campo Marca só pode conter letras e números!";
     }
 ?>
 
@@ -111,19 +119,35 @@
             </div>
             <?php
                 if(isset($erro_geral)){
-                    echo "<p>".$erro_geral."</p>";
+                    echo "<div class='info'>".$erro_geral."</div>";
                 }
                 
                 if(isset($mensagem_gpu_cadastrada)){
-                    echo "<p>".$mensagem_gpu_cadastrada."</p>";
+                    echo "<div class='success'>".$mensagem_gpu_cadastrada."</div>";
                 }
                 
                 if(isset($mensagem_pontuacao_invalido)){
-                    echo "<p>".$mensagem_pontuacao_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_pontuacao_invalido."</div>";
                 }
 
                 if(isset($mensagem_preco_invalido)){
-                    echo "<p>".$mensagem_preco_invalido."</p>";
+                    echo "<div class='info'>".$mensagem_preco_invalido."</div>";
+                }
+
+                if(isset($mensagem_gpu_ja_cadastrada)){
+                    echo "<div class='info'>".$mensagem_gpu_ja_cadastrada."</div>";
+                }
+
+                if(isset($mensagem_nome_invalido)){
+                    echo "<div class='info'>".$mensagem_nome_invalido."</div>";
+                }
+
+                if(isset($mensagem_marca_invalida)){
+                    echo "<div class='info'>".$mensagem_marca_invalida."</div>";
+                }
+
+                if(isset($mensagem_chip_invalido)){
+                    echo "<div class='info'>".$mensagem_chip_invalido."</div>";
                 }
             ?>
         </div>
