@@ -94,7 +94,7 @@
 
             <div class="cadastrar-container">
                 <button class="cadastrar" type="submit">Cadastrar</button>
-                <button class="cadastrar" type="submit"><a class="style-href" href="painel_gpu.php">Voltar</a></button>
+                <button class="cadastrar" type="button"><a class="style-href" href="painel_gpu.php">Voltar</a></button>
             </div>
             <?php
                 if(isset($erro_geral)){

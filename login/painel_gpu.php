@@ -57,7 +57,7 @@
                         echo '<td class="id-peca">' . $registro['preco'] . '</td>';
                     // echo '<td class="pencil"> <a href="?delete='.$registro['id'].'"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
                     echo '<td class="pencil"> <a href="?id_modal='.$registro['id'].'&modal_show=1"><img class="trash" src="../img/trash.png" alt=""></a> </td>';
-                        echo '<td class="pencil"> <a href="edit_cpu.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';
+                        echo '<td class="pencil"> <a href="edit_gpu.php?id='.$registro['id'].'"><img class="trash"  src="../img/pencil.png" alt=""></a> </td>';
                         echo "</tr>";
                     }
                 ?>

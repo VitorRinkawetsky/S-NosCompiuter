@@ -27,7 +27,7 @@
     <form method="post" id="form-pesquisa" action="final.php">
       <div class="games">
         <p class="pgames">Orçamento:</p>
-        <input id="orcamento" class="label orçamento" type="number" name="orcamento" placeholder="R$" required>
+        <input id="orcamento" class="label orçamento" type="number" name="orcamento" placeholder="R$"></input>
         <br>
         <p class="pgames">Desempenho geral:</p>
 
