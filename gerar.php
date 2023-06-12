@@ -255,7 +255,7 @@
             // Cria um loop para rodar por todas as GPUs cadastradas
             for($i = 0; $i < $total_gpu; $i++){
                 // Pega todas as GPUs capazes de rodar nos pré-requisitos
-                $query = "select nome_gpu from gpu where pontuacao >= '{$pont_gpu_final}'";
+                $query = "select nome_gpu from gpu where pontuacao >= '{$pont_gpu_final}' && marca != 'Intel'";
         
                 $resultado_gpu = mysqli_query($mysqli, $query);
         
