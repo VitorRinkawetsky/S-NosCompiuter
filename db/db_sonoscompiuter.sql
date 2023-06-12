@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 25-Maio-2023 às 21:44
+-- Host: 127.0.0.1:3312
+-- Tempo de geração: 12-Jun-2023 às 17:09
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.23
 
@@ -166,7 +166,17 @@ INSERT INTO `requisito_software` (`id`, `nome`, `pontuacao_gpu`, `pontuacao_cpu`
 (22, 'Red Dead Redemption 2', 10070, 6914),
 (23, 'Naruto Ultimate Ninja Storm 4', 2790, 1492),
 (24, 'Mafia 3', 3990, 4113),
-(25, 'Counter Strike:Global Offensive', 400, 600);
+(25, 'Counter Strike:Global Offensive', 400, 600),
+(26, 'Word', 10, 10),
+(27, 'Excel', 10, 10),
+(28, 'PowerPoint', 10, 10),
+(29, 'Outlook', 10, 10),
+(30, 'Photoshop', 10, 7011),
+(31, 'Sony Vegas', 12000, 7011),
+(32, 'Skype', 200, 200),
+(33, 'Discord', 200, 200),
+(34, 'Adobe Audition', 10, 10),
+(35, 'Adobe Illustrator', 10, 10);
 
 --
 -- Índices para tabelas despejadas
@@ -234,7 +244,7 @@ ALTER TABLE `placa_mae`
 -- AUTO_INCREMENT de tabela `requisito_software`
 --
 ALTER TABLE `requisito_software`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
