@@ -45,9 +45,9 @@
 
     if(isset($_POST['login']) || isset($_POST['senha'])) {
         if(strlen($_POST['login']) == 0) {
-            echo "<div class='info'>Preencha o login</div>";
+            echo "<p class='info-mensagem'>Preencha o login!</p>";
         }else if(strlen($_POST['senha']) == 0) {
-            echo "<div class='info'>Preencha a senha</div>";
+            echo "<p>Preencha a senha</p>";
         }else{
             $login = $mysqli->real_escape_string($_POST['login']);
             $senha = $mysqli->real_escape_string($_POST['senha']);
@@ -59,7 +59,7 @@
             $resultado = $sql_query->fetch_assoc();
 
             if($quantidade == 0 || $quantidade > 1) {
-                echo "<div class='info'>Login ou senha Inválido</div>";
+                echo "<p>Login ou senha Inválido</p>";
             }else {
                 if(password_verify($senha, $resultado['senha']) == 1) {
                     if(!isset($_SESSION)){
@@ -71,7 +71,7 @@
                     header("Location: painel.php");
 
                 }else {
-                    echo "<div class='info'>Login ou senha Inválido</div>";
+                    echo "<p>Login ou senha Inválido<p>";
                 }
             }
         }
