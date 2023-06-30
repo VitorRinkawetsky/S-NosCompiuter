@@ -10,15 +10,9 @@
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-:small_blue_diamond: [Pré-requisitos](#pre-requisitos)
+:small_blue_diamond: [Pré-requisitos](#pré-requisitos)
 
-:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
-
-:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
-
-:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
-
-:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
+:small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação-arrow_forward)
 
 ## Descrição do projeto 
 
@@ -36,7 +30,7 @@
 
 :warning: [XAMPP](https://www.apachefriends.org/pt_br/index.html)
 
-## Como rodar os testes
+## Como rodar a aplicação :arrow_forward:
 
 Passo 1: Abra o XAMPP e ligue o servidor apache e mysql.
 
