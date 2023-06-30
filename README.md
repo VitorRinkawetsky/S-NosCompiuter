@@ -8,6 +8,18 @@
 
 :small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
 
+:small_blue_diamond: [Funcionalidades](#descrição-do-projeto)
+
+:small_blue_diamond: [Descrição do projeto](#funcionalidades)
+
+:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
+
+:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
+
+:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
+
+:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
+
 ## Descrição do projeto 
 
 <p align="justify">
