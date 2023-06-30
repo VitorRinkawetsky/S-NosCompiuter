@@ -32,8 +32,22 @@ Passo 2: Abra seu navegador e digite a seguinte url: http://localhost:8081/dashb
 
 Passo 3: Crie um novo banco de dados com o nome: db_sonoscompiuter.
 
-Passo 4: 
+Passo 4: Agora selecione esse banco de dados que acabou de criar e clique em importar.
 
-```
-$ npm test, rspec, etc 
-```
+Passo 5: Selecione o arquivo sql dentro da pasta bd dentro da pasta do presente projeto e execute.
+
+Passo 6: Digite na url: http://localhost:8081/S-NosCompiuter/ e disfrute do site, caso queira acessar a pagina de cruds para alterar o banco de dados insira a seguinte url: http://localhost:8081/S-NosCompiuter/login/indexlogin.php e inserindo o login e senha admin.
+
+## Tarefas em aberto
+
+:memo: Adicionar a aplicação o restante das peças do computador na geração e no banco de dados.
+
+:memo: Remover peça e inserir uma que o usuário possui para refazer as peças do computador.
+
+## Desenvolvedores/Contribuintes :octocat:
+
+Liste o time responsável pelo desenvolvimento do projeto
+
+| [<img src="https://avatars.githubusercontent.com/u/88173262?v=4" width=115><br><sub>Vitor Rinkawetsky</sub>](https://github.com/VitorRinkawetsky) |  [<img src="https://avatars.githubusercontent.com/u/116108735?v=4" width=115><br><sub>Cássio Fabiano Hansen Júnior</sub>](https://github.com/MamedsonPereira) |  [<img src="https://avatars.githubusercontent.com/u/116108662?v=4" width=115><br><sub>Igor de Andrade</sub>](https://github.com/igordeandrade1) |
+| :---: | :---: | :---: 
+
