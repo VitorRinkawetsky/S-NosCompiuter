@@ -8,9 +8,9 @@
 
 :small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
 
-:small_blue_diamond: [Funcionalidades](#descrição-do-projeto)
+:small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-:small_blue_diamond: [Descrição do projeto](#funcionalidades)
+:small_blue_diamond: [Pré-requisitos](#pre-requisitos)
 
 :small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
 
