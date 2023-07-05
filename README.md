@@ -34,7 +34,7 @@
 
 Passo 1: Abra o XAMPP e ligue o servidor apache e mysql.
 
-Passo 2: Abra seu navegador e digite a seguinte url: http://localhost:8081/dashboard/ e clique em phpMyAdmin.
+Passo 2: Abra seu navegador e digite a seguinte url: http://localhost:8081/dashboard/ e clique em phpMyAdmin(A depender do seu XAMPP a porta pode mudar e ao invés de 8081 você insere a sua porta do apache do XAMPP).
 
 Passo 3: Crie um novo banco de dados com o nome: db_sonoscompiuter.
 
